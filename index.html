@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guest Guide</title>
+  <style>
+    :root {
+      --bg: #eef0f4;
+      --card: #f7f7f8;
+      --text: #18213c;
+      --muted: #6b7890;
+      --border: #273454;
+      --primary: #0f1b3d;
+      --primary-hover: #162754;
+      --shadow: 0 8px 24px rgba(15, 27, 61, 0.08);
+      --radius-xl: 26px;
+      --radius-lg: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 22px;
+    }
+
+    .hero {
+      background: var(--card);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin-bottom: 22px;
+    }
+
+    .hero img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-content {
+      padding: 28px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 28px;
+      letter-spacing: -0.02em;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .space-top {
+      margin-top: 18px;
+    }
+
+    .button-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .lang-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .primary-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 22px;
+    }
+
+    .docs-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 14px;
+    }
+
+    .lang-btn,
+    .action-btn,
+    .doc-btn,
+    .tutorial-btn,
+    .mini-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 52px;
+      padding: 12px 18px;
+      border-radius: 18px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s ease;
+      cursor: pointer;
+    }
+
+    .lang-btn {
+      min-height: 56px;
+      min-width: 180px;
+      max-width: 210px;
+      padding: 12px 20px;
+      background: transparent;
+      color: var(--text);
+      border: 2px solid var(--border);
+      flex: 0 1 210px;
+    }
+
+    .lang-btn:hover,
+    .lang-btn.active {
+      background: #e9edf5;
+    }
+
+    .action-btn {
+      min-height: 62px;
+      background: var(--primary);
+      color: #fff;
+      border: 2px solid var(--border);
+    }
+
+    .action-btn:hover {
+      background: var(--primary-hover);
+    }
+
+    .doc-btn,
+    .tutorial-btn,
+    .mini-btn {
+      background: transparent;
+      color: var(--text);
+      border: 2px solid var(--border);
+    }
+
+    .doc-btn:hover,
+    .tutorial-btn:hover,
+    .mini-btn:hover {
+      background: #eef2f8;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      padding: 28px;
+      margin-bottom: 22px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 34px;
+    }
+
+    .info-stack {
+      display: grid;
+      gap: 24px;
+    }
+
+    .info-item .label,
+    .useful-item .label {
+      display: block;
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .info-item .value,
+    .useful-item .value {
+      font-size: 17px;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .info-item .note,
+    .useful-item .note {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .multiline-text {
+      white-space: pre-line;
+    }
+
+    .tutorial-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .tutorial-item {
+      padding-top: 20px;
+      border-top: 1px solid rgba(39, 52, 84, 0.14);
+    }
+
+    .tutorial-item:first-of-type {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .tutorial-text {
+      margin: 0 0 14px;
+    }
+
+    .useful-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .useful-item {
+      display: grid;
+      gap: 10px;
+    }
+
+    .mini-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .tips-item {
+      padding: 18px;
+      border: 1px solid rgba(39, 52, 84, 0.14);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.38);
+    }
+
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+      padding: 8px 0 24px;
+    }
+
+    @media (max-width: 900px) {
+      .info-grid,
+      .useful-grid,
+      .tips-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .wrap {
+        padding: 14px;
+      }
+
+      .hero img {
+        height: 220px;
+      }
+
+      .hero-content,
+      .card {
+        padding: 20px;
+      }
+
+      .primary-grid,
+      .docs-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .lang-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .lang-btn {
+        max-width: none;
+        width: 100%;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <noscript>
+    <div style="max-width:1100px;margin:22px auto 0;padding:16px 22px;border-radius:20px;background:#f7f7f8;color:#18213c;box-shadow:0 8px 24px rgba(15, 27, 61, 0.08);font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+      Questa guest guide richiede JavaScript per mostrare correttamente i contenuti.
+    </div>
+  </noscript>
+
+  <div class="wrap">
+    <section class="hero">
+      <img id="cover-image" src="" alt="">
+      <div class="hero-content">
+        <h1 id="apartment-name"></h1>
+        <p class="subtitle" id="subtitle-1"></p>
+        <p class="subtitle space-top" id="subtitle-2"></p>
+
+        <div class="lang-grid">
+          <button type="button" class="lang-btn" data-lang="it">Italiano</button>
+          <button type="button" class="lang-btn" data-lang="en">English</button>
+          <button type="button" class="lang-btn" data-lang="de">Deutsch</button>
+          <button type="button" class="lang-btn" data-lang="fr">Français</button>
+          <button type="button" class="lang-btn" data-lang="es">Español</button>
+        </div>
+
+        <div class="button-grid primary-grid">
+          <a class="action-btn" id="map-btn" href="#"></a>
+          <a class="action-btn" id="whatsapp-btn" href="#"></a>
+        </div>
+
+        <div class="button-grid docs-grid" id="docs-grid">
+          <a class="doc-btn" id="rules-btn" href="#"></a>
+          <a class="doc-btn" id="pet-btn" href="#"></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="info-card">
+      <div class="info-grid">
+        <div class="info-stack">
+          <div class="info-item" id="address-item">
+            <span class="label" id="label-address"></span>
+            <div class="value" id="address-value"></div>
+          </div>
+
+          <div class="info-item" id="checkin-item">
+            <span class="label" id="label-checkin"></span>
+            <div class="value" id="checkin-value"></div>
+          </div>
+
+          <div class="info-item" id="checkout-item">
+            <span class="label" id="label-checkout"></span>
+            <div class="value" id="checkout-value"></div>
+          </div>
+        </div>
+
+        <div class="info-stack">
+          <div class="info-item" id="wifi-item">
+            <span class="label" id="label-wifi"></span>
+            <div class="value" id="wifi-name"></div>
+            <div class="note" id="wifi-password"></div>
+          </div>
+
+          <div class="info-item" id="contact-item">
+            <span class="label" id="label-contact"></span>
+            <div class="value" id="contact-value"></div>
+            <div class="note" id="contact-note"></div>
+          </div>
+
+          <div class="info-item" id="parking-item">
+            <span class="label" id="label-parking"></span>
+            <div class="value" id="parking-short"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="access-card">
+      <h2 id="access-title"></h2>
+      <p id="access-text"></p>
+      <p class="muted" id="access-note"></p>
+    </section>
+
+    <section class="card" id="tutorials-card">
+      <h2 id="tutorials-title"></h2>
+      <div class="tutorial-grid">
+        <div class="tutorial-item" id="tutorial-alarm-inside-item">
+          <h3 id="tutorial-alarm-inside-title"></h3>
+          <p class="tutorial-text multiline-text" id="tutorial-alarm-inside-text"></p>
+          <a class="tutorial-btn" id="tutorial-alarm-inside-btn" href="#"></a>
+        </div>
+
+        <div class="tutorial-item" id="tutorial-alarm-exit-item">
+          <h3 id="tutorial-alarm-exit-title"></h3>
+          <p class="tutorial-text multiline-text" id="tutorial-alarm-exit-text"></p>
+          <a class="tutorial-btn" id="tutorial-alarm-exit-btn" href="#"></a>
+        </div>
+
+        <div class="tutorial-item" id="tutorial-alarm-return-item">
+          <h3 id="tutorial-alarm-return-title"></h3>
+          <p class="tutorial-text multiline-text" id="tutorial-alarm-return-text"></p>
+          <a class="tutorial-btn" id="tutorial-alarm-return-btn" href="#"></a>
+        </div>
+
+        <div class="tutorial-item" id="tutorial-shutters-item">
+          <h3 id="tutorial-shutters-title"></h3>
+          <p class="tutorial-text multiline-text" id="tutorial-shutters-text"></p>
+          <a class="tutorial-btn" id="tutorial-shutters-btn" href="#"></a>
+        </div>
+
+        <div class="tutorial-item" id="tutorial-bins-item">
+          <h3 id="tutorial-bins-title"></h3>
+          <p class="tutorial-text multiline-text" id="tutorial-bins-text"></p>
+          <a class="tutorial-btn" id="tutorial-bins-btn" href="#"></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="rules-card">
+      <h2 id="rules-title"></h2>
+      <ul id="rules-list"></ul>
+    </section>
+
+    <section class="card" id="pet-rules-card">
+      <h2 id="pet-rules-title"></h2>
+      <p id="pet-rules-intro"></p>
+      <ul id="pet-rules-list"></ul>
+    </section>
+
+    <section class="card" id="waste-card">
+      <h2 id="waste-title"></h2>
+      <p class="multiline-text" id="waste-text"></p>
+      <p class="muted" id="waste-note"></p>
+    </section>
+
+    <section class="card" id="useful-numbers-card">
+      <h2 id="useful-numbers-title"></h2>
+      <div class="useful-grid">
+        <div class="useful-item">
+          <span class="label" id="emergency-title"></span>
+          <div class="value" id="emergency-112"></div>
+          <div class="value" id="emergency-118"></div>
+          <div class="value" id="emergency-115"></div>
+        </div>
+
+        <div class="useful-item" id="taxi-item">
+          <span class="label" id="taxi-title"></span>
+          <div class="value" id="taxi-phone-text"></div>
+          <div class="value" id="taxi-whatsapp-text"></div>
+          <div class="mini-grid">
+            <a class="mini-btn" id="taxi-call-btn" href="#"></a>
+            <a class="mini-btn" id="taxi-wa-btn" href="#"></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="checkout-card">
+      <h2 id="checkout-title"></h2>
+      <ul id="checkout-list"></ul>
+    </section>
+
+    <section class="card" id="suggestions-card">
+      <h2 id="suggestions-title"></h2>
+      <div class="tips-grid">
+        <div class="tips-item" id="breakfast-block">
+          <h3 id="breakfast-title"></h3>
+          <ul id="breakfast-list"></ul>
+        </div>
+
+        <div class="tips-item" id="aperitivo-block">
+          <h3 id="aperitivo-title"></h3>
+          <ul id="aperitivo-list"></ul>
+        </div>
+
+        <div class="tips-item" id="restaurants-block">
+          <h3 id="restaurants-title"></h3>
+          <ul id="restaurants-list"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="map-card">
+      <h2 id="map-title"></h2>
+      <p id="map-text"></p>
+      <p id="coords-row"><strong id="coords-label"></strong> <span id="coords-value"></span></p>
+    </section>
+
+    <div class="footer" id="footer-text"></div>
+  </div>
+
+  <script>
+    const PROPERTY = {
+      apartmentName: "Villa Mafalda",
+      coverImage: "cover-villa-mafalda.jpg",
+      mapsUrl: "https://maps.app.goo.gl/CFwn7gJB5hxyGY5K9",
+      coordinates: "",
+      whatsappUrl: "https://wa.me/393349946334",
+      whatsappDisplay: "chat libera",
+      address: "Via Castello 14/2, 41056 Savignano sul Panaro, Modena (MO) Emilia-Romagna",
+      checkin: "16:00",
+      checkout: "11:00",
+      wifiName: "Ospiti14/2",
+      wifiPassword: "Welcome2025",
+      documents: {
+        rules: {
+          it: "house-rules-it.pdf",
+          en: "house-rules-en.pdf",
+          fallback: "house-rules-en.pdf"
+        },
+        pet: "#pet-rules-card"
+      },
+      tutorials: {
+        alarmInsideVideo: "villa-mafalda-tutorial-allarme-interno.mp4",
+        alarmExitVideo: "villa-mafalda-tutorial-allarme-uscita.mp4",
+        alarmReturnVideo: "villa-mafalda-tutorial-allarme-rientro.mp4",
+        shuttersVideo: "villa-mafalda-tutorial-scuri-finestre.mp4",
+        binsVideo: "villa-mafalda-tutorial-bidoni-esterni.mp4"
+      },
+      usefulNumbers: {
+        emergency112: "112 - Emergenze",
+        emergency118: "118 - Emergenza sanitaria",
+        emergency115: "115 - Vigili del fuoco",
+        taxiPhoneDisplay: "Taxi centralino: +39 059 374242",
+        taxiPhoneHref: "tel:+39059374242",
+        taxiWhatsappDisplay: "Taxi WhatsApp: +39 335 1838555",
+        taxiWhatsappHref: "https://wa.me/393351838555"
+      }
+    };
+
+    const CONTENT = {
+      it: {
+        pageTitle: "Guida Ospiti",
+        subtitle1: "Guest Guide / Guida Ospiti",
+        subtitle2: "Tutte le informazioni utili per un soggiorno semplice, comodo e rilassante.",
+        mapBtn: "📍 Google Maps",
+        whatsappBtn: "💬 WhatsApp",
+        rulesBtn: "📄 Regole complete",
+        petBtn: "🐾 Regole animali",
+        tutorialBtn: "▶ Guarda il tutorial",
+        labelAddress: "📍 Indirizzo",
+        labelCheckin: "🕒 Check-in",
+        labelCheckout: "🕘 Check-out",
+        wifiLabel: "📶 Wi-Fi",
+        wifiPasswordLabel: "Password",
+        labelContact: "💬 Contatto",
+        contactNote: "Solo chat 07:00-22:00",
+        labelParking: "🚗 Parcheggio",
+        parkingShort: "Interno alla villa, possibilita di parcheggio coperto o garage.",
+        accessTitle: "🗝️ Accesso",
+        accessText: "Arrivati a Villa Mafalda sarete accolti da Host che vi consegnera le chiavi e vi dara accesso alla struttura spiegando alcune funzionalita che troverete comunque in questa guida.",
+        accessNote: "Niente in particolare",
+        tutorialsTitle: "🎥 Tutorial e istruzioni",
+        tutorialAlarmInsideTitle: "🔐 Inserimento e disinserimento allarme da dentro casa",
+        tutorialAlarmInsideText: "Quando si e in casa (sicurezza di notte):\nUtilizzare il dispositivo blu fornito nel portachiavi delle chiavi di casa.\nDi fianco ad ogni porta d'entrata c'e uno schermo touch e un lettore per il dispositivo blu.\nToccare lo schermo touch. Quando si accende si vedono delle lettere cerchiate. A noi interessa la lettera A.\n\nPer inserire l'allarme:\nChiudere tutte le porte e gli scuri delle finestre (vedi video chiusura corretta scuri di portefinestre).\nAppoggiare la parte bianca del dispositivo blu sul lettore finche la luce del lettore non si accende.\nAllontanare il dispositivo e si vedra che la lettera A diventera cerchiata di rosso = ALLARME INSERITO.\nDa questo momento non aprire porte o scuri delle finestre altrimenti l'allarme suonera.\n\nPer disattivare l'allarme:\nAppoggiare la parte bianca del dispositivo blu sul lettore fino a quando la luce del lettore non si spegne.\nAllontanare il dispositivo e si vedra che la lettera A diventera cerchiata di verde = ALLARME DISINSERITO.\nDa questo momento si possono aprire porte e scuri delle finestre.",
+        tutorialAlarmExitTitle: "🚪 Inserimento allarme quando si esce di casa",
+        tutorialAlarmExitText: "Quando si esce di casa:\nAll'esterno di ogni porta d'entrata c'e un lettore.\n\nPer inserire l'allarme:\nAssicurarsi che tutte le porte e gli scuri delle finestre siano chiusi nel modo corretto (vedi video chiusura corretta scuri di portefinestre).\nAvvicinare la parte bianca del dispositivo blu, fornito nel portachiavi di casa, al lettore.\nQuando la luce del lettore si accende, allontanare il dispositivo.\nLuci lettore verde e rossa accese = ALLARME INSERITO.",
+        tutorialAlarmReturnTitle: "🏠 Disinserimento allarme quando si rientra a casa",
+        tutorialAlarmReturnText: "Quando si rientra a casa:\n\nPer disinserire l'allarme:\nAppoggiare la parte bianca del dispositivo blu al lettore.\nQuando la luce del lettore si spegne, allontanare il dispositivo.\nLuci lettore spente = ALLARME DISINSERITO.\nSolo ora si potra procedere ad aprire la porta di casa.",
+        tutorialShuttersTitle: "🪟 Chiusura corretta degli scuri delle portefinestre",
+        tutorialShuttersText: "Per favore assicurarsi di chiudere gli scuri delle portefinestre rispettando la seguente modalita:\npremurandosi di abbassare anche i catenacci a terra, o lo scuro sara facilmente apribile dall'esterno.",
+        tutorialBinsTitle: "🗑️ Posizione bidoni esterni",
+        tutorialBinsText: "Quando i bidoni interni della raccolta differenziata sono pieni, portare i rifiuti correttamente suddivisi nei bidoni corrispondenti posti all'esterno dell'abitazione.\nLa posizione dei bidoni esterni e illustrata in questo tutorial dedicato.",
+        rulesTitle: "🏡 Regole casa",
+        rulesList: [
+          "L'accesso alla Villa e consentito esclusivamente agli ospiti registrati in prenotazione.",
+          "Eventuali visitatori, eventi o feste devono essere preventivamente autorizzati dall'Host.",
+          "Non e consentito superare il numero massimo di ospiti indicato nella prenotazione.",
+          "E richiesto un comportamento educato e un volume moderato di musica e conversazioni, in particolare nelle ore serali e notturne.",
+          "Il cortile esterno e ad uso esclusivo degli ospiti.",
+          "In giardino e nell'area piscina e obbligatorio utilizzare esclusivamente bicchieri in plastica.",
+          "E vietato lasciare rifiuti o oggetti incustoditi nelle aree esterne.",
+          "Il barbecue deve essere utilizzato solo nella zona dedicata e non deve essere spostato.",
+          "A fine utilizzo barbecue, carbonella, griglia e utensili devono essere sistemati e puliti subito.",
+          "In caso contrario verranno addebitati costi aggiuntivi di pulizia.",
+          "Non e consentito consumare cibi o bevande nell'area living con i divani vicino al camino.",
+          "Non e consentito spostare arredi senza autorizzazione.",
+          "La piscina e riservata esclusivamente agli ospiti della Villa.",
+          "E consentito l'uso esclusivo della lavanderia nel seminterrato.",
+          "Il restante seminterrato non e accessibile.",
+          "Per allarme, chiavi, porte, finestre, cancelli, luci ed elettrodomestici si fa riferimento alla sezione dedicata della guida.",
+          "Si consiglia di inserire l'allarme ogni volta che si esce dalla Villa e durante la notte.",
+          "E obbligatorio chiudere porte e finestre quando si lascia la proprieta.",
+          "Non utilizzare contemporaneamente bollitore e forno nell'angolo bar."
+        ],
+        petRulesTitle: "🐾 Regole per gli animali",
+        petRulesIntro: "Gli animali sono ammessi, nel rispetto delle seguenti regole:",
+        petRulesList: [
+          "Vietato l'accesso a letti e divani.",
+          "Vietato l'accesso in piscina.",
+          "Eventuali danni o pulizie extra saranno a carico dell'ospite."
+        ],
+        wasteTitle: "♻️ Rifiuti",
+        wasteText: "In cucina sono presenti bidoni appositi per la raccolta differenziata dei rifiuti di:\n• Carta\n• Plastica e alluminio\n• Vetro\n• Indifferenziata\n• Umido\n\nNel momento in cui aveste riempito questi bidoni, si prega di portare i rifiuti, correttamente suddivisi, nei bidoni corrispondenti fuori dall'abitazione.\nLa posizione di questi bidoni, non lontano da una delle porte d'entrata, e illustrata nel tutorial dedicato.\n\nSi informa che, durante il soggiorno, il personale addetto alla manutenzione potrebbe accedere alla proprieta, in orari appropriati e con la massima discrezione, esclusivamente per ritirare i bidoni esterni ed esporli o svuotarli nei giorni di raccolta previsti dalle disposizioni comunali. Questo servizio e pensato per evitarvi l'onere di gestire i rifiuti secondo il calendario del Comune.",
+        wasteNote: "",
+        usefulNumbersTitle: "📞 Numeri utili",
+        emergencyTitle: "Emergenze",
+        taxiTitle: "Taxi locale",
+        taxiCallBtn: "📞 Chiama",
+        taxiWaBtn: "💬 WhatsApp",
+        checkoutTitle: "✅ Prima del check-out",
+        checkoutList: [
+          "Gli asciugamani e le lenzuola usate possono restare nelle stanze e nei bagni; il personale di servizio provvedera al ritiro.",
+          "Spegnere tutti gli elettrodomestici e le luci accese.",
+          "Chiudere tutte le porte.",
+          "Accordarsi con Host per la consegna delle chiavi.",
+          "Portare la spazzatura residua negli appositi contenitori esterni."
+        ],
+        suggestionsTitle: "🍽️ Suggerimenti in zona",
+        breakfastTitle: "☕ Colazione",
+        breakfastList: [],
+        aperitivoTitle: "🥂 Aperitivo e vino",
+        aperitivoList: [
+          "Enoteca La Zaira - Vignola centro.",
+          "Borgo e Castello di Vignola - zona molto bella per passeggiata e aperitivo."
+        ],
+        restaurantsTitle: "🍴 Ristoranti consigliati",
+        restaurantsList: [
+          "Trattoria dei Contrari - Savignano, cucina tipica emiliana.",
+          "La Baracca - Vignola, ristorante emiliano.",
+          "Locanda del Feudo - Castelvetro, ristorante nel borgo medievale.",
+          "Agriturismo La Lupa - Castelvetro, agriturismo con cucina tipica."
+        ],
+        mapTitle: "🗺️ Mappa",
+        mapText: "Apri la posizione della Villa su Google Maps per raggiungerla facilmente.",
+        coordsLabel: "Coordinate:",
+        footerText: "Buon soggiorno a Villa Mafalda"
+      },
+      en: {
+        pageTitle: "Guest Guide",
+        subtitle1: "Guest Guide / Guida Ospiti",
+        subtitle2: "All the useful information for a smooth, comfortable, and relaxing stay.",
+        mapBtn: "📍 Google Maps",
+        whatsappBtn: "💬 WhatsApp",
+        rulesBtn: "📄 Full house rules",
+        petBtn: "🐾 Pet rules",
+        tutorialBtn: "▶ Watch tutorial",
+        labelAddress: "📍 Address",
+        labelCheckin: "🕒 Check-in",
+        labelCheckout: "🕘 Check-out",
+        wifiLabel: "📶 Wi-Fi",
+        wifiPasswordLabel: "Password",
+        labelContact: "💬 Contact",
+        contactNote: "Chat only 07:00-22:00",
+        labelParking: "🚗 Parking",
+        parkingShort: "Inside the villa, covered parking or garage available.",
+        accessTitle: "🗝️ Access",
+        accessText: "Upon arrival at Villa Mafalda, you will be welcomed by the Host, who will hand over the keys and give you access to the property, explaining some features that you will also find in this guide.",
+        accessNote: "Nothing in particular",
+        tutorialsTitle: "🎥 Tutorials and instructions",
+        tutorialAlarmInsideTitle: "🔐 Arm and disarm the alarm from inside the house",
+        tutorialAlarmInsideText: "When inside the house (night-time security):\nUse the blue device provided on the house keyring.\nNext to each entrance door, there is a touchscreen panel and a reader for the blue device.\nTap the touchscreen. When it activates, you will see several circled letters. The one relevant for you is the letter A.\n\nTo arm the alarm:\nClose all doors and window shutters (please refer to the video on how to properly close the French window shutters).\nPlace the white side of the blue device against the reader until the reader light turns on.\nThen move the device away. The letter A on the touchscreen will turn red = ALARM ARMED.\nFrom this moment on, do not open any doors or window shutters, otherwise the alarm will go off.\n\nTo disarm the alarm:\nPlace the white side of the blue device against the reader until the reader light turns off.\nThen move the device away. The letter A will turn green = ALARM DISARMED.\nFrom this moment on, doors and window shutters can be opened.",
+        tutorialAlarmExitTitle: "🚪 Arm the alarm when leaving the house",
+        tutorialAlarmExitText: "When leaving the house:\nOutside each entrance door, there is a reader.\n\nTo arm the alarm:\nMake sure that all doors and window shutters are properly closed (please refer to the video on how to correctly close the French window shutters).\nHold the white side of the blue device, provided on the house keyring, close to the reader.\nWhen the reader light turns on, move the device away.\nGreen and red lights on the reader illuminated = ALARM ARMED.",
+        tutorialAlarmReturnTitle: "🏠 Disarm the alarm when returning home",
+        tutorialAlarmReturnText: "When returning to the house:\n\nTo disarm the alarm:\nPlace the white side of the blue device against the reader.\nWhen the reader light turns off, move the device away.\nReader lights off = ALARM DISARMED.\nOnly at this point should you proceed to open the entrance door.",
+        tutorialShuttersTitle: "🪟 Correct closing of the French window shutters",
+        tutorialShuttersText: "Please ensure that the French window shutters are closed in the following manner:\nmake sure to engage the bottom bolts into the ground, otherwise the shutters can be easily opened from the outside.",
+        tutorialBinsTitle: "🗑️ Outdoor waste bins location",
+        tutorialBinsText: "When the indoor recycling bins are full, please take the properly sorted waste to the corresponding outdoor bins located outside the house.\nThe position of the outdoor bins is shown in this dedicated tutorial.",
+        rulesTitle: "🏡 House rules",
+        rulesList: [
+          "Access to the Villa is allowed exclusively to guests registered in the booking.",
+          "Any visitors, events, or parties must be authorized in advance by the Host.",
+          "It is not permitted to exceed the maximum number of guests indicated in the booking.",
+          "Polite behavior and a moderate volume of music and conversations are required, especially during evening and night hours.",
+          "The outdoor courtyard is for the exclusive use of guests.",
+          "In the garden and pool area, only plastic glasses may be used.",
+          "Do not leave waste or unattended objects in outdoor areas.",
+          "The barbecue must be used only in the designated area and must not be moved.",
+          "After use, charcoal, grill, and utensils must be cleaned and put away immediately.",
+          "Otherwise, additional cleaning costs will be charged.",
+          "Eating or drinking is not allowed in the living area with the sofas near the fireplace.",
+          "Do not move furniture without authorization.",
+          "The pool is reserved exclusively for Villa guests.",
+          "Only the laundry area in the basement may be used.",
+          "The rest of the basement is not accessible.",
+          "For alarm, keys, doors, windows, gates, lights, and appliances, please refer to the dedicated section of this guide.",
+          "It is recommended to activate the alarm every time you leave the Villa and during the night.",
+          "Doors and windows must be closed whenever you leave the property.",
+          "Do not use the kettle and the oven at the same time in the bar area."
+        ],
+        petRulesTitle: "🐾 Pet rules",
+        petRulesIntro: "Pets are allowed, provided that the following rules are respected:",
+        petRulesList: [
+          "Pets are not allowed on beds and sofas.",
+          "Pets are not allowed in the swimming pool.",
+          "Any damage or extra cleaning will be charged to the guest."
+        ],
+        wasteTitle: "♻️ Waste",
+        wasteText: "In the kitchen, there are designated bins for the separate collection of the following types of waste:\n• Paper\n• Plastic and aluminum\n• Glass\n• General (non-recyclable) waste\n• Organic waste\n\nOnce these bins are full, please dispose of the waste properly sorted in the corresponding containers located outside the house.\nThe location of these outdoor bins, not far from one of the entrance doors, is shown in the dedicated tutorial.\n\nPlease note that, during your stay, maintenance staff may access the property, at appropriate times and with the utmost discretion, solely to collect the outdoor bins and place them out for collection or empty them on the days scheduled by municipal regulations. This service is intended to spare you the inconvenience of managing waste disposal in accordance with the local collection calendar.",
+        wasteNote: "",
+        usefulNumbersTitle: "📞 Useful numbers",
+        emergencyTitle: "Emergency numbers",
+        taxiTitle: "Local taxi",
+        taxiCallBtn: "📞 Call",
+        taxiWaBtn: "💬 WhatsApp",
+        checkoutTitle: "✅ Before check-out",
+        checkoutList: [
+          "Used towels and bed linen may remain in the rooms and bathrooms; the service staff will collect them.",
+          "Switch off all appliances and any lights left on.",
+          "Close all doors.",
+          "Arrange key handover with the Host.",
+          "Take any remaining waste to the outdoor bins."
+        ],
+        suggestionsTitle: "🍽️ Local suggestions",
+        breakfastTitle: "☕ Breakfast",
+        breakfastList: [],
+        aperitivoTitle: "🥂 Aperitivo and wine",
+        aperitivoList: [
+          "Enoteca La Zaira - central Vignola.",
+          "Borgo e Castello di Vignola - a beautiful area for a walk and an aperitivo."
+        ],
+        restaurantsTitle: "🍴 Recommended restaurants",
+        restaurantsList: [
+          "Trattoria dei Contrari - Savignano, traditional Emilian cuisine.",
+          "La Baracca - Vignola, Emilian restaurant.",
+          "Locanda del Feudo - Castelvetro, restaurant in the medieval village.",
+          "Agriturismo La Lupa - Castelvetro, farmhouse restaurant with traditional cuisine."
+        ],
+        mapTitle: "🗺️ Map",
+        mapText: "Open the Villa location on Google Maps to reach it easily.",
+        coordsLabel: "Coordinates:",
+        footerText: "Enjoy your stay at Villa Mafalda"
+      },
+      de: {
+        pageTitle: "Gästeführer",
+        subtitle1: "Guest Guide / Gästeführer",
+        subtitle2: "Alle nützlichen Informationen für einen einfachen, komfortablen und entspannten Aufenthalt.",
+        mapBtn: "📍 Google Maps",
+        whatsappBtn: "💬 WhatsApp",
+        rulesBtn: "📄 Vollständige Hausregeln",
+        petBtn: "🐾 Regeln für Haustiere",
+        tutorialBtn: "▶ Tutorial ansehen",
+        labelAddress: "📍 Adresse",
+        labelCheckin: "🕒 Check-in",
+        labelCheckout: "🕘 Check-out",
+        wifiLabel: "📶 Wi-Fi",
+        wifiPasswordLabel: "Passwort",
+        labelContact: "💬 Kontakt",
+        contactNote: "Nur Chat 07:00-22:00",
+        labelParking: "🚗 Parkplatz",
+        parkingShort: "Innerhalb der Villa, mit der Möglichkeit eines überdachten Stellplatzes oder einer Garage.",
+        accessTitle: "🗝️ Zugang",
+        accessText: "Bei Ihrer Ankunft in der Villa Mafalda werden Sie vom Host empfangen, der Ihnen die Schlüssel übergibt und Ihnen Zugang zur Unterkunft verschafft. Dabei erklärt er Ihnen einige Funktionen, die Sie auch in diesem Leitfaden finden.",
+        accessNote: "Nichts Besonderes",
+        tutorialsTitle: "🎥 Tutorials und Anleitungen",
+        tutorialAlarmInsideTitle: "🔐 Alarm von innen aktivieren und deaktivieren",
+        tutorialAlarmInsideText: "Wenn Sie sich im Haus befinden (Nachtsicherheit):\nVerwenden Sie das blaue Gerät am Schlüsselbund.\nNeben jeder Eingangstür befindet sich ein Touchscreen und ein Leser für das blaue Gerät.\nBerühren Sie den Touchscreen. Wenn er aktiviert wird, sehen Sie mehrere eingekreiste Buchstaben. Für Sie ist der Buchstabe A relevant.\n\nZum Aktivieren des Alarms:\nSchließen Sie alle Türen und Fensterverschläge (siehe Video zur korrekten Schließung der Fenstertüren).\nHalten Sie die weiße Seite des blauen Geräts an den Leser, bis die Leuchte des Lesers angeht.\nEntfernen Sie dann das Gerät. Der Buchstabe A wird rot = ALARM AKTIVIERT.\nÖffnen Sie ab diesem Moment keine Türen oder Fensterverschläge mehr, sonst löst der Alarm aus.\n\nZum Deaktivieren des Alarms:\nHalten Sie die weiße Seite des blauen Geräts an den Leser, bis die Leuchte des Lesers ausgeht.\nEntfernen Sie dann das Gerät. Der Buchstabe A wird grün = ALARM DEAKTIVIERT.\nAb diesem Moment können Türen und Fensterverschläge geöffnet werden.",
+        tutorialAlarmExitTitle: "🚪 Alarm aktivieren, wenn Sie das Haus verlassen",
+        tutorialAlarmExitText: "Wenn Sie das Haus verlassen:\nAußerhalb jeder Eingangstür befindet sich ein Leser.\n\nZum Aktivieren des Alarms:\nStellen Sie sicher, dass alle Türen und Fensterverschläge korrekt geschlossen sind (siehe Video zur richtigen Schließung der Fenstertüren).\nHalten Sie die weiße Seite des blauen Geräts vom Schlüsselbund an den Leser.\nSobald die Leuchte des Lesers angeht, entfernen Sie das Gerät.\nGrünes und rotes Licht am Leser = ALARM AKTIVIERT.",
+        tutorialAlarmReturnTitle: "🏠 Alarm deaktivieren, wenn Sie nach Hause zurückkehren",
+        tutorialAlarmReturnText: "Wenn Sie ins Haus zurückkehren:\n\nZum Deaktivieren des Alarms:\nHalten Sie die weiße Seite des blauen Geräts an den Leser.\nWenn die Leuchte des Lesers ausgeht, entfernen Sie das Gerät.\nLichter am Leser aus = ALARM DEAKTIVIERT.\nErst jetzt sollten Sie die Eingangstür öffnen.",
+        tutorialShuttersTitle: "🪟 Korrektes Schließen der Fensterverschläge",
+        tutorialShuttersText: "Bitte achten Sie darauf, die Fensterverschläge folgendermaßen zu schließen:\nAchten Sie darauf, auch die Bodenriegel zu verriegeln, da die Verschläge sonst von außen leicht zu öffnen sind.",
+        tutorialBinsTitle: "🗑️ Standort der Außenmülltonnen",
+        tutorialBinsText: "Wenn die internen Behälter für die Mülltrennung voll sind, bringen Sie den korrekt getrennten Abfall bitte zu den entsprechenden Außenmülltonnen außerhalb des Hauses.\nDie Position dieser Tonnen wird in diesem speziellen Tutorial gezeigt.",
+        rulesTitle: "🏡 Hausregeln",
+        rulesList: [
+          "Der Zugang zur Villa ist ausschließlich den in der Buchung registrierten Gästen gestattet.",
+          "Besucher, Veranstaltungen oder Feiern müssen im Voraus vom Host genehmigt werden.",
+          "Die in der Buchung angegebene maximale Gästezahl darf nicht überschritten werden.",
+          "Ein höfliches Verhalten und eine angemessene Lautstärke bei Musik und Gesprächen werden insbesondere in den Abend- und Nachtstunden erwartet.",
+          "Der Außenhof steht ausschließlich den Gästen zur Verfügung.",
+          "Im Garten- und Poolbereich dürfen aus Sicherheitsgründen nur Plastikgläser verwendet werden.",
+          "Es ist verboten, Abfälle oder Gegenstände unbeaufsichtigt in den Außenbereichen zu lassen.",
+          "Der Grill darf nur im dafür vorgesehenen Bereich benutzt und nicht bewegt werden.",
+          "Nach der Benutzung müssen Holzkohle, Grillrost und Utensilien sofort gereinigt und ordentlich verstaut werden.",
+          "Andernfalls werden zusätzliche Reinigungskosten berechnet.",
+          "Im Wohnbereich mit den Sofas neben dem Kamin dürfen keine Speisen oder Getränke konsumiert werden.",
+          "Möbel dürfen nicht ohne Genehmigung verschoben werden.",
+          "Der Pool ist ausschließlich den Gästen der Villa vorbehalten.",
+          "Nur der Waschbereich im Untergeschoss darf genutzt werden.",
+          "Der restliche Teil des Untergeschosses ist nicht zugänglich.",
+          "Für Alarmanlage, Schlüssel, Türen, Fenster, Tore, Lichter und Haushaltsgeräte lesen Sie bitte den entsprechenden Abschnitt dieses Leitfadens.",
+          "Es wird empfohlen, die Alarmanlage jedes Mal zu aktivieren, wenn Sie die Villa verlassen, sowie nachts.",
+          "Türen und Fenster müssen beim Verlassen des Grundstücks geschlossen werden.",
+          "Verwenden Sie Wasserkocher und Backofen im Barbereich nicht gleichzeitig."
+        ],
+        petRulesTitle: "🐾 Regeln für Haustiere",
+        petRulesIntro: "Haustiere sind erlaubt, sofern die folgenden Regeln eingehalten werden:",
+        petRulesList: [
+          "Haustiere haben keinen Zugang zu Betten und Sofas.",
+          "Haustiere haben keinen Zugang zum Pool.",
+          "Etwaige Schäden oder zusätzliche Reinigungen gehen zu Lasten des Gastes."
+        ],
+        wasteTitle: "♻️ Müll",
+        wasteText: "In der Küche befinden sich spezielle Behälter für die getrennte Sammlung von:\n• Papier\n• Kunststoff und Aluminium\n• Glas\n• Restmüll\n• Bioabfall\n\nSobald diese Behälter voll sind, bitten wir Sie, den korrekt getrennten Müll in die entsprechenden Tonnen außerhalb des Hauses zu bringen.\nDie Position dieser Tonnen, unweit einer der Eingangstüren, wird im entsprechenden Tutorial gezeigt.\n\nBitte beachten Sie, dass das Wartungspersonal während Ihres Aufenthalts zu geeigneten Zeiten und mit größter Diskretion das Grundstück betreten kann, ausschließlich um die Außentonnen abzuholen und sie an den von der Gemeinde vorgesehenen Abholtagen bereitzustellen oder zu leeren. Dieser Service soll Ihnen den Aufwand ersparen, die Abfallentsorgung nach dem kommunalen Abfallkalender selbst zu organisieren.",
+        wasteNote: "",
+        usefulNumbersTitle: "📞 Nützliche Nummern",
+        emergencyTitle: "Notfallnummern",
+        taxiTitle: "Lokales Taxi",
+        taxiCallBtn: "📞 Anrufen",
+        taxiWaBtn: "💬 WhatsApp",
+        checkoutTitle: "✅ Vor dem Check-out",
+        checkoutList: [
+          "Benutzte Handtücher und Bettwäsche können in den Zimmern und Bädern bleiben; das Servicepersonal kümmert sich um die Abholung.",
+          "Schalten Sie alle Elektrogeräte und eingeschalteten Lichter aus.",
+          "Schließen Sie alle Türen.",
+          "Vereinbaren Sie die Schlüsselübergabe mit dem Host.",
+          "Bringen Sie den restlichen Müll zu den dafür vorgesehenen Außenbehältern."
+        ],
+        suggestionsTitle: "🍽️ Empfehlungen in der Umgebung",
+        breakfastTitle: "☕ Frühstück",
+        breakfastList: [],
+        aperitivoTitle: "🥂 Aperitif und Wein",
+        aperitivoList: [
+          "Enoteca La Zaira - Zentrum von Vignola.",
+          "Borgo e Castello di Vignola - sehr schöne Gegend für einen Spaziergang und einen Aperitif."
+        ],
+        restaurantsTitle: "🍴 Empfohlene Restaurants",
+        restaurantsList: [
+          "Trattoria dei Contrari - Savignano, typische emilianische Küche.",
+          "La Baracca - Vignola, emilianisches Restaurant.",
+          "Locanda del Feudo - Castelvetro, Restaurant im mittelalterlichen Dorf.",
+          "Agriturismo La Lupa - Castelvetro, Landgasthof mit typischer Küche."
+        ],
+        mapTitle: "🗺️ Karte",
+        mapText: "Öffnen Sie den Standort der Villa in Google Maps, um sie ganz einfach zu erreichen.",
+        coordsLabel: "Koordinaten:",
+        footerText: "Schönen Aufenthalt in der Villa Mafalda"
+      },
+      fr: {
+        pageTitle: "Guide des voyageurs",
+        subtitle1: "Guest Guide / Guide des voyageurs",
+        subtitle2: "Toutes les informations utiles pour un séjour simple, confortable et relaxant.",
+        mapBtn: "📍 Google Maps",
+        whatsappBtn: "💬 WhatsApp",
+        rulesBtn: "📄 Règlement complet",
+        petBtn: "🐾 Règles animaux",
+        tutorialBtn: "▶ Voir le tutoriel",
+        labelAddress: "📍 Adresse",
+        labelCheckin: "🕒 Check-in",
+        labelCheckout: "🕘 Check-out",
+        wifiLabel: "📶 Wi-Fi",
+        wifiPasswordLabel: "Mot de passe",
+        labelContact: "💬 Contact",
+        contactNote: "Chat uniquement 07:00-22:00",
+        labelParking: "🚗 Parking",
+        parkingShort: "À l'intérieur de la villa, avec possibilité de parking couvert ou de garage.",
+        accessTitle: "🗝️ Accès",
+        accessText: "À votre arrivée à Villa Mafalda, vous serez accueilli par l'Host, qui vous remettra les clés et vous donnera accès à la propriété, en vous expliquant certaines fonctionnalités que vous retrouverez également dans ce guide.",
+        accessNote: "Rien de particulier",
+        tutorialsTitle: "🎥 Tutoriels et instructions",
+        tutorialAlarmInsideTitle: "🔐 Activer et désactiver l'alarme depuis l'intérieur",
+        tutorialAlarmInsideText: "Lorsque vous êtes dans la maison (sécurité de nuit) :\nUtilisez le dispositif bleu fourni sur le porte-clés de la maison.\nÀ côté de chaque porte d'entrée, il y a un écran tactile et un lecteur pour le dispositif bleu.\nTouchez l'écran tactile. Lorsqu'il s'allume, plusieurs lettres entourées apparaissent. Celle qui vous intéresse est la lettre A.\n\nPour activer l'alarme :\nFermez toutes les portes et les volets des portes-fenêtres (voir la vidéo sur la fermeture correcte des volets).\nPlacez la partie blanche du dispositif bleu sur le lecteur jusqu'à ce que la lumière du lecteur s'allume.\nÉloignez ensuite le dispositif. La lettre A deviendra rouge = ALARME ACTIVÉE.\nÀ partir de ce moment, n'ouvrez ni portes ni volets, sinon l'alarme se déclenchera.\n\nPour désactiver l'alarme :\nPlacez la partie blanche du dispositif bleu sur le lecteur jusqu'à ce que la lumière du lecteur s'éteigne.\nÉloignez ensuite le dispositif. La lettre A deviendra verte = ALARME DÉSACTIVÉE.\nÀ partir de ce moment, les portes et les volets peuvent être ouverts.",
+        tutorialAlarmExitTitle: "🚪 Activer l'alarme en quittant la maison",
+        tutorialAlarmExitText: "Lorsque vous quittez la maison :\nÀ l'extérieur de chaque porte d'entrée se trouve un lecteur.\n\nPour activer l'alarme :\nAssurez-vous que toutes les portes et tous les volets des fenêtres sont correctement fermés (voir la vidéo sur la fermeture correcte des volets des portes-fenêtres).\nApprochez la partie blanche du dispositif bleu, fourni avec le porte-clés de la maison, du lecteur.\nLorsque la lumière du lecteur s'allume, éloignez le dispositif.\nVoyants vert et rouge allumés sur le lecteur = ALARME ACTIVÉE.",
+        tutorialAlarmReturnTitle: "🏠 Désactiver l'alarme en rentrant à la maison",
+        tutorialAlarmReturnText: "Lorsque vous rentrez à la maison :\n\nPour désactiver l'alarme :\nPlacez la partie blanche du dispositif bleu contre le lecteur.\nLorsque la lumière du lecteur s'éteint, éloignez le dispositif.\nVoyants du lecteur éteints = ALARME DÉSACTIVÉE.\nCe n'est qu'à ce moment-là que vous pourrez ouvrir la porte d'entrée.",
+        tutorialShuttersTitle: "🪟 Fermeture correcte des volets des portes-fenêtres",
+        tutorialShuttersText: "Veuillez vous assurer de fermer les volets des portes-fenêtres de la manière suivante :\nveillez également à abaisser les verrous au sol, sinon les volets pourront être facilement ouverts de l'extérieur.",
+        tutorialBinsTitle: "🗑️ Emplacement des bacs extérieurs",
+        tutorialBinsText: "Lorsque les bacs intérieurs de tri sélectif sont pleins, veuillez apporter les déchets correctement triés dans les bacs extérieurs correspondants placés à l'extérieur de la maison.\nL'emplacement des bacs extérieurs est illustré dans ce tutoriel dédié.",
+        rulesTitle: "🏡 Règles de la maison",
+        rulesList: [
+          "L'accès à la villa est exclusivement réservé aux voyageurs enregistrés dans la réservation.",
+          "Les visiteurs, événements ou fêtes doivent être autorisés à l'avance par l'Host.",
+          "Il n'est pas permis de dépasser le nombre maximum de voyageurs indiqué dans la réservation.",
+          "Un comportement respectueux et un volume modéré pour la musique et les conversations sont demandés, en particulier le soir et la nuit.",
+          "La cour extérieure est à l'usage exclusif des voyageurs.",
+          "Dans le jardin et dans l'espace piscine, il est obligatoire d'utiliser uniquement des verres en plastique.",
+          "Il est interdit de laisser des déchets ou des objets sans surveillance dans les espaces extérieurs.",
+          "Le barbecue doit être utilisé uniquement dans la zone prévue et ne doit pas être déplacé.",
+          "Après utilisation, le charbon, la grille et les ustensiles doivent être nettoyés et rangés immédiatement.",
+          "Dans le cas contraire, des frais supplémentaires de nettoyage seront facturés.",
+          "Il n'est pas autorisé de consommer de la nourriture ou des boissons dans l'espace salon avec les canapés près de la cheminée.",
+          "Il est interdit de déplacer les meubles sans autorisation.",
+          "La piscine est réservée exclusivement aux voyageurs de la villa.",
+          "Seule la zone buanderie au sous-sol peut être utilisée.",
+          "Le reste du sous-sol n'est pas accessible.",
+          "Pour l'alarme, les clés, les portes, les fenêtres, les portails, les lumières et les appareils électroménagers, veuillez consulter la section dédiée de ce guide.",
+          "Il est recommandé d'activer l'alarme chaque fois que vous quittez la villa et pendant la nuit.",
+          "Les portes et les fenêtres doivent être fermées lorsque vous quittez la propriété.",
+          "N'utilisez pas simultanément la bouilloire et le four dans l'espace bar."
+        ],
+        petRulesTitle: "🐾 Règles pour les animaux",
+        petRulesIntro: "Les animaux sont admis dans le respect des règles suivantes :",
+        petRulesList: [
+          "L'accès aux lits et canapés est interdit.",
+          "L'accès à la piscine est interdit.",
+          "Tout dommage ou nettoyage supplémentaire sera à la charge du voyageur."
+        ],
+        wasteTitle: "♻️ Déchets",
+        wasteText: "Dans la cuisine, vous trouverez des bacs dédiés au tri sélectif des déchets suivants :\n• Papier\n• Plastique et aluminium\n• Verre\n• Déchets non recyclables\n• Déchets organiques\n\nUne fois ces bacs remplis, nous vous prions de déposer les déchets, correctement triés, dans les conteneurs correspondants situés à l'extérieur de la maison.\nL'emplacement de ces conteneurs, non loin de l'une des portes d'entrée, est illustré dans le tutoriel dédié.\n\nVeuillez noter que, pendant votre séjour, le personnel de maintenance pourra accéder à la propriété, à des horaires appropriés et avec la plus grande discrétion, uniquement pour récupérer les bacs extérieurs et les sortir ou les vider les jours de collecte prévus par les dispositions communales. Ce service est prévu pour vous éviter la contrainte de gérer les déchets selon le calendrier communal.",
+        wasteNote: "",
+        usefulNumbersTitle: "📞 Numéros utiles",
+        emergencyTitle: "Urgences",
+        taxiTitle: "Taxi local",
+        taxiCallBtn: "📞 Appeler",
+        taxiWaBtn: "💬 WhatsApp",
+        checkoutTitle: "✅ Avant le check-out",
+        checkoutList: [
+          "Les serviettes et les draps utilisés peuvent rester dans les chambres et les salles de bain ; le personnel de service se chargera de les récupérer.",
+          "Éteignez tous les appareils électroménagers et les lumières allumées.",
+          "Fermez toutes les portes.",
+          "Convenez avec l'Host de la remise des clés.",
+          "Déposez les déchets restants dans les conteneurs extérieurs prévus à cet effet."
+        ],
+        suggestionsTitle: "🍽️ Suggestions dans les environs",
+        breakfastTitle: "☕ Petit-déjeuner",
+        breakfastList: [],
+        aperitivoTitle: "🥂 Apéritif et vin",
+        aperitivoList: [
+          "Enoteca La Zaira - centre de Vignola.",
+          "Borgo e Castello di Vignola - très belle zone pour une promenade et un apéritif."
+        ],
+        restaurantsTitle: "🍴 Restaurants conseillés",
+        restaurantsList: [
+          "Trattoria dei Contrari - Savignano, cuisine typique émilienne.",
+          "La Baracca - Vignola, restaurant émilien.",
+          "Locanda del Feudo - Castelvetro, restaurant dans le bourg médiéval.",
+          "Agriturismo La Lupa - Castelvetro, agritourisme avec cuisine typique."
+        ],
+        mapTitle: "🗺️ Carte",
+        mapText: "Ouvrez l'emplacement de la villa sur Google Maps pour y arriver facilement.",
+        coordsLabel: "Coordonnées :",
+        footerText: "Bon séjour à Villa Mafalda"
+      },
+      es: {
+        pageTitle: "Guía para huéspedes",
+        subtitle1: "Guest Guide / Guía para huéspedes",
+        subtitle2: "Toda la información útil para una estancia sencilla, cómoda y relajante.",
+        mapBtn: "📍 Google Maps",
+        whatsappBtn: "💬 WhatsApp",
+        rulesBtn: "📄 Normas completas",
+        petBtn: "🐾 Reglas para animales",
+        tutorialBtn: "▶ Ver tutorial",
+        labelAddress: "📍 Dirección",
+        labelCheckin: "🕒 Check-in",
+        labelCheckout: "🕘 Check-out",
+        wifiLabel: "📶 Wi-Fi",
+        wifiPasswordLabel: "Contraseña",
+        labelContact: "💬 Contacto",
+        contactNote: "Solo chat 07:00-22:00",
+        labelParking: "🚗 Aparcamiento",
+        parkingShort: "Dentro de la villa, con posibilidad de aparcamiento cubierto o garaje.",
+        accessTitle: "🗝️ Acceso",
+        accessText: "Al llegar a Villa Mafalda, serán recibidos por el Host, quien les entregará las llaves y les dará acceso a la propiedad, explicándoles algunas funciones que también encontrarán en esta guía.",
+        accessNote: "Nada en particular",
+        tutorialsTitle: "🎥 Tutoriales e instrucciones",
+        tutorialAlarmInsideTitle: "🔐 Activar y desactivar la alarma desde dentro de la casa",
+        tutorialAlarmInsideText: "Cuando se está dentro de la casa (seguridad nocturna):\nUtilicen el dispositivo azul proporcionado en el llavero de la casa.\nJunto a cada puerta de entrada hay una pantalla táctil y un lector para el dispositivo azul.\nToquen la pantalla táctil. Cuando se active, verán varias letras dentro de un círculo. La que les interesa es la letra A.\n\nPara activar la alarma:\nCierren todas las puertas y contraventanas (vean el video sobre el cierre correcto de las contraventanas de las puertas-ventana).\nApoyen la parte blanca del dispositivo azul sobre el lector hasta que la luz del lector se encienda.\nLuego aparten el dispositivo. La letra A se pondrá en rojo = ALARMA ACTIVADA.\nA partir de este momento, no abran puertas ni contraventanas o la alarma sonará.\n\nPara desactivar la alarma:\nApoyen la parte blanca del dispositivo azul sobre el lector hasta que la luz del lector se apague.\nLuego aparten el dispositivo. La letra A se pondrá en verde = ALARMA DESACTIVADA.\nA partir de este momento, se pueden abrir puertas y contraventanas.",
+        tutorialAlarmExitTitle: "🚪 Activar la alarma al salir de casa",
+        tutorialAlarmExitText: "Cuando se sale de casa:\nEn el exterior de cada puerta de entrada hay un lector.\n\nPara activar la alarma:\nAsegúrense de que todas las puertas y contraventanas estén cerradas correctamente (vean el video sobre el cierre correcto de las contraventanas de las puertas-ventana).\nAcerquen la parte blanca del dispositivo azul, proporcionado en el llavero de la casa, al lector.\nCuando la luz del lector se encienda, aparten el dispositivo.\nLuces verde y roja encendidas en el lector = ALARMA ACTIVADA.",
+        tutorialAlarmReturnTitle: "🏠 Desactivar la alarma al volver a casa",
+        tutorialAlarmReturnText: "Cuando se regresa a casa:\n\nPara desactivar la alarma:\nApoyen la parte blanca del dispositivo azul sobre el lector.\nCuando la luz del lector se apague, aparten el dispositivo.\nLuces del lector apagadas = ALARMA DESACTIVADA.\nSolo entonces podrán abrir la puerta de entrada.",
+        tutorialShuttersTitle: "🪟 Cierre correcto de las contraventanas",
+        tutorialShuttersText: "Por favor, asegúrense de cerrar las contraventanas de las puertas-ventana de la siguiente manera:\nrecuerden bajar también los cerrojos al suelo, de lo contrario la contraventana podrá abrirse fácilmente desde el exterior.",
+        tutorialBinsTitle: "🗑️ Ubicación de los contenedores exteriores",
+        tutorialBinsText: "Cuando los contenedores interiores para la recogida selectiva estén llenos, lleven los residuos correctamente separados a los contenedores exteriores correspondientes situados fuera de la casa.\nLa ubicación de los contenedores exteriores se muestra en este tutorial dedicado.",
+        rulesTitle: "🏡 Normas de la casa",
+        rulesList: [
+          "El acceso a la villa está permitido exclusivamente a los huéspedes registrados en la reserva.",
+          "Cualquier visitante, evento o fiesta debe ser autorizado previamente por el Host.",
+          "No está permitido superar el número máximo de huéspedes indicado en la reserva.",
+          "Se requiere un comportamiento educado y un volumen moderado de música y conversaciones, especialmente durante la tarde y la noche.",
+          "El patio exterior es de uso exclusivo de los huéspedes.",
+          "En el jardín y en la zona de la piscina es obligatorio utilizar únicamente vasos de plástico.",
+          "Está prohibido dejar residuos u objetos sin vigilancia en las zonas exteriores.",
+          "La barbacoa debe utilizarse solo en la zona dedicada y no debe moverse.",
+          "Después de usarla, el carbón, la parrilla y los utensilios deben limpiarse y guardarse de inmediato.",
+          "De lo contrario, se aplicarán cargos adicionales de limpieza.",
+          "No está permitido consumir comida o bebida en la zona de estar con los sofás junto a la chimenea.",
+          "No está permitido mover muebles sin autorización.",
+          "La piscina está reservada exclusivamente a los huéspedes de la villa.",
+          "Solo se permite el uso de la zona de lavandería en el sótano.",
+          "El resto del sótano no es accesible.",
+          "Para la alarma, llaves, puertas, ventanas, portones, luces y electrodomésticos, consulte la sección dedicada de esta guía.",
+          "Se recomienda activar la alarma cada vez que se salga de la villa y durante la noche.",
+          "Es obligatorio cerrar puertas y ventanas al salir de la propiedad.",
+          "No utilice al mismo tiempo el hervidor y el horno en la zona del bar."
+        ],
+        petRulesTitle: "🐾 Reglas para los animales",
+        petRulesIntro: "Los animales están permitidos respetando las siguientes reglas:",
+        petRulesList: [
+          "Está prohibido el acceso a camas y sofás.",
+          "Está prohibido el acceso a la piscina.",
+          "Cualquier daño o limpieza extra correrá a cargo del huésped."
+        ],
+        wasteTitle: "♻️ Residuos",
+        wasteText: "En la cocina hay cubos específicos para la recogida selectiva de los siguientes residuos:\n• Papel\n• Plástico y aluminio\n• Vidrio\n• Residuos no reciclables\n• Orgánico\n\nCuando estos cubos estén llenos, les rogamos que lleven los residuos, correctamente separados, a los contenedores correspondientes situados fuera de la casa.\nLa ubicación de estos contenedores, no lejos de una de las puertas de entrada, se muestra en el tutorial dedicado.\n\nTengan en cuenta que, durante la estancia, el personal de mantenimiento podría acceder a la propiedad, en horarios adecuados y con la máxima discreción, exclusivamente para recoger los contenedores exteriores y sacarlos o vaciarlos en los días de recogida previstos por la normativa municipal. Este servicio está pensado para evitarles la molestia de gestionar los residuos de acuerdo con el calendario local.",
+        wasteNote: "",
+        usefulNumbersTitle: "📞 Números útiles",
+        emergencyTitle: "Emergencias",
+        taxiTitle: "Taxi local",
+        taxiCallBtn: "📞 Llamar",
+        taxiWaBtn: "💬 WhatsApp",
+        checkoutTitle: "✅ Antes del check-out",
+        checkoutList: [
+          "Las toallas y la ropa de cama usadas pueden dejarse en las habitaciones y baños; el personal de servicio se encargará de recogerlas.",
+          "Apaguen todos los electrodomésticos y las luces encendidas.",
+          "Cierren todas las puertas.",
+          "Acuérdense con el Host para la entrega de las llaves.",
+          "Lleven la basura restante a los contenedores exteriores correspondientes."
+        ],
+        suggestionsTitle: "🍽️ Sugerencias en la zona",
+        breakfastTitle: "☕ Desayuno",
+        breakfastList: [],
+        aperitivoTitle: "🥂 Aperitivo y vino",
+        aperitivoList: [
+          "Enoteca La Zaira - centro de Vignola.",
+          "Borgo e Castello di Vignola - zona muy bonita para pasear y tomar un aperitivo."
+        ],
+        restaurantsTitle: "🍴 Restaurantes recomendados",
+        restaurantsList: [
+          "Trattoria dei Contrari - Savignano, cocina típica emiliana.",
+          "La Baracca - Vignola, restaurante emiliano.",
+          "Locanda del Feudo - Castelvetro, restaurante en el pueblo medieval.",
+          "Agriturismo La Lupa - Castelvetro, agriturismo con cocina típica."
+        ],
+        mapTitle: "🗺️ Mapa",
+        mapText: "Abra la ubicación de la villa en Google Maps para llegar fácilmente.",
+        coordsLabel: "Coordenadas:",
+        footerText: "Disfruten de su estancia en Villa Mafalda"
+      }
+    };
+
+    function hasContentValue(value) {
+      return value !== null && value !== undefined && String(value).trim() !== "";
+    }
+
+    function hasContentArray(arr) {
+      return Array.isArray(arr) && arr.length > 0;
+    }
+
+    function renderList(id, items) {
+      const list = document.getElementById(id);
+      if (!list) return;
+      list.innerHTML = (items || []).map(item => `<li>${item}</li>`).join("");
+    }
+
+    function getDocumentForLang(docGroup, lang) {
+      if (!docGroup) return "";
+      if (typeof docGroup === "string") return docGroup;
+      if (docGroup[lang]) return docGroup[lang];
+      return docGroup.fallback || "";
+    }
+
+    function setHidden(id, hidden) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.classList.toggle("hidden", hidden);
+    }
+
+    function setText(id, value) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.textContent = value || "";
+    }
+
+    function setTextOrClear(id, value) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.textContent = hasContentValue(value) ? value : "";
+    }
+
+    function setTextOrHide(id, value) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      if (hasContentValue(value)) {
+        el.textContent = value;
+        el.classList.remove("hidden");
+      } else {
+        el.textContent = "";
+        el.classList.add("hidden");
+      }
+    }
+
+    function setInfoItemVisibility(itemId, labelId, valueId, labelText, valueText, noteId, noteText) {
+      const hasValue = hasContentValue(valueText);
+      const hasNote = hasContentValue(noteText);
+      setTextOrClear(labelId, hasValue || hasNote ? labelText : "");
+      setTextOrClear(valueId, valueText);
+      if (noteId) {
+        setTextOrHide(noteId, noteText);
+      }
+      setHidden(itemId, !(hasValue || hasNote));
+    }
+
+    function applyLinkBehavior(el, href) {
+      if (!el) return;
+      if (href && href.startsWith("#")) {
+        el.removeAttribute("target");
+        el.removeAttribute("rel");
+      } else {
+        el.target = "_blank";
+        el.rel = "noopener noreferrer";
+      }
+    }
+
+    function setButtonVisibility(id, href) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      if (!hasContentValue(href) || href === "#") {
+        el.classList.add("hidden");
+        el.removeAttribute("href");
+        el.removeAttribute("target");
+        el.removeAttribute("rel");
+      } else {
+        el.classList.remove("hidden");
+        el.href = href;
+        applyLinkBehavior(el, href);
+      }
+    }
+
+    function updateInfoCardVisibility() {
+      const itemIds = [
+        "address-item",
+        "checkin-item",
+        "checkout-item",
+        "wifi-item",
+        "contact-item",
+        "parking-item"
+      ];
+      const hasVisibleItems = itemIds.some(id => {
+        const el = document.getElementById(id);
+        return el && !el.classList.contains("hidden");
+      });
+      setHidden("info-card", !hasVisibleItems);
+    }
+
+    function updateDocsGridVisibility() {
+      const docsGrid = document.getElementById("docs-grid");
+      if (!docsGrid) return;
+      const hasVisibleButtons = Array.from(docsGrid.querySelectorAll(".doc-btn")).some(btn => !btn.classList.contains("hidden"));
+      setHidden("docs-grid", !hasVisibleButtons);
+    }
+
+    function setTutorialItem(itemId, titleId, textId, buttonId, title, text, buttonLabel, href) {
+      const hasText = hasContentValue(text);
+      const hasButton = hasContentValue(href);
+      const hasContent = hasText || hasButton;
+      setTextOrClear(titleId, hasContent ? title : "");
+      setTextOrClear(textId, text);
+      setText(buttonId, buttonLabel || "");
+      setButtonVisibility(buttonId, href || "");
+      setHidden(itemId, !hasContent);
+    }
+
+    function updateTutorialsCardVisibility() {
+      const itemIds = [
+        "tutorial-alarm-inside-item",
+        "tutorial-alarm-exit-item",
+        "tutorial-alarm-return-item",
+        "tutorial-shutters-item",
+        "tutorial-bins-item"
+      ];
+      const hasVisibleItems = itemIds.some(id => {
+        const el = document.getElementById(id);
+        return el && !el.classList.contains("hidden");
+      });
+      setHidden("tutorials-card", !hasVisibleItems);
+    }
+
+    function setLanguage(lang) {
+      const t = CONTENT[lang] || CONTENT.it;
+      const safeDocuments = PROPERTY.documents || {};
+      const safeTutorials = PROPERTY.tutorials || {};
+      const safeNumbers = PROPERTY.usefulNumbers || {};
+      const coverImage = document.getElementById("cover-image");
+
+      document.documentElement.lang = lang;
+      document.title = `${PROPERTY.apartmentName || t.pageTitle} - ${t.pageTitle}`;
+
+      if (coverImage) {
+        if (hasContentValue(PROPERTY.coverImage)) {
+          coverImage.src = PROPERTY.coverImage;
+          coverImage.alt = PROPERTY.apartmentName || t.pageTitle;
+          coverImage.classList.remove("hidden");
+        } else {
+          coverImage.removeAttribute("src");
+          coverImage.alt = "";
+          coverImage.classList.add("hidden");
+        }
+      }
+
+      setText("apartment-name", PROPERTY.apartmentName);
+      setText("subtitle-1", t.subtitle1);
+      setText("subtitle-2", t.subtitle2);
+
+      setText("map-btn", t.mapBtn);
+      setButtonVisibility("map-btn", PROPERTY.mapsUrl || "");
+      setText("whatsapp-btn", t.whatsappBtn);
+      setButtonVisibility("whatsapp-btn", PROPERTY.whatsappUrl || "");
+
+      const rulesDoc = getDocumentForLang(safeDocuments.rules, lang);
+      const petDoc = getDocumentForLang(safeDocuments.pet, lang);
+      setText("rules-btn", t.rulesBtn);
+      setButtonVisibility("rules-btn", rulesDoc);
+      setText("pet-btn", t.petBtn);
+      setButtonVisibility("pet-btn", petDoc);
+      updateDocsGridVisibility();
+
+      const wifiPasswordText = hasContentValue(PROPERTY.wifiPassword) ? `${t.wifiPasswordLabel}: ${PROPERTY.wifiPassword}` : "";
+      setInfoItemVisibility("address-item", "label-address", "address-value", t.labelAddress, PROPERTY.address);
+      setInfoItemVisibility("checkin-item", "label-checkin", "checkin-value", t.labelCheckin, PROPERTY.checkin);
+      setInfoItemVisibility("checkout-item", "label-checkout", "checkout-value", t.labelCheckout, PROPERTY.checkout);
+      setInfoItemVisibility("wifi-item", "label-wifi", "wifi-name", t.wifiLabel, PROPERTY.wifiName, "wifi-password", wifiPasswordText);
+      setInfoItemVisibility("contact-item", "label-contact", "contact-value", t.labelContact, PROPERTY.whatsappDisplay, "contact-note", t.contactNote);
+      setInfoItemVisibility("parking-item", "label-parking", "parking-short", t.labelParking, t.parkingShort);
+      updateInfoCardVisibility();
+
+      const hasAccessContent = hasContentValue(t.accessText) || hasContentValue(t.accessNote);
+      setTextOrClear("access-title", hasAccessContent ? t.accessTitle : "");
+      setTextOrClear("access-text", t.accessText);
+      setTextOrHide("access-note", t.accessNote);
+      setHidden("access-card", !hasAccessContent);
+
+      setTextOrClear("tutorials-title", t.tutorialsTitle);
+      setTutorialItem("tutorial-alarm-inside-item", "tutorial-alarm-inside-title", "tutorial-alarm-inside-text", "tutorial-alarm-inside-btn", t.tutorialAlarmInsideTitle, t.tutorialAlarmInsideText, t.tutorialBtn, safeTutorials.alarmInsideVideo);
+      setTutorialItem("tutorial-alarm-exit-item", "tutorial-alarm-exit-title", "tutorial-alarm-exit-text", "tutorial-alarm-exit-btn", t.tutorialAlarmExitTitle, t.tutorialAlarmExitText, t.tutorialBtn, safeTutorials.alarmExitVideo);
+      setTutorialItem("tutorial-alarm-return-item", "tutorial-alarm-return-title", "tutorial-alarm-return-text", "tutorial-alarm-return-btn", t.tutorialAlarmReturnTitle, t.tutorialAlarmReturnText, t.tutorialBtn, safeTutorials.alarmReturnVideo);
+      setTutorialItem("tutorial-shutters-item", "tutorial-shutters-title", "tutorial-shutters-text", "tutorial-shutters-btn", t.tutorialShuttersTitle, t.tutorialShuttersText, t.tutorialBtn, safeTutorials.shuttersVideo);
+      setTutorialItem("tutorial-bins-item", "tutorial-bins-title", "tutorial-bins-text", "tutorial-bins-btn", t.tutorialBinsTitle, t.tutorialBinsText, t.tutorialBtn, safeTutorials.binsVideo);
+      updateTutorialsCardVisibility();
+
+      const hasRulesContent = hasContentArray(t.rulesList);
+      setTextOrClear("rules-title", hasRulesContent ? t.rulesTitle : "");
+      renderList("rules-list", hasRulesContent ? t.rulesList : []);
+      setHidden("rules-card", !hasRulesContent);
+
+      const hasPetRules = hasContentArray(t.petRulesList) || hasContentValue(t.petRulesIntro);
+      setTextOrClear("pet-rules-title", hasPetRules ? t.petRulesTitle : "");
+      setTextOrClear("pet-rules-intro", t.petRulesIntro);
+      renderList("pet-rules-list", hasPetRules ? t.petRulesList : []);
+      setHidden("pet-rules-card", !hasPetRules);
+
+      const hasWasteContent = hasContentValue(t.wasteText) || hasContentValue(t.wasteNote);
+      setTextOrClear("waste-title", hasWasteContent ? t.wasteTitle : "");
+      setTextOrClear("waste-text", t.wasteText);
+      setTextOrHide("waste-note", t.wasteNote);
+      setHidden("waste-card", !hasWasteContent);
+
+      setTextOrClear("useful-numbers-title", t.usefulNumbersTitle);
+      setTextOrClear("emergency-title", t.emergencyTitle);
+      setTextOrClear("emergency-112", safeNumbers.emergency112);
+      setTextOrClear("emergency-118", safeNumbers.emergency118);
+      setTextOrClear("emergency-115", safeNumbers.emergency115);
+      setTextOrClear("taxi-title", t.taxiTitle);
+      setTextOrClear("taxi-phone-text", safeNumbers.taxiPhoneDisplay);
+      setTextOrClear("taxi-whatsapp-text", safeNumbers.taxiWhatsappDisplay);
+      setText("taxi-call-btn", t.taxiCallBtn);
+      setText("taxi-wa-btn", t.taxiWaBtn);
+      setButtonVisibility("taxi-call-btn", safeNumbers.taxiPhoneHref);
+      setButtonVisibility("taxi-wa-btn", safeNumbers.taxiWhatsappHref);
+
+      const hasCheckoutContent = hasContentArray(t.checkoutList);
+      setTextOrClear("checkout-title", hasCheckoutContent ? t.checkoutTitle : "");
+      renderList("checkout-list", hasCheckoutContent ? t.checkoutList : []);
+      setHidden("checkout-card", !hasCheckoutContent);
+
+      const hasBreakfast = hasContentArray(t.breakfastList);
+      const hasAperitivo = hasContentArray(t.aperitivoList);
+      const hasRestaurants = hasContentArray(t.restaurantsList);
+
+      if (hasBreakfast || hasAperitivo || hasRestaurants) {
+        setHidden("suggestions-card", false);
+        setText("suggestions-title", t.suggestionsTitle);
+
+        if (hasBreakfast) {
+          setHidden("breakfast-block", false);
+          setText("breakfast-title", t.breakfastTitle);
+          renderList("breakfast-list", t.breakfastList);
+        } else {
+          setHidden("breakfast-block", true);
+          renderList("breakfast-list", []);
+        }
+
+        if (hasAperitivo) {
+          setHidden("aperitivo-block", false);
+          setText("aperitivo-title", t.aperitivoTitle);
+          renderList("aperitivo-list", t.aperitivoList);
+        } else {
+          setHidden("aperitivo-block", true);
+          renderList("aperitivo-list", []);
+        }
+
+        if (hasRestaurants) {
+          setHidden("restaurants-block", false);
+          setText("restaurants-title", t.restaurantsTitle);
+          renderList("restaurants-list", t.restaurantsList);
+        } else {
+          setHidden("restaurants-block", true);
+          renderList("restaurants-list", []);
+        }
+      } else {
+        setHidden("suggestions-card", true);
+      }
+
+      const hasCoordinates = hasContentValue(PROPERTY.coordinates);
+      const hasMapContent = hasContentValue(t.mapText) || hasCoordinates;
+      setTextOrClear("map-title", hasMapContent ? t.mapTitle : "");
+      setTextOrClear("map-text", t.mapText);
+      setTextOrClear("coords-label", hasCoordinates ? t.coordsLabel : "");
+      setTextOrClear("coords-value", PROPERTY.coordinates);
+      setHidden("coords-row", !hasCoordinates);
+      setHidden("map-card", !hasMapContent);
+
+      setText("footer-text", t.footerText);
+
+      document.querySelectorAll(".lang-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.lang === lang);
+      });
+
+      try {
+        localStorage.setItem("guestGuideLang", lang);
+      } catch (e) {}
+    }
+
+    document.querySelectorAll(".lang-btn").forEach(btn => {
+      btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
+    });
+
+    let savedLang = "it";
+    try {
+      savedLang = localStorage.getItem("guestGuideLang") || "it";
+    } catch (e) {}
+
+    setLanguage(savedLang);
+  </script>
+</body>
+</html>
