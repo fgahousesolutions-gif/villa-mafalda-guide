@@ -281,11 +281,39 @@
       background: rgba(255, 255, 255, 0.38);
     }
 
-    .footer {
+    .ecosystem-card {
       text-align: center;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    }
+
+    .ecosystem-kicker {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid #fed7aa;
+      background: #fff7ed;
+      color: #9a3412;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .ecosystem-title {
+      margin-bottom: 12px;
+    }
+
+    .ecosystem-text {
+      max-width: 640px;
+      margin: 0 auto 18px;
       color: var(--muted);
-      font-size: 14px;
-      padding: 8px 0 24px;
+      font-size: 16px;
+    }
+
+    .ecosystem-actions {
+      max-width: 360px;
+      margin: 0 auto;
     }
 
     @media (max-width: 900px) {
@@ -512,13 +540,14 @@
       </div>
     </section>
 
-    <section class="card" id="map-card">
-      <h2 id="map-title"></h2>
-      <p id="map-text"></p>
-      <p id="coords-row"><strong id="coords-label"></strong> <span id="coords-value"></span></p>
+    <section class="card ecosystem-card" id="ecosystem-card">
+      <div class="ecosystem-kicker" id="ecosystem-kicker"></div>
+      <h2 class="ecosystem-title" id="ecosystem-title"></h2>
+      <p class="ecosystem-text" id="ecosystem-text"></p>
+      <div class="ecosystem-actions">
+        <a class="action-btn" id="ecosystem-btn" href="https://ecosistema-fga.fgahousesolutions.workers.dev/#structures" target="_blank" rel="noopener noreferrer"></a>
+      </div>
     </section>
-
-    <div class="footer" id="footer-text"></div>
   </div>
 
   <script>
@@ -527,8 +556,8 @@
       coverImage: "cover-villa-mafalda.jpg",
       mapsUrl: "https://maps.app.goo.gl/CFwn7gJB5hxyGY5K9",
       coordinates: "",
-      whatsappUrl: "https://wa.me/393200788089",
-      whatsappDisplay: "+39 320 078 8089",
+      whatsappUrl: "https://wa.me/393349946334",
+      whatsappDisplay: "chat libera",
       address: "Via Castello 14/2, 41056 Savignano sul Panaro, Modena (MO) Emilia-Romagna",
       checkin: "16:00",
       checkout: "11:00",
@@ -653,10 +682,10 @@
           "Locanda del Feudo - Castelvetro, ristorante nel borgo medievale.",
           "Agriturismo La Lupa - Castelvetro, agriturismo con cucina tipica."
         ],
-        mapTitle: "🗺️ Mappa",
-        mapText: "Apri la posizione della Villa su Google Maps per raggiungerla facilmente.",
-        coordsLabel: "Coordinate:",
-        footerText: "Buon soggiorno a Villa Mafalda"
+        ecosystemKicker: "FGA House Solutions",
+        ecosystemTitle: "Scopri l’Ecosistema FGA",
+        ecosystemText: "Esperienze diverse, un unico stile di accoglienza. Se stai gia pensando al tuo prossimo viaggio, puoi esplorare le altre strutture FGA attualmente disponibili.",
+        ecosystemBtn: "Scopri il tuo prossimo soggiorno"
       },
       en: {
         pageTitle: "Guest Guide",
@@ -750,10 +779,10 @@
           "Locanda del Feudo - Castelvetro, restaurant in the medieval village.",
           "Agriturismo La Lupa - Castelvetro, farmhouse restaurant with traditional cuisine."
         ],
-        mapTitle: "🗺️ Map",
-        mapText: "Open the Villa location on Google Maps to reach it easily.",
-        coordsLabel: "Coordinates:",
-        footerText: "Enjoy your stay at Villa Mafalda"
+        ecosystemKicker: "FGA House Solutions",
+        ecosystemTitle: "Discover the FGA Ecosystem",
+        ecosystemText: "Different stays, one shared style of hospitality. If you are already thinking about your next trip, you can explore the other FGA properties currently available.",
+        ecosystemBtn: "Discover your next stay"
       },
       de: {
         pageTitle: "Gästeführer",
@@ -847,10 +876,10 @@
           "Locanda del Feudo - Castelvetro, Restaurant im mittelalterlichen Dorf.",
           "Agriturismo La Lupa - Castelvetro, Landgasthof mit typischer Küche."
         ],
-        mapTitle: "🗺️ Karte",
-        mapText: "Öffnen Sie den Standort der Villa in Google Maps, um sie ganz einfach zu erreichen.",
-        coordsLabel: "Koordinaten:",
-        footerText: "Schönen Aufenthalt in der Villa Mafalda"
+        ecosystemKicker: "FGA House Solutions",
+        ecosystemTitle: "Entdecke das FGA-Ökosystem",
+        ecosystemText: "Unterschiedliche Aufenthalte, ein gemeinsamer Stil der Gastfreundschaft. Wenn du schon an deine nächste Reise denkst, kannst du die weiteren derzeit verfügbaren FGA-Unterkünfte entdecken.",
+        ecosystemBtn: "Entdecke deinen nächsten Aufenthalt"
       },
       fr: {
         pageTitle: "Guide des voyageurs",
@@ -944,10 +973,10 @@
           "Locanda del Feudo - Castelvetro, restaurant dans le bourg médiéval.",
           "Agriturismo La Lupa - Castelvetro, agritourisme avec cuisine typique."
         ],
-        mapTitle: "🗺️ Carte",
-        mapText: "Ouvrez l'emplacement de la villa sur Google Maps pour y arriver facilement.",
-        coordsLabel: "Coordonnées :",
-        footerText: "Bon séjour à Villa Mafalda"
+        ecosystemKicker: "FGA House Solutions",
+        ecosystemTitle: "Découvrir l’Écosystème FGA",
+        ecosystemText: "Des séjours différents, un même style d’accueil. Si vous pensez déjà à votre prochain voyage, vous pouvez explorer les autres hébergements FGA actuellement disponibles.",
+        ecosystemBtn: "Découvrir votre prochain séjour"
       },
       es: {
         pageTitle: "Guía para huéspedes",
@@ -1041,10 +1070,10 @@
           "Locanda del Feudo - Castelvetro, restaurante en el pueblo medieval.",
           "Agriturismo La Lupa - Castelvetro, agriturismo con cocina típica."
         ],
-        mapTitle: "🗺️ Mapa",
-        mapText: "Abra la ubicación de la villa en Google Maps para llegar fácilmente.",
-        coordsLabel: "Coordenadas:",
-        footerText: "Disfruten de su estancia en Villa Mafalda"
+        ecosystemKicker: "FGA House Solutions",
+        ecosystemTitle: "Descubre el Ecosistema FGA",
+        ecosystemText: "Experiencias diferentes, un mismo estilo de hospitalidad. Si ya estás pensando en tu próximo viaje, puedes explorar las otras propiedades FGA actualmente disponibles.",
+        ecosystemBtn: "Descubre tu próxima estancia"
       }
     };
 
@@ -1320,16 +1349,10 @@
         setHidden("suggestions-card", true);
       }
 
-      const hasCoordinates = hasContentValue(PROPERTY.coordinates);
-      const hasMapContent = hasContentValue(t.mapText) || hasCoordinates;
-      setTextOrClear("map-title", hasMapContent ? t.mapTitle : "");
-      setTextOrClear("map-text", t.mapText);
-      setTextOrClear("coords-label", hasCoordinates ? t.coordsLabel : "");
-      setTextOrClear("coords-value", PROPERTY.coordinates);
-      setHidden("coords-row", !hasCoordinates);
-      setHidden("map-card", !hasMapContent);
-
-      setText("footer-text", t.footerText);
+      setText("ecosystem-kicker", t.ecosystemKicker);
+      setText("ecosystem-title", t.ecosystemTitle);
+      setText("ecosystem-text", t.ecosystemText);
+      setText("ecosystem-btn", t.ecosystemBtn);
 
       document.querySelectorAll(".lang-btn").forEach(btn => {
         btn.classList.toggle("active", btn.dataset.lang === lang);
