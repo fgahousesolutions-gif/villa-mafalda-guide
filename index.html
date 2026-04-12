@@ -242,6 +242,22 @@
       white-space: pre-line;
     }
 
+    .discover-more-card {
+      background:
+        linear-gradient(135deg, rgba(199, 219, 255, 0.3), rgba(255, 245, 232, 0.85)),
+        var(--card);
+    }
+
+    .discover-more-text {
+      margin-bottom: 18px;
+    }
+
+    .discover-more-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
     .tutorial-grid {
       display: grid;
       gap: 20px;
@@ -551,6 +567,15 @@
       </div>
     </section>
 
+    <section class="card discover-more-card" id="discover-more-card">
+      <h2 id="discover-more-title"></h2>
+      <p class="discover-more-text" id="discover-more-text"></p>
+      <div class="discover-more-actions">
+        <a class="action-btn" id="discover-modena-btn" href="https://www.visitmodena.it/it/eventi" target="_blank" rel="noopener noreferrer"></a>
+        <a class="action-btn" id="discover-bologna-btn" href="https://www.bolognawelcome.com/it/eventi" target="_blank" rel="noopener noreferrer"></a>
+      </div>
+    </section>
+
     <section class="card ecosystem-card" id="ecosystem-card">
       <div class="ecosystem-kicker" id="ecosystem-kicker"></div>
       <h2 class="ecosystem-title" id="ecosystem-title"></h2>
@@ -693,6 +718,10 @@
           "Locanda del Feudo - Castelvetro, ristorante nel borgo medievale.",
           "Agriturismo La Lupa - Castelvetro, agriturismo con cucina tipica."
         ],
+        discoverMoreTitle: "✨ Altri punti d'interesse e cose da fare",
+        discoverMoreText: "Se vuoi arricchire il soggiorno con una gita, una mostra o un evento speciale, qui trovi due riferimenti ufficiali molto utili per scoprire cosa succede tra Modena e Bologna.",
+        discoverModenaBtn: "Eventi Modena",
+        discoverBolognaBtn: "Eventi Bologna",
         ecosystemKicker: "FGA House Solutions",
         ecosystemTitle: "Scopri l’Ecosistema FGA",
         ecosystemText: "Esperienze diverse, un unico stile di accoglienza. Se stai gia pensando al tuo prossimo viaggio, puoi esplorare le altre strutture FGA attualmente disponibili.",
@@ -790,6 +819,10 @@
           "Locanda del Feudo - Castelvetro, restaurant in the medieval village.",
           "Agriturismo La Lupa - Castelvetro, farmhouse restaurant with traditional cuisine."
         ],
+        discoverMoreTitle: "✨ More places to explore and things to do",
+        discoverMoreText: "If you would like to add a day trip, an exhibition or a special event to your stay, these official websites are a great starting point for discovering what is happening in Modena and Bologna.",
+        discoverModenaBtn: "Modena events",
+        discoverBolognaBtn: "Bologna events",
         ecosystemKicker: "FGA House Solutions",
         ecosystemTitle: "Discover the FGA Ecosystem",
         ecosystemText: "Different stays, one shared style of hospitality. If you are already thinking about your next trip, you can explore the other FGA properties currently available.",
@@ -887,6 +920,10 @@
           "Locanda del Feudo - Castelvetro, Restaurant im mittelalterlichen Dorf.",
           "Agriturismo La Lupa - Castelvetro, Landgasthof mit typischer Küche."
         ],
+        discoverMoreTitle: "✨ Weitere Ausflugsziele und Unternehmungen",
+        discoverMoreText: "Wenn du deinen Aufenthalt mit einem Ausflug, einer Ausstellung oder einer besonderen Veranstaltung bereichern möchtest, findest du hier zwei offizielle Seiten mit Ideen für Modena und Bologna.",
+        discoverModenaBtn: "Events Modena",
+        discoverBolognaBtn: "Events Bologna",
         ecosystemKicker: "FGA House Solutions",
         ecosystemTitle: "Entdecke das FGA-Ökosystem",
         ecosystemText: "Unterschiedliche Aufenthalte, ein gemeinsamer Stil der Gastfreundschaft. Wenn du schon an deine nächste Reise denkst, kannst du die weiteren derzeit verfügbaren FGA-Unterkünfte entdecken.",
@@ -984,6 +1021,10 @@
           "Locanda del Feudo - Castelvetro, restaurant dans le bourg médiéval.",
           "Agriturismo La Lupa - Castelvetro, agritourisme avec cuisine typique."
         ],
+        discoverMoreTitle: "✨ Autres lieux d'intérêt et choses à faire",
+        discoverMoreText: "Si vous souhaitez enrichir votre séjour avec une excursion, une exposition ou un événement spécial, ces deux sites officiels sont parfaits pour découvrir ce qui se passe à Modène et à Bologne.",
+        discoverModenaBtn: "Événements Modène",
+        discoverBolognaBtn: "Événements Bologne",
         ecosystemKicker: "FGA House Solutions",
         ecosystemTitle: "Découvrir l’Écosystème FGA",
         ecosystemText: "Des séjours différents, un même style d’accueil. Si vous pensez déjà à votre prochain voyage, vous pouvez explorer les autres hébergements FGA actuellement disponibles.",
@@ -1081,6 +1122,10 @@
           "Locanda del Feudo - Castelvetro, restaurante en el pueblo medieval.",
           "Agriturismo La Lupa - Castelvetro, agriturismo con cocina típica."
         ],
+        discoverMoreTitle: "✨ Otros puntos de interés y cosas que hacer",
+        discoverMoreText: "Si quieren enriquecer la estancia con una excursión, una exposición o un evento especial, aquí tienen dos referencias oficiales muy útiles para descubrir qué ocurre entre Módena y Bolonia.",
+        discoverModenaBtn: "Eventos Módena",
+        discoverBolognaBtn: "Eventos Bolonia",
         ecosystemKicker: "FGA House Solutions",
         ecosystemTitle: "Descubre el Ecosistema FGA",
         ecosystemText: "Experiencias diferentes, un mismo estilo de hospitalidad. Si ya estás pensando en tu próximo viaje, puedes explorar las otras propiedades FGA actualmente disponibles.",
@@ -1359,6 +1404,15 @@
       } else {
         setHidden("suggestions-card", true);
       }
+
+      const hasDiscoverMoreContent = hasContentValue(t.discoverMoreTitle) || hasContentValue(t.discoverMoreText);
+      setTextOrClear("discover-more-title", hasDiscoverMoreContent ? t.discoverMoreTitle : "");
+      setTextOrClear("discover-more-text", t.discoverMoreText);
+      setText("discover-modena-btn", t.discoverModenaBtn);
+      setText("discover-bologna-btn", t.discoverBolognaBtn);
+      setButtonVisibility("discover-modena-btn", "https://www.visitmodena.it/it/eventi");
+      setButtonVisibility("discover-bologna-btn", "https://www.bolognawelcome.com/it/eventi");
+      setHidden("discover-more-card", !hasDiscoverMoreContent);
 
       setText("ecosystem-kicker", t.ecosystemKicker);
       setText("ecosystem-title", t.ecosystemTitle);
