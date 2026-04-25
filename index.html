@@ -256,6 +256,53 @@
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .feature-panel {
+      margin-top: 20px;
+      padding: 20px;
+      border: 1px solid rgba(39, 52, 84, 0.14);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.55);
+    }
+
+    .feature-title {
+      margin: 0 0 10px;
+      font-size: 20px;
+    }
+
+    .feature-text {
+      margin: 0 0 18px;
+    }
+
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .guide-figure {
+      margin: 0;
+    }
+
+    .guide-photo {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 420px;
+      object-fit: contain;
+      object-position: center;
+      border-radius: 18px;
+      border: 0;
+      background: transparent;
+    }
+
+    .guide-caption {
+      margin-top: 8px;
+      font-size: 14px;
+      color: var(--muted);
     }
 
     .tutorial-grid {
@@ -346,7 +393,8 @@
     @media (max-width: 900px) {
       .info-grid,
       .useful-grid,
-      .tips-grid {
+      .tips-grid,
+      .media-grid {
         grid-template-columns: 1fr;
         gap: 24px;
       }
@@ -465,6 +513,20 @@
     <section class="card" id="access-card">
       <h2 id="access-title"></h2>
       <p id="access-text"></p>
+      <div class="feature-panel" id="access-keybox-panel">
+        <h3 class="feature-title" id="access-keybox-title"></h3>
+        <p class="feature-text multiline-text" id="access-keybox-text"></p>
+        <div class="media-grid">
+          <figure class="guide-figure" id="access-keybox-wide-figure">
+            <img class="guide-photo" id="access-keybox-wide-image" src="" alt="">
+            <figcaption class="guide-caption" id="access-keybox-wide-caption"></figcaption>
+          </figure>
+          <figure class="guide-figure" id="access-keybox-detail-figure">
+            <img class="guide-photo" id="access-keybox-detail-image" src="" alt="">
+            <figcaption class="guide-caption" id="access-keybox-detail-caption"></figcaption>
+          </figure>
+        </div>
+      </div>
       <p class="muted" id="access-note"></p>
     </section>
 
@@ -487,6 +549,21 @@
           <h3 id="tutorial-alarm-return-title"></h3>
           <p class="tutorial-text multiline-text" id="tutorial-alarm-return-text"></p>
           <a class="tutorial-btn" id="tutorial-alarm-return-btn" href="#"></a>
+        </div>
+
+        <div class="tutorial-item" id="tutorial-gate-item">
+          <h3 id="tutorial-gate-title"></h3>
+          <p class="tutorial-text multiline-text" id="tutorial-gate-text"></p>
+          <div class="media-grid">
+            <figure class="guide-figure" id="tutorial-gate-wide-figure">
+              <img class="guide-photo" id="tutorial-gate-wide-image" src="" alt="">
+              <figcaption class="guide-caption" id="tutorial-gate-wide-caption"></figcaption>
+            </figure>
+            <figure class="guide-figure" id="tutorial-gate-detail-figure">
+              <img class="guide-photo" id="tutorial-gate-detail-image" src="" alt="">
+              <figcaption class="guide-caption" id="tutorial-gate-detail-caption"></figcaption>
+            </figure>
+          </div>
         </div>
 
         <div class="tutorial-item" id="tutorial-shutters-item">
@@ -614,6 +691,12 @@
         shuttersVideo: "villa-mafalda-tutorial-scuri-finestre.mp4",
         binsVideo: "villa-mafalda-tutorial-bidoni-esterni.mp4"
       },
+      guideImages: {
+        keyboxWideImage: "villa-mafalda-keybox-ingresso.jpeg",
+        keyboxDetailImage: "villa-mafalda-keybox-dettaglio.jpeg",
+        gateWideImage: "villa-mafalda-cancello-interno.jpeg",
+        gateDetailImage: "villa-mafalda-cancello-dettaglio.jpeg"
+      },
       usefulNumbers: {
         emergency112: "112 - Emergenze",
         emergency118: "118 - Emergenza sanitaria",
@@ -646,6 +729,10 @@
         parkingShort: "Interno alla villa, possibilita di parcheggio coperto o garage.",
         accessTitle: "🗝️ Accesso",
         accessText: "Arrivati a Villa Mafalda sarete accolti da Host che vi consegnera le chiavi e vi dara accesso alla struttura spiegando alcune funzionalita che troverete comunque in questa guida.",
+        accessKeyboxTitle: "🔑 Keybox e chiavi",
+        accessKeyboxText: "All'esterno della porta principale e presente una keybox per il ritiro o la riconsegna delle chiavi, da utilizzare se l'Host non e disponibile di persona al check-in oppure al momento del check-out.\nLe istruzioni e l'eventuale codice della keybox verranno comunicati direttamente dall'Host.\n\nPer l'utilizzo del cancello automatico, consultare il tutorial dedicato qui sotto.",
+        accessKeyboxWideCaption: "Ingresso principale con keybox posizionata sul lato sinistro della porta.",
+        accessKeyboxDetailCaption: "Dettaglio della keybox esterna.",
         accessNote: "PROMEMORIA IMPORTANTE:\nLa piscina e accessibile e utilizzabile esclusivamente nel periodo primavera/estate, come comunicato dall'Host in fase di richiesta di prenotazione.\n\nOgni martedi, nel periodo primavera/estate, dalle 13:30 alle 17:30, saranno presenti i giardinieri per la manutenzione del verde. La privacy degli ospiti sara comunque mantenuta.",
         tutorialsTitle: "🎥 Tutorial e istruzioni",
         tutorialAlarmInsideTitle: "🔐 Inserimento e disinserimento allarme da dentro casa",
@@ -654,6 +741,10 @@
         tutorialAlarmExitText: "Quando si esce di casa:\nAll'esterno di ogni porta d'entrata c'e un lettore.\n\nPer inserire l'allarme:\nAssicurarsi che tutte le porte e gli scuri delle finestre siano chiusi nel modo corretto (vedi video chiusura corretta scuri di portefinestre).\nAvvicinare la parte bianca del dispositivo blu, fornito nel portachiavi di casa, al lettore.\nQuando la luce del lettore si accende, allontanare il dispositivo.\nLuci lettore verde e rossa accese = ALLARME INSERITO.",
         tutorialAlarmReturnTitle: "🏠 Disinserimento allarme quando si rientra a casa",
         tutorialAlarmReturnText: "Quando si rientra a casa:\n\nPer disinserire l'allarme:\nAppoggiare la parte bianca del dispositivo blu al lettore.\nQuando la luce del lettore si spegne, allontanare il dispositivo.\nLuci lettore spente = ALLARME DISINSERITO.\nSolo ora si potra procedere ad aprire la porta di casa.",
+        tutorialGateTitle: "🚪 Apertura cancello automatico",
+        tutorialGateText: "All'interno della proprieta e presente una colonnina con chiave per l'apertura del cancello automatico dall'interno.\n\nPer aprire il cancello:\n1. inserire la chiave nella colonnina dedicata;\n2. ruotare la chiave per attivare l'apertura;\n3. attendere l'apertura completa del cancello prima di transitare.\n\nDopo il passaggio, verificare sempre che il cancello si richiuda correttamente.",
+        tutorialGateWideCaption: "Vista della colonnina interna in prossimita del cancello.",
+        tutorialGateDetailCaption: "Dettaglio della serratura da utilizzare per l'apertura.",
         tutorialShuttersTitle: "🪟 Chiusura corretta degli scuri delle portefinestre",
         tutorialShuttersText: "Per favore assicurarsi di chiudere gli scuri delle portefinestre rispettando la seguente modalita:\npremurandosi di abbassare anche i catenacci a terra, o lo scuro sara facilmente apribile dall'esterno.",
         tutorialBinsTitle: "🗑️ Posizione bidoni esterni",
@@ -700,7 +791,7 @@
           "Gli asciugamani e le lenzuola usate possono restare nelle stanze e nei bagni; il personale di servizio provvedera al ritiro.",
           "Spegnere tutti gli elettrodomestici e le luci accese.",
           "Chiudere tutte le porte.",
-          "Accordarsi con Host per la consegna delle chiavi.",
+          "Se concordato con l'Host, lasciare le chiavi nella keybox esterna seguendo le istruzioni ricevute.",
           "Portare la spazzatura residua negli appositi contenitori esterni."
         ],
         suggestionsTitle: "🍽️ Suggerimenti in zona",
@@ -747,6 +838,10 @@
         parkingShort: "Inside the villa, covered parking or garage available.",
         accessTitle: "🗝️ Access",
         accessText: "Upon arrival at Villa Mafalda, you will be welcomed by the Host, who will hand over the keys and give you access to the property, explaining some features that you will also find in this guide.",
+        accessKeyboxTitle: "🔑 Keybox and keys",
+        accessKeyboxText: "Outside the main entrance door there is a keybox for key collection or return, to be used if the Host is not personally available at check-in or check-out.\nInstructions and the keybox code, if needed, will be provided directly by the Host.\n\nFor the automatic gate, please refer to the dedicated tutorial below.",
+        accessKeyboxWideCaption: "Main entrance with the keybox positioned on the left side of the door.",
+        accessKeyboxDetailCaption: "Close-up of the outdoor keybox.",
         accessNote: "IMPORTANT NOTICE:\nThe swimming pool is accessible and usable only during the spring/summer season, as communicated by the Host during the booking request phase.\n\nEvery Tuesday, during the spring/summer season, from 13:30 to 17:30, gardeners will be present for green area maintenance. Guests' privacy will still be respected.",
         tutorialsTitle: "🎥 Tutorials and instructions",
         tutorialAlarmInsideTitle: "🔐 Arm and disarm the alarm from inside the house",
@@ -755,6 +850,10 @@
         tutorialAlarmExitText: "When leaving the house:\nOutside each entrance door, there is a reader.\n\nTo arm the alarm:\nMake sure that all doors and window shutters are properly closed (please refer to the video on how to correctly close the French window shutters).\nHold the white side of the blue device, provided on the house keyring, close to the reader.\nWhen the reader light turns on, move the device away.\nGreen and red lights on the reader illuminated = ALARM ARMED.",
         tutorialAlarmReturnTitle: "🏠 Disarm the alarm when returning home",
         tutorialAlarmReturnText: "When returning to the house:\n\nTo disarm the alarm:\nPlace the white side of the blue device against the reader.\nWhen the reader light turns off, move the device away.\nReader lights off = ALARM DISARMED.\nOnly at this point should you proceed to open the entrance door.",
+        tutorialGateTitle: "🚪 Opening the automatic gate",
+        tutorialGateText: "Inside the property there is a keyed post used to open the automatic gate from the inside.\n\nTo open the gate:\n1. insert the key into the dedicated post;\n2. turn the key to activate the opening;\n3. wait until the gate is fully open before passing through.\n\nAfter passing through, always make sure the gate closes properly.",
+        tutorialGateWideCaption: "View of the internal post located near the gate.",
+        tutorialGateDetailCaption: "Close-up of the keyed lock used to open the gate.",
         tutorialShuttersTitle: "🪟 Correct closing of the French window shutters",
         tutorialShuttersText: "Please ensure that the French window shutters are closed in the following manner:\nmake sure to engage the bottom bolts into the ground, otherwise the shutters can be easily opened from the outside.",
         tutorialBinsTitle: "🗑️ Outdoor waste bins location",
@@ -801,7 +900,7 @@
           "Used towels and bed linen may remain in the rooms and bathrooms; the service staff will collect them.",
           "Switch off all appliances and any lights left on.",
           "Close all doors.",
-          "Arrange key handover with the Host.",
+          "If agreed with the Host, leave the keys in the outdoor keybox following the instructions received.",
           "Take any remaining waste to the outdoor bins."
         ],
         suggestionsTitle: "🍽️ Local suggestions",
@@ -848,6 +947,10 @@
         parkingShort: "Innerhalb der Villa, mit der Möglichkeit eines überdachten Stellplatzes oder einer Garage.",
         accessTitle: "🗝️ Zugang",
         accessText: "Bei Ihrer Ankunft in der Villa Mafalda werden Sie vom Host empfangen, der Ihnen die Schlüssel übergibt und Ihnen Zugang zur Unterkunft verschafft. Dabei erklärt er Ihnen einige Funktionen, die Sie auch in diesem Leitfaden finden.",
+        accessKeyboxTitle: "🔑 Schlusselbox und Schlussel",
+        accessKeyboxText: "Außerhalb der Haupteingangstur befindet sich eine Schlusselbox fur die Abholung oder Ruckgabe der Schlussel, falls der Host beim Check-in oder Check-out nicht personlich verfugbar ist.\nDie Anweisungen und der eventuelle Code der Schlusselbox werden Ihnen direkt vom Host mitgeteilt.\n\nFur das automatische Tor beachten Sie bitte das entsprechende Tutorial unten.",
+        accessKeyboxWideCaption: "Haupteingang mit der Schlusselbox links neben der Tur.",
+        accessKeyboxDetailCaption: "Detailansicht der außenliegenden Schlusselbox.",
         accessNote: "WICHTIGER HINWEIS:\nDer Pool ist nur im Fruhjahr/Sommer zuganglich und nutzbar, wie vom Host wahrend der Buchungsanfrage mitgeteilt.\n\nJeden Dienstag im Fruhjahr/Sommer sind von 13:30 bis 17:30 Gartner fur die Gartenpflege vor Ort. Die Privatsphare der Gaste bleibt dabei gewahrt.",
         tutorialsTitle: "🎥 Tutorials und Anleitungen",
         tutorialAlarmInsideTitle: "🔐 Alarm von innen aktivieren und deaktivieren",
@@ -856,6 +959,10 @@
         tutorialAlarmExitText: "Wenn Sie das Haus verlassen:\nAußerhalb jeder Eingangstür befindet sich ein Leser.\n\nZum Aktivieren des Alarms:\nStellen Sie sicher, dass alle Türen und Fensterverschläge korrekt geschlossen sind (siehe Video zur richtigen Schließung der Fenstertüren).\nHalten Sie die weiße Seite des blauen Geräts vom Schlüsselbund an den Leser.\nSobald die Leuchte des Lesers angeht, entfernen Sie das Gerät.\nGrünes und rotes Licht am Leser = ALARM AKTIVIERT.",
         tutorialAlarmReturnTitle: "🏠 Alarm deaktivieren, wenn Sie nach Hause zurückkehren",
         tutorialAlarmReturnText: "Wenn Sie ins Haus zurückkehren:\n\nZum Deaktivieren des Alarms:\nHalten Sie die weiße Seite des blauen Geräts an den Leser.\nWenn die Leuchte des Lesers ausgeht, entfernen Sie das Gerät.\nLichter am Leser aus = ALARM DEAKTIVIERT.\nErst jetzt sollten Sie die Eingangstür öffnen.",
+        tutorialGateTitle: "🚪 Automatisches Tor offnen",
+        tutorialGateText: "Innerhalb des Grundstucks befindet sich eine Schluesselsaule zum Offnen des automatischen Tores von innen.\n\nSo offnen Sie das Tor:\n1. den Schlussel in die dafur vorgesehene Saule stecken;\n2. den Schlussel drehen, um die Offnung zu aktivieren;\n3. warten, bis das Tor vollstandig geoffnet ist, bevor Sie hindurchgehen oder hindurchfahren.\n\nPrufen Sie nach dem Durchgang immer, dass sich das Tor wieder korrekt schließt.",
+        tutorialGateWideCaption: "Ansicht der inneren Schluesselsaule in der Nahe des Tores.",
+        tutorialGateDetailCaption: "Detail des Schlosses zum Offnen des Tores.",
         tutorialShuttersTitle: "🪟 Korrektes Schließen der Fensterverschläge",
         tutorialShuttersText: "Bitte achten Sie darauf, die Fensterverschläge folgendermaßen zu schließen:\nAchten Sie darauf, auch die Bodenriegel zu verriegeln, da die Verschläge sonst von außen leicht zu öffnen sind.",
         tutorialBinsTitle: "🗑️ Standort der Außenmülltonnen",
@@ -902,7 +1009,7 @@
           "Benutzte Handtücher und Bettwäsche können in den Zimmern und Bädern bleiben; das Servicepersonal kümmert sich um die Abholung.",
           "Schalten Sie alle Elektrogeräte und eingeschalteten Lichter aus.",
           "Schließen Sie alle Türen.",
-          "Vereinbaren Sie die Schlüsselübergabe mit dem Host.",
+          "Falls mit dem Host vereinbart, lassen Sie die Schlussel entsprechend den erhaltenen Anweisungen in der externen Schlusselbox.",
           "Bringen Sie den restlichen Müll zu den dafür vorgesehenen Außenbehältern."
         ],
         suggestionsTitle: "🍽️ Empfehlungen in der Umgebung",
@@ -949,6 +1056,10 @@
         parkingShort: "À l'intérieur de la villa, avec possibilité de parking couvert ou de garage.",
         accessTitle: "🗝️ Accès",
         accessText: "À votre arrivée à Villa Mafalda, vous serez accueilli par l'Host, qui vous remettra les clés et vous donnera accès à la propriété, en vous expliquant certaines fonctionnalités que vous retrouverez également dans ce guide.",
+        accessKeyboxTitle: "🔑 Keybox et cles",
+        accessKeyboxText: "A l'exterieur de la porte principale se trouve une keybox pour recuperer ou restituer les cles, a utiliser si l'Host n'est pas disponible en personne au check-in ou au check-out.\nLes instructions et l'eventuel code de la keybox seront communiques directement par l'Host.\n\nPour le portail automatique, veuillez consulter le tutoriel dedie ci-dessous.",
+        accessKeyboxWideCaption: "Entree principale avec la keybox placee sur le cote gauche de la porte.",
+        accessKeyboxDetailCaption: "Detail de la keybox exterieure.",
         accessNote: "INFORMATION IMPORTANTE :\nLa piscine est accessible et utilisable uniquement pendant la periode printemps/ete, comme communique par l'Host lors de la demande de reservation.\n\nChaque mardi, pendant la periode printemps/ete, de 13h30 a 17h30, des jardiniers seront presents pour l'entretien des espaces verts. L'intimite des voyageurs sera toutefois preservee.",
         tutorialsTitle: "🎥 Tutoriels et instructions",
         tutorialAlarmInsideTitle: "🔐 Activer et désactiver l'alarme depuis l'intérieur",
@@ -957,6 +1068,10 @@
         tutorialAlarmExitText: "Lorsque vous quittez la maison :\nÀ l'extérieur de chaque porte d'entrée se trouve un lecteur.\n\nPour activer l'alarme :\nAssurez-vous que toutes les portes et tous les volets des fenêtres sont correctement fermés (voir la vidéo sur la fermeture correcte des volets des portes-fenêtres).\nApprochez la partie blanche du dispositif bleu, fourni avec le porte-clés de la maison, du lecteur.\nLorsque la lumière du lecteur s'allume, éloignez le dispositif.\nVoyants vert et rouge allumés sur le lecteur = ALARME ACTIVÉE.",
         tutorialAlarmReturnTitle: "🏠 Désactiver l'alarme en rentrant à la maison",
         tutorialAlarmReturnText: "Lorsque vous rentrez à la maison :\n\nPour désactiver l'alarme :\nPlacez la partie blanche du dispositif bleu contre le lecteur.\nLorsque la lumière du lecteur s'éteint, éloignez le dispositif.\nVoyants du lecteur éteints = ALARME DÉSACTIVÉE.\nCe n'est qu'à ce moment-là que vous pourrez ouvrir la porte d'entrée.",
+        tutorialGateTitle: "🚪 Ouverture du portail automatique",
+        tutorialGateText: "A l'interieur de la propriete se trouve une borne a cle pour ouvrir le portail automatique depuis l'interieur.\n\nPour ouvrir le portail :\n1. inserer la cle dans la borne prevue a cet effet ;\n2. tourner la cle pour activer l'ouverture ;\n3. attendre l'ouverture complete du portail avant de passer.\n\nApres votre passage, verifiez toujours que le portail se referme correctement.",
+        tutorialGateWideCaption: "Vue de la borne interieure situee pres du portail.",
+        tutorialGateDetailCaption: "Detail de la serrure a utiliser pour l'ouverture.",
         tutorialShuttersTitle: "🪟 Fermeture correcte des volets des portes-fenêtres",
         tutorialShuttersText: "Veuillez vous assurer de fermer les volets des portes-fenêtres de la manière suivante :\nveillez également à abaisser les verrous au sol, sinon les volets pourront être facilement ouverts de l'extérieur.",
         tutorialBinsTitle: "🗑️ Emplacement des bacs extérieurs",
@@ -1003,7 +1118,7 @@
           "Les serviettes et les draps utilisés peuvent rester dans les chambres et les salles de bain ; le personnel de service se chargera de les récupérer.",
           "Éteignez tous les appareils électroménagers et les lumières allumées.",
           "Fermez toutes les portes.",
-          "Convenez avec l'Host de la remise des clés.",
+          "Si cela a ete convenu avec l'Host, laissez les cles dans la keybox exterieure en suivant les instructions recues.",
           "Déposez les déchets restants dans les conteneurs extérieurs prévus à cet effet."
         ],
         suggestionsTitle: "🍽️ Suggestions dans les environs",
@@ -1050,6 +1165,10 @@
         parkingShort: "Dentro de la villa, con posibilidad de aparcamiento cubierto o garaje.",
         accessTitle: "🗝️ Acceso",
         accessText: "Al llegar a Villa Mafalda, serán recibidos por el Host, quien les entregará las llaves y les dará acceso a la propiedad, explicándoles algunas funciones que también encontrarán en esta guía.",
+        accessKeyboxTitle: "🔑 Keybox y llaves",
+        accessKeyboxText: "En el exterior de la puerta principal hay una keybox para recoger o devolver las llaves, que se utilizara si el Host no esta disponible en persona en el check-in o en el check-out.\nLas instrucciones y el eventual codigo de la keybox seran comunicados directamente por el Host.\n\nPara el uso del porton automatico, consulten el tutorial especifico mas abajo.",
+        accessKeyboxWideCaption: "Entrada principal con la keybox situada en el lado izquierdo de la puerta.",
+        accessKeyboxDetailCaption: "Detalle de la keybox exterior.",
         accessNote: "AVISO IMPORTANTE:\nLa piscina es accesible y utilizable unicamente durante la temporada de primavera/verano, tal como lo comunico el Host en la fase de solicitud de reserva.\n\nTodos los martes, durante la temporada de primavera/verano, de 13:30 a 17:30, estaran presentes los jardineros para el mantenimiento de las zonas verdes. La privacidad de los huespedes se mantendra en todo momento.",
         tutorialsTitle: "🎥 Tutoriales e instrucciones",
         tutorialAlarmInsideTitle: "🔐 Activar y desactivar la alarma desde dentro de la casa",
@@ -1058,6 +1177,10 @@
         tutorialAlarmExitText: "Cuando se sale de casa:\nEn el exterior de cada puerta de entrada hay un lector.\n\nPara activar la alarma:\nAsegúrense de que todas las puertas y contraventanas estén cerradas correctamente (vean el video sobre el cierre correcto de las contraventanas de las puertas-ventana).\nAcerquen la parte blanca del dispositivo azul, proporcionado en el llavero de la casa, al lector.\nCuando la luz del lector se encienda, aparten el dispositivo.\nLuces verde y roja encendidas en el lector = ALARMA ACTIVADA.",
         tutorialAlarmReturnTitle: "🏠 Desactivar la alarma al volver a casa",
         tutorialAlarmReturnText: "Cuando se regresa a casa:\n\nPara desactivar la alarma:\nApoyen la parte blanca del dispositivo azul sobre el lector.\nCuando la luz del lector se apague, aparten el dispositivo.\nLuces del lector apagadas = ALARMA DESACTIVADA.\nSolo entonces podrán abrir la puerta de entrada.",
+        tutorialGateTitle: "🚪 Apertura del porton automatico",
+        tutorialGateText: "Dentro de la propiedad hay una columna con llave para abrir el porton automatico desde el interior.\n\nPara abrir el porton:\n1. introducir la llave en la columna dedicada;\n2. girar la llave para activar la apertura;\n3. esperar a que el porton este completamente abierto antes de pasar.\n\nDespues de pasar, comprueben siempre que el porton se cierre correctamente.",
+        tutorialGateWideCaption: "Vista de la columna interior situada cerca del porton.",
+        tutorialGateDetailCaption: "Detalle de la cerradura que debe utilizarse para la apertura.",
         tutorialShuttersTitle: "🪟 Cierre correcto de las contraventanas",
         tutorialShuttersText: "Por favor, asegúrense de cerrar las contraventanas de las puertas-ventana de la siguiente manera:\nrecuerden bajar también los cerrojos al suelo, de lo contrario la contraventana podrá abrirse fácilmente desde el exterior.",
         tutorialBinsTitle: "🗑️ Ubicación de los contenedores exteriores",
@@ -1104,7 +1227,7 @@
           "Las toallas y la ropa de cama usadas pueden dejarse en las habitaciones y baños; el personal de servicio se encargará de recogerlas.",
           "Apaguen todos los electrodomésticos y las luces encendidas.",
           "Cierren todas las puertas.",
-          "Acuérdense con el Host para la entrega de las llaves.",
+          "Si asi lo han acordado con el Host, dejen las llaves en la keybox exterior siguiendo las instrucciones recibidas.",
           "Lleven la basura restante a los contenedores exteriores correspondientes."
         ],
         suggestionsTitle: "🍽️ Sugerencias en la zona",
@@ -1221,6 +1344,26 @@
       }
     }
 
+    function setFigure(figureId, imageId, captionId, src, alt, caption) {
+      const figure = document.getElementById(figureId);
+      const image = document.getElementById(imageId);
+      if (!figure || !image) return;
+
+      if (hasContentValue(src)) {
+        image.src = src;
+        image.alt = alt || "";
+        figure.classList.remove("hidden");
+      } else {
+        image.removeAttribute("src");
+        image.alt = "";
+        figure.classList.add("hidden");
+      }
+
+      if (captionId) {
+        setTextOrHide(captionId, caption);
+      }
+    }
+
     function updateInfoCardVisibility() {
       const itemIds = [
         "address-item",
@@ -1260,6 +1403,7 @@
         "tutorial-alarm-inside-item",
         "tutorial-alarm-exit-item",
         "tutorial-alarm-return-item",
+        "tutorial-gate-item",
         "tutorial-shutters-item",
         "tutorial-bins-item"
       ];
@@ -1274,6 +1418,7 @@
       const t = CONTENT[lang] || CONTENT.it;
       const safeDocuments = PROPERTY.documents || {};
       const safeTutorials = PROPERTY.tutorials || {};
+      const safeGuideImages = PROPERTY.guideImages || {};
       const safeNumbers = PROPERTY.usefulNumbers || {};
       const coverImage = document.getElementById("cover-image");
 
@@ -1318,9 +1463,20 @@
       setInfoItemVisibility("parking-item", "label-parking", "parking-short", t.labelParking, t.parkingShort);
       updateInfoCardVisibility();
 
-      const hasAccessContent = hasContentValue(t.accessText) || hasContentValue(t.accessNote);
+      const hasAccessKeyboxContent =
+        hasContentValue(t.accessKeyboxTitle) ||
+        hasContentValue(t.accessKeyboxText) ||
+        hasContentValue(safeGuideImages.keyboxWideImage) ||
+        hasContentValue(safeGuideImages.keyboxDetailImage);
+
+      const hasAccessContent = hasContentValue(t.accessText) || hasContentValue(t.accessNote) || hasAccessKeyboxContent;
       setTextOrClear("access-title", hasAccessContent ? t.accessTitle : "");
       setTextOrClear("access-text", t.accessText);
+      setTextOrClear("access-keybox-title", t.accessKeyboxTitle);
+      setTextOrClear("access-keybox-text", t.accessKeyboxText);
+      setFigure("access-keybox-wide-figure", "access-keybox-wide-image", "access-keybox-wide-caption", safeGuideImages.keyboxWideImage, t.accessKeyboxTitle, t.accessKeyboxWideCaption);
+      setFigure("access-keybox-detail-figure", "access-keybox-detail-image", "access-keybox-detail-caption", safeGuideImages.keyboxDetailImage, t.accessKeyboxTitle, t.accessKeyboxDetailCaption);
+      setHidden("access-keybox-panel", !hasAccessKeyboxContent);
       setTextOrHide("access-note", t.accessNote);
       setHidden("access-card", !hasAccessContent);
 
@@ -1328,6 +1484,16 @@
       setTutorialItem("tutorial-alarm-inside-item", "tutorial-alarm-inside-title", "tutorial-alarm-inside-text", "tutorial-alarm-inside-btn", t.tutorialAlarmInsideTitle, t.tutorialAlarmInsideText, t.tutorialBtn, safeTutorials.alarmInsideVideo);
       setTutorialItem("tutorial-alarm-exit-item", "tutorial-alarm-exit-title", "tutorial-alarm-exit-text", "tutorial-alarm-exit-btn", t.tutorialAlarmExitTitle, t.tutorialAlarmExitText, t.tutorialBtn, safeTutorials.alarmExitVideo);
       setTutorialItem("tutorial-alarm-return-item", "tutorial-alarm-return-title", "tutorial-alarm-return-text", "tutorial-alarm-return-btn", t.tutorialAlarmReturnTitle, t.tutorialAlarmReturnText, t.tutorialBtn, safeTutorials.alarmReturnVideo);
+      const hasTutorialGateContent =
+        hasContentValue(t.tutorialGateTitle) ||
+        hasContentValue(t.tutorialGateText) ||
+        hasContentValue(safeGuideImages.gateWideImage) ||
+        hasContentValue(safeGuideImages.gateDetailImage);
+      setTextOrClear("tutorial-gate-title", t.tutorialGateTitle);
+      setTextOrClear("tutorial-gate-text", t.tutorialGateText);
+      setFigure("tutorial-gate-wide-figure", "tutorial-gate-wide-image", "tutorial-gate-wide-caption", safeGuideImages.gateWideImage, t.tutorialGateTitle, t.tutorialGateWideCaption);
+      setFigure("tutorial-gate-detail-figure", "tutorial-gate-detail-image", "tutorial-gate-detail-caption", safeGuideImages.gateDetailImage, t.tutorialGateTitle, t.tutorialGateDetailCaption);
+      setHidden("tutorial-gate-item", !hasTutorialGateContent);
       setTutorialItem("tutorial-shutters-item", "tutorial-shutters-title", "tutorial-shutters-text", "tutorial-shutters-btn", t.tutorialShuttersTitle, t.tutorialShuttersText, t.tutorialBtn, safeTutorials.shuttersVideo);
       setTutorialItem("tutorial-bins-item", "tutorial-bins-title", "tutorial-bins-text", "tutorial-bins-btn", t.tutorialBinsTitle, t.tutorialBinsText, t.tutorialBtn, safeTutorials.binsVideo);
       updateTutorialsCardVisibility();
