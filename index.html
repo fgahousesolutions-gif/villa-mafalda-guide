@@ -335,6 +335,37 @@
       gap: 10px;
     }
 
+    .checkout-alert {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      margin: 4px 0 20px;
+      padding: 18px;
+      border: 2px solid rgba(180, 83, 9, 0.34);
+      border-radius: 18px;
+      background: #fff7ed;
+      color: #7c2d12;
+    }
+
+    .checkout-alert-icon {
+      flex: 0 0 auto;
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    .checkout-alert-title {
+      margin: 0 0 4px;
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    .checkout-alert-text {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
     .mini-grid {
       display: flex;
       flex-wrap: wrap;
@@ -616,11 +647,28 @@
             <a class="mini-btn" id="taxi-wa-btn" href="#"></a>
           </div>
         </div>
+
+        <div class="useful-item" id="rental-car-item">
+          <span class="label" id="rental-car-title"></span>
+          <div class="value" id="rental-car-auto-text"></div>
+          <div class="value" id="rental-rilo-text"></div>
+          <div class="mini-grid">
+            <a class="mini-btn" id="rental-car-auto-btn" href="#"></a>
+            <a class="mini-btn" id="rental-rilo-btn" href="#"></a>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="card" id="checkout-card">
       <h2 id="checkout-title"></h2>
+      <div class="checkout-alert" id="checkout-alert">
+        <div class="checkout-alert-icon" aria-hidden="true">💡</div>
+        <div>
+          <p class="checkout-alert-title" id="checkout-alert-title"></p>
+          <p class="checkout-alert-text" id="checkout-alert-text"></p>
+        </div>
+      </div>
       <ul id="checkout-list"></ul>
     </section>
 
@@ -704,7 +752,11 @@
         taxiPhoneDisplay: "Taxi centralino: +39 059 374242",
         taxiPhoneHref: "tel:+39059374242",
         taxiWhatsappDisplay: "Taxi WhatsApp: +39 335 1838555",
-        taxiWhatsappHref: "https://wa.me/393351838555"
+        taxiWhatsappHref: "https://wa.me/393351838555",
+        rentalCarAutoDisplay: "Car Auto S.r.l. - Vignola: +39 059 7147844",
+        rentalCarAutoHref: "tel:+390597147844",
+        rentalRiloDisplay: "Ri.Lo Rent SRLS - Modena: +39 059 5803877",
+        rentalRiloHref: "tel:+390595803877"
       }
     };
 
@@ -786,17 +838,27 @@
         taxiTitle: "Taxi locale",
         taxiCallBtn: "📞 Chiama",
         taxiWaBtn: "💬 WhatsApp",
+        rentalCarTitle: "🚗 Noleggio auto",
+        rentalCarAutoBtn: "Chiama Car Auto",
+        rentalRiloBtn: "Chiama Ri.Lo Rent",
         checkoutTitle: "✅ Prima del check-out",
+        checkoutAlertTitle: "Promemoria luci",
+        checkoutAlertText: "Prima di uscire, controllare con attenzione tutta la Villa e spegnere assolutamente tutte le luci rimaste accese.",
         checkoutList: [
           "Gli asciugamani e le lenzuola usate possono restare nelle stanze e nei bagni; il personale di servizio provvederà al ritiro.",
-          "Spegnere tutti gli elettrodomestici e le luci accese.",
+          "Spegnere tutti gli elettrodomestici.",
           "Chiudere tutte le porte.",
           "Se concordato con l'Host, lasciare le chiavi nella keybox esterna seguendo le istruzioni ricevute.",
           "Portare la spazzatura residua negli appositi contenitori esterni."
         ],
         suggestionsTitle: "🍽️ Suggerimenti in zona",
         breakfastTitle: "☕ Colazione",
-        breakfastList: [],
+        breakfastList: [
+          "Caffetteria Pasticceria Il Mulino - Savignano sul Panaro, comoda e vicina alla villa.",
+          "Pasticceria Damiani - Vignola, pasticceria e caffetteria per colazioni dolci e salate.",
+          "Caffetteria CuoreMatto - Vignola, caffetteria accogliente per una colazione semplice.",
+          "Pasticceria Fornace - Marano sul Panaro, pasticceria artigianale con colazioni e dolci freschi."
+        ],
         aperitivoTitle: "🥂 Aperitivo e vino",
         aperitivoList: [
           "Enoteca La Zaira - Vignola centro.",
@@ -895,17 +957,27 @@
         taxiTitle: "Local taxi",
         taxiCallBtn: "📞 Call",
         taxiWaBtn: "💬 WhatsApp",
+        rentalCarTitle: "🚗 Car rental",
+        rentalCarAutoBtn: "Call Car Auto",
+        rentalRiloBtn: "Call Ri.Lo Rent",
         checkoutTitle: "✅ Before check-out",
+        checkoutAlertTitle: "Lights reminder",
+        checkoutAlertText: "Before leaving, please carefully check the whole Villa and make sure every light has been switched off.",
         checkoutList: [
           "Used towels and bed linen may remain in the rooms and bathrooms; the service staff will collect them.",
-          "Switch off all appliances and any lights left on.",
+          "Switch off all appliances.",
           "Close all doors.",
           "If agreed with the Host, leave the keys in the outdoor keybox following the instructions received.",
           "Take any remaining waste to the outdoor bins."
         ],
         suggestionsTitle: "🍽️ Local suggestions",
         breakfastTitle: "☕ Breakfast",
-        breakfastList: [],
+        breakfastList: [
+          "Caffetteria Pasticceria Il Mulino - Savignano sul Panaro, convenient and close to the villa.",
+          "Pasticceria Damiani - Vignola, pastry shop and cafe for sweet and savory breakfasts.",
+          "Caffetteria CuoreMatto - Vignola, a welcoming cafe for a simple breakfast.",
+          "Pasticceria Fornace - Marano sul Panaro, artisan pastry shop with fresh breakfasts and desserts."
+        ],
         aperitivoTitle: "🥂 Aperitivo and wine",
         aperitivoList: [
           "Enoteca La Zaira - central Vignola.",
@@ -1004,17 +1076,27 @@
         taxiTitle: "Lokales Taxi",
         taxiCallBtn: "📞 Anrufen",
         taxiWaBtn: "💬 WhatsApp",
+        rentalCarTitle: "🚗 Mietwagen",
+        rentalCarAutoBtn: "Car Auto anrufen",
+        rentalRiloBtn: "Ri.Lo Rent anrufen",
         checkoutTitle: "✅ Vor dem Check-out",
+        checkoutAlertTitle: "Erinnerung an die Beleuchtung",
+        checkoutAlertText: "Bitte kontrollieren Sie vor dem Verlassen die gesamte Villa sorgfältig und schalten Sie unbedingt alle noch eingeschalteten Lichter aus.",
         checkoutList: [
           "Benutzte Handtücher und Bettwäsche können in den Zimmern und Bädern bleiben; das Servicepersonal kümmert sich um die Abholung.",
-          "Schalten Sie alle Elektrogeräte und eingeschalteten Lichter aus.",
+          "Schalten Sie alle Elektrogeräte aus.",
           "Schließen Sie alle Türen.",
           "Falls mit dem Host vereinbart, lassen Sie die Schlussel entsprechend den erhaltenen Anweisungen in der externen Schlusselbox.",
           "Bringen Sie den restlichen Müll zu den dafür vorgesehenen Außenbehältern."
         ],
         suggestionsTitle: "🍽️ Empfehlungen in der Umgebung",
         breakfastTitle: "☕ Frühstück",
-        breakfastList: [],
+        breakfastList: [
+          "Caffetteria Pasticceria Il Mulino - Savignano sul Panaro, praktisch und nahe bei der Villa.",
+          "Pasticceria Damiani - Vignola, Konditorei und Cafe für süße und herzhafte Frühstücke.",
+          "Caffetteria CuoreMatto - Vignola, ein einladendes Cafe für ein einfaches Frühstück.",
+          "Pasticceria Fornace - Marano sul Panaro, handwerkliche Konditorei mit frischem Frühstück und Gebäck."
+        ],
         aperitivoTitle: "🥂 Aperitif und Wein",
         aperitivoList: [
           "Enoteca La Zaira - Zentrum von Vignola.",
@@ -1113,17 +1195,27 @@
         taxiTitle: "Taxi local",
         taxiCallBtn: "📞 Appeler",
         taxiWaBtn: "💬 WhatsApp",
+        rentalCarTitle: "🚗 Location de voiture",
+        rentalCarAutoBtn: "Appeler Car Auto",
+        rentalRiloBtn: "Appeler Ri.Lo Rent",
         checkoutTitle: "✅ Avant le check-out",
+        checkoutAlertTitle: "Rappel lumières",
+        checkoutAlertText: "Avant de partir, veuillez vérifier attentivement toute la Villa et éteindre impérativement toutes les lumières restées allumées.",
         checkoutList: [
           "Les serviettes et les draps utilisés peuvent rester dans les chambres et les salles de bain ; le personnel de service se chargera de les récupérer.",
-          "Éteignez tous les appareils électroménagers et les lumières allumées.",
+          "Éteignez tous les appareils électroménagers.",
           "Fermez toutes les portes.",
           "Si cela a ete convenu avec l'Host, laissez les cles dans la keybox exterieure en suivant les instructions recues.",
           "Déposez les déchets restants dans les conteneurs extérieurs prévus à cet effet."
         ],
         suggestionsTitle: "🍽️ Suggestions dans les environs",
         breakfastTitle: "☕ Petit-déjeuner",
-        breakfastList: [],
+        breakfastList: [
+          "Caffetteria Pasticceria Il Mulino - Savignano sul Panaro, pratique et proche de la villa.",
+          "Pasticceria Damiani - Vignola, pâtisserie et café pour petits-déjeuners sucrés et salés.",
+          "Caffetteria CuoreMatto - Vignola, café accueillant pour un petit-déjeuner simple.",
+          "Pasticceria Fornace - Marano sul Panaro, pâtisserie artisanale avec petits-déjeuners et desserts frais."
+        ],
         aperitivoTitle: "🥂 Apéritif et vin",
         aperitivoList: [
           "Enoteca La Zaira - centre de Vignola.",
@@ -1222,17 +1314,27 @@
         taxiTitle: "Taxi local",
         taxiCallBtn: "📞 Llamar",
         taxiWaBtn: "💬 WhatsApp",
+        rentalCarTitle: "🚗 Alquiler de coches",
+        rentalCarAutoBtn: "Llamar a Car Auto",
+        rentalRiloBtn: "Llamar a Ri.Lo Rent",
         checkoutTitle: "✅ Antes del check-out",
+        checkoutAlertTitle: "Recordatorio sobre las luces",
+        checkoutAlertText: "Antes de salir, revisen atentamente toda la Villa y asegúrense de apagar absolutamente todas las luces que hayan quedado encendidas.",
         checkoutList: [
           "Las toallas y la ropa de cama usadas pueden dejarse en las habitaciones y baños; el personal de servicio se encargará de recogerlas.",
-          "Apaguen todos los electrodomésticos y las luces encendidas.",
+          "Apaguen todos los electrodomésticos.",
           "Cierren todas las puertas.",
           "Si asi lo han acordado con el Host, dejen las llaves en la keybox exterior siguiendo las instrucciones recibidas.",
           "Lleven la basura restante a los contenedores exteriores correspondientes."
         ],
         suggestionsTitle: "🍽️ Sugerencias en la zona",
         breakfastTitle: "☕ Desayuno",
-        breakfastList: [],
+        breakfastList: [
+          "Caffetteria Pasticceria Il Mulino - Savignano sul Panaro, cómoda y cerca de la villa.",
+          "Pasticceria Damiani - Vignola, pastelería y cafetería para desayunos dulces y salados.",
+          "Caffetteria CuoreMatto - Vignola, cafetería acogedora para un desayuno sencillo.",
+          "Pasticceria Fornace - Marano sul Panaro, pastelería artesanal con desayunos y dulces frescos."
+        ],
         aperitivoTitle: "🥂 Aperitivo y vino",
         aperitivoList: [
           "Enoteca La Zaira - centro de Vignola.",
@@ -1527,11 +1629,23 @@
       setText("taxi-wa-btn", t.taxiWaBtn);
       setButtonVisibility("taxi-call-btn", safeNumbers.taxiPhoneHref);
       setButtonVisibility("taxi-wa-btn", safeNumbers.taxiWhatsappHref);
+      setTextOrClear("rental-car-title", t.rentalCarTitle);
+      setTextOrClear("rental-car-auto-text", safeNumbers.rentalCarAutoDisplay);
+      setTextOrClear("rental-rilo-text", safeNumbers.rentalRiloDisplay);
+      setText("rental-car-auto-btn", t.rentalCarAutoBtn);
+      setText("rental-rilo-btn", t.rentalRiloBtn);
+      setButtonVisibility("rental-car-auto-btn", safeNumbers.rentalCarAutoHref);
+      setButtonVisibility("rental-rilo-btn", safeNumbers.rentalRiloHref);
+      setHidden("rental-car-item", !(hasContentValue(safeNumbers.rentalCarAutoDisplay) || hasContentValue(safeNumbers.rentalRiloDisplay)));
 
       const hasCheckoutContent = hasContentArray(t.checkoutList);
       setTextOrClear("checkout-title", hasCheckoutContent ? t.checkoutTitle : "");
+      const hasCheckoutAlert = hasContentValue(t.checkoutAlertTitle) || hasContentValue(t.checkoutAlertText);
+      setTextOrClear("checkout-alert-title", t.checkoutAlertTitle);
+      setTextOrClear("checkout-alert-text", t.checkoutAlertText);
+      setHidden("checkout-alert", !hasCheckoutAlert);
       renderList("checkout-list", hasCheckoutContent ? t.checkoutList : []);
-      setHidden("checkout-card", !hasCheckoutContent);
+      setHidden("checkout-card", !(hasCheckoutContent || hasCheckoutAlert));
 
       const hasBreakfast = hasContentArray(t.breakfastList);
       const hasAperitivo = hasContentArray(t.aperitivoList);
