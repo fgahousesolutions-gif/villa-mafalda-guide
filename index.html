@@ -242,6 +242,76 @@
       white-space: pre-line;
     }
 
+    .essentials-card {
+      border: 2px solid rgba(15, 27, 61, 0.18);
+      background: #fff;
+    }
+
+    .essentials-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .essentials-list li {
+      margin: 0;
+      padding: 16px;
+      border: 1px solid rgba(39, 52, 84, 0.14);
+      border-radius: 16px;
+      background: #f2f5fa;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .essentials-actions {
+      display: flex;
+      justify-content: center;
+      margin-top: 18px;
+    }
+
+    .checkout-jump-btn {
+      min-width: min(100%, 360px);
+      background: #fff7ed;
+      color: #7c2d12;
+      border-color: rgba(180, 83, 9, 0.34);
+    }
+
+    .checkout-jump-btn:hover {
+      background: #ffedd5;
+    }
+
+    .collapsible-card summary {
+      cursor: pointer;
+      font-weight: 800;
+      list-style-position: outside;
+    }
+
+    .collapsible-card summary span {
+      font-size: 28px;
+      letter-spacing: -0.02em;
+    }
+
+    .collapsible-card[open] summary {
+      margin-bottom: 14px;
+    }
+
+    .waste-highlight-card {
+      border: 2px solid rgba(22, 101, 52, 0.24);
+      background: #f0fdf4;
+    }
+
+    .waste-highlight-card h2 {
+      color: #14532d;
+    }
+
+    .waste-highlight-card #waste-text {
+      margin-bottom: 0;
+      font-weight: 650;
+    }
+
     .discover-more-card {
       background:
         linear-gradient(135deg, rgba(199, 219, 255, 0.3), rgba(255, 245, 232, 0.85)),
@@ -320,6 +390,20 @@
       border-top: 0;
     }
 
+    .tutorial-item summary {
+      cursor: pointer;
+      font-weight: 800;
+      list-style-position: outside;
+    }
+
+    .tutorial-item summary span {
+      font-size: 20px;
+    }
+
+    .tutorial-item[open] summary {
+      margin-bottom: 10px;
+    }
+
     .tutorial-text {
       margin: 0 0 14px;
     }
@@ -345,6 +429,11 @@
       border-radius: 18px;
       background: #fff7ed;
       color: #7c2d12;
+    }
+
+    .checkout-focus-card {
+      border: 2px solid rgba(180, 83, 9, 0.3);
+      background: #fffaf5;
     }
 
     .checkout-alert-icon {
@@ -425,6 +514,7 @@
       .info-grid,
       .useful-grid,
       .tips-grid,
+      .essentials-list,
       .media-grid {
         grid-template-columns: 1fr;
         gap: 24px;
@@ -541,6 +631,14 @@
       </div>
     </section>
 
+    <section class="card essentials-card" id="essentials-card">
+      <h2 id="essentials-title"></h2>
+      <ul class="essentials-list" id="essentials-list"></ul>
+      <div class="essentials-actions">
+        <a class="action-btn checkout-jump-btn" id="checkout-jump-btn" href="#checkout-card"></a>
+      </div>
+    </section>
+
     <section class="card" id="access-card">
       <h2 id="access-title"></h2>
       <p id="access-text"></p>
@@ -564,26 +662,26 @@
     <section class="card" id="tutorials-card">
       <h2 id="tutorials-title"></h2>
       <div class="tutorial-grid">
-        <div class="tutorial-item" id="tutorial-alarm-inside-item">
-          <h3 id="tutorial-alarm-inside-title"></h3>
+        <details class="tutorial-item" id="tutorial-alarm-inside-item">
+          <summary><span id="tutorial-alarm-inside-title"></span></summary>
           <p class="tutorial-text multiline-text" id="tutorial-alarm-inside-text"></p>
           <a class="tutorial-btn" id="tutorial-alarm-inside-btn" href="#"></a>
-        </div>
+        </details>
 
-        <div class="tutorial-item" id="tutorial-alarm-exit-item">
-          <h3 id="tutorial-alarm-exit-title"></h3>
+        <details class="tutorial-item" id="tutorial-alarm-exit-item">
+          <summary><span id="tutorial-alarm-exit-title"></span></summary>
           <p class="tutorial-text multiline-text" id="tutorial-alarm-exit-text"></p>
           <a class="tutorial-btn" id="tutorial-alarm-exit-btn" href="#"></a>
-        </div>
+        </details>
 
-        <div class="tutorial-item" id="tutorial-alarm-return-item">
-          <h3 id="tutorial-alarm-return-title"></h3>
+        <details class="tutorial-item" id="tutorial-alarm-return-item">
+          <summary><span id="tutorial-alarm-return-title"></span></summary>
           <p class="tutorial-text multiline-text" id="tutorial-alarm-return-text"></p>
           <a class="tutorial-btn" id="tutorial-alarm-return-btn" href="#"></a>
-        </div>
+        </details>
 
-        <div class="tutorial-item" id="tutorial-gate-item">
-          <h3 id="tutorial-gate-title"></h3>
+        <details class="tutorial-item" id="tutorial-gate-item">
+          <summary><span id="tutorial-gate-title"></span></summary>
           <p class="tutorial-text multiline-text" id="tutorial-gate-text"></p>
           <div class="media-grid">
             <figure class="guide-figure" id="tutorial-gate-wide-figure">
@@ -595,37 +693,49 @@
               <figcaption class="guide-caption" id="tutorial-gate-detail-caption"></figcaption>
             </figure>
           </div>
-        </div>
+        </details>
 
-        <div class="tutorial-item" id="tutorial-shutters-item">
-          <h3 id="tutorial-shutters-title"></h3>
+        <details class="tutorial-item" id="tutorial-shutters-item">
+          <summary><span id="tutorial-shutters-title"></span></summary>
           <p class="tutorial-text multiline-text" id="tutorial-shutters-text"></p>
           <a class="tutorial-btn" id="tutorial-shutters-btn" href="#"></a>
-        </div>
+        </details>
 
-        <div class="tutorial-item" id="tutorial-bins-item">
-          <h3 id="tutorial-bins-title"></h3>
+        <details class="tutorial-item" id="tutorial-bins-item">
+          <summary><span id="tutorial-bins-title"></span></summary>
           <p class="tutorial-text multiline-text" id="tutorial-bins-text"></p>
           <a class="tutorial-btn" id="tutorial-bins-btn" href="#"></a>
-        </div>
+        </details>
       </div>
     </section>
 
-    <section class="card" id="rules-card">
-      <h2 id="rules-title"></h2>
+    <details class="card collapsible-card" id="rules-card">
+      <summary><span id="rules-title"></span></summary>
       <ul id="rules-list"></ul>
-    </section>
+    </details>
 
-    <section class="card" id="pet-rules-card">
-      <h2 id="pet-rules-title"></h2>
+    <details class="card collapsible-card" id="pet-rules-card">
+      <summary><span id="pet-rules-title"></span></summary>
       <p id="pet-rules-intro"></p>
       <ul id="pet-rules-list"></ul>
-    </section>
+    </details>
 
-    <section class="card" id="waste-card">
+    <section class="card waste-highlight-card" id="waste-card">
       <h2 id="waste-title"></h2>
       <p class="multiline-text" id="waste-text"></p>
       <p class="muted" id="waste-note"></p>
+    </section>
+
+    <section class="card checkout-focus-card" id="checkout-card">
+      <h2 id="checkout-title"></h2>
+      <div class="checkout-alert" id="checkout-alert">
+        <div class="checkout-alert-icon" aria-hidden="true">💡🪟</div>
+        <div>
+          <p class="checkout-alert-title" id="checkout-alert-title"></p>
+          <p class="checkout-alert-text" id="checkout-alert-text"></p>
+        </div>
+      </div>
+      <ul id="checkout-list"></ul>
     </section>
 
     <section class="card" id="useful-numbers-card">
@@ -658,18 +768,6 @@
           </div>
         </div>
       </div>
-    </section>
-
-    <section class="card" id="checkout-card">
-      <h2 id="checkout-title"></h2>
-      <div class="checkout-alert" id="checkout-alert">
-        <div class="checkout-alert-icon" aria-hidden="true">💡🪟</div>
-        <div>
-          <p class="checkout-alert-title" id="checkout-alert-title"></p>
-          <p class="checkout-alert-text" id="checkout-alert-text"></p>
-        </div>
-      </div>
-      <ul id="checkout-list"></ul>
     </section>
 
     <section class="card" id="suggestions-card">
@@ -786,21 +884,29 @@
         accessKeyboxWideCaption: "Ingresso principale con keybox posizionata sul lato sinistro della porta.",
         accessKeyboxDetailCaption: "Dettaglio della keybox esterna.",
         accessNote: "PROMEMORIA IMPORTANTE:\nLa piscina è accessibile e utilizzabile esclusivamente nel periodo primavera/estate, come comunicato dall'Host in fase di richiesta di prenotazione.\n\nOgni martedì, nel periodo primavera/estate, dalle 13:30 alle 17:30, saranno presenti i giardinieri per la manutenzione del verde. La privacy degli ospiti sarà comunque mantenuta.",
-        tutorialsTitle: "🎥 Tutorial e istruzioni",
-        tutorialAlarmInsideTitle: "🔐 Inserimento e disinserimento allarme da dentro casa",
-        tutorialAlarmInsideText: "Quando si è in casa (sicurezza di notte):\nUtilizzare il dispositivo blu fornito nel portachiavi delle chiavi di casa.\nDi fianco a ogni porta d'entrata c'è uno schermo touch e un lettore per il dispositivo blu.\nToccare lo schermo touch. Quando si accende si vedono delle lettere cerchiate. A noi interessa la lettera A.\n\nPer inserire l'allarme:\nChiudere tutte le porte e gli scuri delle finestre (vedi video sulla chiusura corretta degli scuri delle portefinestre).\nAppoggiare la parte bianca del dispositivo blu sul lettore finché la luce del lettore non si accende.\nAllontanare il dispositivo e si vedrà che la lettera A diventerà cerchiata di rosso = ALLARME INSERITO.\nDa questo momento non aprire porte o scuri delle finestre, altrimenti l'allarme suonerà.\n\nPer disattivare l'allarme:\nAppoggiare la parte bianca del dispositivo blu sul lettore fino a quando la luce del lettore non si spegne.\nAllontanare il dispositivo e si vedrà che la lettera A diventerà cerchiata di verde = ALLARME DISINSERITO.\nDa questo momento si possono aprire porte e scuri delle finestre.",
+        essentialsTitle: "⚠️ Da leggere subito",
+        essentialsList: [
+          "Allarme: quando uscite o di notte, chiudete porte e scuri e inserite l'allarme con il dispositivo blu.",
+          "Finestre e scuri: gli scuri delle portefinestre vanno chiusi con i catenacci abbassati a terra.",
+          "Rifiuti: quando i bidoni in cucina sono pieni, portate i sacchi nei contenitori esterni corrispondenti.",
+          "Check-out: prima di uscire spegnete luci ed elettrodomestici, chiudete porte, finestre e scuri."
+        ],
+        checkoutJumpBtn: "✅ Vai alle operazioni di check-out",
+        tutorialsTitle: "🎥 Tutorial rapidi",
+        tutorialAlarmInsideTitle: "🔐 Allarme da dentro casa",
+        tutorialAlarmInsideText: "Usare il dispositivo blu sul portachiavi.\n\nPer inserire l'allarme:\n1. chiudere porte e scuri;\n2. toccare lo schermo vicino alla porta;\n3. appoggiare la parte bianca del dispositivo sul lettore;\n4. quando la lettera A diventa rossa, l'allarme è inserito.\n\nPer disattivarlo:\nappoggiare di nuovo il dispositivo sul lettore finché la lettera A diventa verde.",
         tutorialAlarmExitTitle: "🚪 Inserimento allarme quando si esce di casa",
-        tutorialAlarmExitText: "Quando si esce di casa:\nAll'esterno di ogni porta d'entrata c'è un lettore.\n\nPer inserire l'allarme:\nAssicurarsi che tutte le porte e gli scuri delle finestre siano chiusi nel modo corretto (vedi video sulla chiusura corretta degli scuri delle portefinestre).\nAvvicinare la parte bianca del dispositivo blu, fornito nel portachiavi di casa, al lettore.\nQuando la luce del lettore si accende, allontanare il dispositivo.\nLuci lettore verde e rossa accese = ALLARME INSERITO.",
+        tutorialAlarmExitText: "Prima di uscire:\n1. chiudere tutte le porte;\n2. chiudere bene finestre e scuri;\n3. avvicinare la parte bianca del dispositivo blu al lettore esterno;\n4. luci verde e rossa accese = ALLARME INSERITO.",
         tutorialAlarmReturnTitle: "🏠 Disinserimento allarme quando si rientra a casa",
-        tutorialAlarmReturnText: "Quando si rientra a casa:\n\nPer disinserire l'allarme:\nAppoggiare la parte bianca del dispositivo blu al lettore.\nQuando la luce del lettore si spegne, allontanare il dispositivo.\nLuci lettore spente = ALLARME DISINSERITO.\nSolo ora si potrà procedere ad aprire la porta di casa.",
+        tutorialAlarmReturnText: "Prima di aprire la porta:\n1. appoggiare la parte bianca del dispositivo blu al lettore;\n2. attendere che le luci del lettore si spengano;\n3. luci spente = ALLARME DISINSERITO.\nSolo dopo aprire la porta.",
         tutorialGateTitle: "🚪 Apertura cancello automatico",
         tutorialGateText: "All'interno della proprietà è presente una colonnina dedicata all'apertura del cancello automatico. La chiave è già inserita nella colonnina e non deve essere rimossa, così da consentire sempre l'apertura del cancello anche in uscita e al momento del check-out.\n\nPer aprire il cancello:\n1. ruotare la chiave già presente nella colonnina dedicata;\n2. attendere l'attivazione dell'apertura;\n3. attendere l'apertura completa del cancello prima di transitare.\n\nDopo il passaggio, verificare sempre che il cancello si richiuda correttamente.",
         tutorialGateWideCaption: "Vista della colonnina interna in prossimità del cancello.",
         tutorialGateDetailCaption: "Dettaglio della chiave e della serratura da utilizzare per l'apertura.",
         tutorialShuttersTitle: "🪟 Chiusura corretta degli scuri delle portefinestre",
-        tutorialShuttersText: "Per favore assicurarsi di chiudere gli scuri delle portefinestre rispettando la seguente modalità:\npremurandosi di abbassare anche i catenacci a terra, o lo scuro sarà facilmente apribile dall'esterno.",
+        tutorialShuttersText: "Chiudere gli scuri e abbassare sempre anche i catenacci a terra.\nSe i catenacci non sono abbassati, lo scuro può essere aperto facilmente dall'esterno.",
         tutorialBinsTitle: "🗑️ Posizione bidoni esterni",
-        tutorialBinsText: "Quando i bidoni interni della raccolta differenziata sono pieni, portare i rifiuti correttamente suddivisi nei bidoni corrispondenti posti all'esterno dell'abitazione.\nLa posizione dei bidoni esterni è illustrata in questo tutorial dedicato.",
+        tutorialBinsText: "Quando i bidoni in cucina sono pieni, portare i rifiuti già divisi nei contenitori esterni corrispondenti.\nIl video mostra dove si trovano.",
         rulesTitle: "🏡 Regole casa",
         rulesList: [
           "L'accesso alla Villa è consentito esclusivamente agli ospiti registrati in prenotazione.",
@@ -830,8 +936,8 @@
           "Vietato l'accesso in piscina.",
           "Eventuali danni o pulizie extra saranno a carico dell'ospite."
         ],
-        wasteTitle: "♻️ Rifiuti",
-        wasteText: "In cucina sono presenti bidoni appositi per la raccolta differenziata dei rifiuti di:\n• Carta\n• Plastica e alluminio\n• Vetro\n• Indifferenziata\n• Umido\n\nNel momento in cui aveste riempito questi bidoni, si prega di portare i rifiuti, correttamente suddivisi, nei bidoni corrispondenti fuori dall'abitazione.\nLa posizione di questi bidoni, non lontano da una delle porte d'entrata, è illustrata nel tutorial dedicato.\n\nSi informa che, durante il soggiorno, il personale addetto alla manutenzione potrebbe accedere alla proprietà, in orari appropriati e con la massima discrezione, esclusivamente per ritirare i bidoni esterni ed esporli o svuotarli nei giorni di raccolta previsti dalle disposizioni comunali. Questo servizio è pensato per evitarvi l'onere di gestire i rifiuti secondo il calendario del Comune.",
+        wasteTitle: "♻️ Raccolta differenziata",
+        wasteText: "In cucina trovate i bidoni per:\n• Carta\n• Plastica e alluminio\n• Vetro\n• Indifferenziata\n• Umido\n\nQuando sono pieni, portate i rifiuti già separati nei contenitori esterni corrispondenti. La posizione è indicata nel tutorial.\n\nDurante il soggiorno il personale di manutenzione può entrare nella proprietà, con discrezione e in orari appropriati, solo per gestire i bidoni esterni nei giorni di raccolta.",
         wasteNote: "",
         usefulNumbersTitle: "📞 Numeri utili",
         emergencyTitle: "Emergenze",
@@ -905,21 +1011,29 @@
         accessKeyboxWideCaption: "Main entrance with the keybox positioned on the left side of the door.",
         accessKeyboxDetailCaption: "Close-up of the outdoor keybox.",
         accessNote: "IMPORTANT NOTICE:\nThe swimming pool is accessible and usable only during the spring/summer season, as communicated by the Host during the booking request phase.\n\nEvery Tuesday, during the spring/summer season, from 13:30 to 17:30, gardeners will be present for green area maintenance. Guests' privacy will still be respected.",
-        tutorialsTitle: "🎥 Tutorials and instructions",
-        tutorialAlarmInsideTitle: "🔐 Arm and disarm the alarm from inside the house",
-        tutorialAlarmInsideText: "When inside the house (night-time security):\nUse the blue device provided on the house keyring.\nNext to each entrance door, there is a touchscreen panel and a reader for the blue device.\nTap the touchscreen. When it activates, you will see several circled letters. The one relevant for you is the letter A.\n\nTo arm the alarm:\nClose all doors and window shutters (please refer to the video on how to properly close the French window shutters).\nPlace the white side of the blue device against the reader until the reader light turns on.\nThen move the device away. The letter A on the touchscreen will turn red = ALARM ARMED.\nFrom this moment on, do not open any doors or window shutters, otherwise the alarm will go off.\n\nTo disarm the alarm:\nPlace the white side of the blue device against the reader until the reader light turns off.\nThen move the device away. The letter A will turn green = ALARM DISARMED.\nFrom this moment on, doors and window shutters can be opened.",
+        essentialsTitle: "⚠️ Read this first",
+        essentialsList: [
+          "Alarm: when leaving or at night, close doors and shutters and arm the alarm with the blue device.",
+          "Windows and shutters: French window shutters must be closed with the bottom bolts engaged.",
+          "Waste: when the kitchen bins are full, take the sorted bags to the matching outdoor bins.",
+          "Check-out: before leaving, switch off lights and appliances and close doors, windows and shutters."
+        ],
+        checkoutJumpBtn: "✅ Go to check-out steps",
+        tutorialsTitle: "🎥 Quick tutorials",
+        tutorialAlarmInsideTitle: "🔐 Alarm from inside the house",
+        tutorialAlarmInsideText: "Use the blue device on the keyring.\n\nTo arm the alarm:\n1. close doors and shutters;\n2. tap the screen near the door;\n3. place the white side of the device on the reader;\n4. when letter A turns red, the alarm is armed.\n\nTo disarm it:\nplace the device on the reader again until letter A turns green.",
         tutorialAlarmExitTitle: "🚪 Arm the alarm when leaving the house",
-        tutorialAlarmExitText: "When leaving the house:\nOutside each entrance door, there is a reader.\n\nTo arm the alarm:\nMake sure that all doors and window shutters are properly closed (please refer to the video on how to correctly close the French window shutters).\nHold the white side of the blue device, provided on the house keyring, close to the reader.\nWhen the reader light turns on, move the device away.\nGreen and red lights on the reader illuminated = ALARM ARMED.",
+        tutorialAlarmExitText: "Before leaving:\n1. close all doors;\n2. properly close windows and shutters;\n3. hold the white side of the blue device near the outdoor reader;\n4. green and red lights on = ALARM ARMED.",
         tutorialAlarmReturnTitle: "🏠 Disarm the alarm when returning home",
-        tutorialAlarmReturnText: "When returning to the house:\n\nTo disarm the alarm:\nPlace the white side of the blue device against the reader.\nWhen the reader light turns off, move the device away.\nReader lights off = ALARM DISARMED.\nOnly at this point should you proceed to open the entrance door.",
+        tutorialAlarmReturnText: "Before opening the door:\n1. place the white side of the blue device on the reader;\n2. wait until the reader lights turn off;\n3. lights off = ALARM DISARMED.\nOnly then open the door.",
         tutorialGateTitle: "🚪 Opening the automatic gate",
         tutorialGateText: "Inside the property there is a keyed post used to open the automatic gate from the inside.\n\nTo open the gate:\n1. insert the key into the dedicated post;\n2. turn the key to activate the opening;\n3. wait until the gate is fully open before passing through.\n\nAfter passing through, always make sure the gate closes properly.",
         tutorialGateWideCaption: "View of the internal post located near the gate.",
         tutorialGateDetailCaption: "Close-up of the keyed lock used to open the gate.",
         tutorialShuttersTitle: "🪟 Correct closing of the French window shutters",
-        tutorialShuttersText: "Please ensure that the French window shutters are closed in the following manner:\nmake sure to engage the bottom bolts into the ground, otherwise the shutters can be easily opened from the outside.",
+        tutorialShuttersText: "Close the shutters and always engage the bottom bolts into the ground.\nIf the bolts are not engaged, the shutters can be easily opened from outside.",
         tutorialBinsTitle: "🗑️ Outdoor waste bins location",
-        tutorialBinsText: "When the indoor recycling bins are full, please take the properly sorted waste to the corresponding outdoor bins located outside the house.\nThe position of the outdoor bins is shown in this dedicated tutorial.",
+        tutorialBinsText: "When the kitchen bins are full, take the already sorted waste to the matching outdoor bins.\nThe video shows where they are.",
         rulesTitle: "🏡 House rules",
         rulesList: [
           "Access to the Villa is allowed exclusively to guests registered in the booking.",
@@ -949,8 +1063,8 @@
           "Pets are not allowed in the swimming pool.",
           "Any damage or extra cleaning will be charged to the guest."
         ],
-        wasteTitle: "♻️ Waste",
-        wasteText: "In the kitchen, there are designated bins for the separate collection of the following types of waste:\n• Paper\n• Plastic and aluminum\n• Glass\n• General (non-recyclable) waste\n• Organic waste\n\nOnce these bins are full, please dispose of the waste properly sorted in the corresponding containers located outside the house.\nThe location of these outdoor bins, not far from one of the entrance doors, is shown in the dedicated tutorial.\n\nPlease note that, during your stay, maintenance staff may access the property, at appropriate times and with the utmost discretion, solely to collect the outdoor bins and place them out for collection or empty them on the days scheduled by municipal regulations. This service is intended to spare you the inconvenience of managing waste disposal in accordance with the local collection calendar.",
+        wasteTitle: "♻️ Recycling and waste sorting",
+        wasteText: "In the kitchen you will find bins for:\n• Paper\n• Plastic and aluminum\n• Glass\n• General waste\n• Organic waste\n\nWhen they are full, take the already sorted waste to the matching outdoor bins. Their location is shown in the tutorial.\n\nDuring your stay, maintenance staff may enter the property discreetly and at appropriate times only to manage the outdoor bins on collection days.",
         wasteNote: "",
         usefulNumbersTitle: "📞 Useful numbers",
         emergencyTitle: "Emergency numbers",
@@ -1024,7 +1138,15 @@
         accessKeyboxWideCaption: "Haupteingang mit der Schlusselbox links neben der Tur.",
         accessKeyboxDetailCaption: "Detailansicht der außenliegenden Schlusselbox.",
         accessNote: "WICHTIGER HINWEIS:\nDer Pool ist nur im Fruhjahr/Sommer zuganglich und nutzbar, wie vom Host wahrend der Buchungsanfrage mitgeteilt.\n\nJeden Dienstag im Fruhjahr/Sommer sind von 13:30 bis 17:30 Gartner fur die Gartenpflege vor Ort. Die Privatsphare der Gaste bleibt dabei gewahrt.",
-        tutorialsTitle: "🎥 Tutorials und Anleitungen",
+        essentialsTitle: "⚠️ Bitte zuerst lesen",
+        essentialsList: [
+          "Alarm: Beim Verlassen oder nachts Türen und Fensterläden schließen und den Alarm mit dem blauen Gerät aktivieren.",
+          "Fenster und Fensterläden: Die Fensterläden der Fenstertüren müssen mit den Bodenriegeln geschlossen werden.",
+          "Müll: Wenn die Küchenbehälter voll sind, bringen Sie die getrennten Abfälle zu den passenden Außentonnen.",
+          "Check-out: Vor dem Verlassen Lichter und Geräte ausschalten und Türen, Fenster und Fensterläden schließen."
+        ],
+        checkoutJumpBtn: "✅ Zu den Check-out-Schritten",
+        tutorialsTitle: "🎥 Kurze Tutorials",
         tutorialAlarmInsideTitle: "🔐 Alarm von innen aktivieren und deaktivieren",
         tutorialAlarmInsideText: "Wenn Sie sich im Haus befinden (Nachtsicherheit):\nVerwenden Sie das blaue Gerät am Schlüsselbund.\nNeben jeder Eingangstür befindet sich ein Touchscreen und ein Leser für das blaue Gerät.\nBerühren Sie den Touchscreen. Wenn er aktiviert wird, sehen Sie mehrere eingekreiste Buchstaben. Für Sie ist der Buchstabe A relevant.\n\nZum Aktivieren des Alarms:\nSchließen Sie alle Türen und Fensterverschläge (siehe Video zur korrekten Schließung der Fenstertüren).\nHalten Sie die weiße Seite des blauen Geräts an den Leser, bis die Leuchte des Lesers angeht.\nEntfernen Sie dann das Gerät. Der Buchstabe A wird rot = ALARM AKTIVIERT.\nÖffnen Sie ab diesem Moment keine Türen oder Fensterverschläge mehr, sonst löst der Alarm aus.\n\nZum Deaktivieren des Alarms:\nHalten Sie die weiße Seite des blauen Geräts an den Leser, bis die Leuchte des Lesers ausgeht.\nEntfernen Sie dann das Gerät. Der Buchstabe A wird grün = ALARM DEAKTIVIERT.\nAb diesem Moment können Türen und Fensterverschläge geöffnet werden.",
         tutorialAlarmExitTitle: "🚪 Alarm aktivieren, wenn Sie das Haus verlassen",
@@ -1068,7 +1190,7 @@
           "Haustiere haben keinen Zugang zum Pool.",
           "Etwaige Schäden oder zusätzliche Reinigungen gehen zu Lasten des Gastes."
         ],
-        wasteTitle: "♻️ Müll",
+        wasteTitle: "♻️ Mülltrennung",
         wasteText: "In der Küche befinden sich spezielle Behälter für die getrennte Sammlung von:\n• Papier\n• Kunststoff und Aluminium\n• Glas\n• Restmüll\n• Bioabfall\n\nSobald diese Behälter voll sind, bitten wir Sie, den korrekt getrennten Müll in die entsprechenden Tonnen außerhalb des Hauses zu bringen.\nDie Position dieser Tonnen, unweit einer der Eingangstüren, wird im entsprechenden Tutorial gezeigt.\n\nBitte beachten Sie, dass das Wartungspersonal während Ihres Aufenthalts zu geeigneten Zeiten und mit größter Diskretion das Grundstück betreten kann, ausschließlich um die Außentonnen abzuholen und sie an den von der Gemeinde vorgesehenen Abholtagen bereitzustellen oder zu leeren. Dieser Service soll Ihnen den Aufwand ersparen, die Abfallentsorgung nach dem kommunalen Abfallkalender selbst zu organisieren.",
         wasteNote: "",
         usefulNumbersTitle: "📞 Nützliche Nummern",
@@ -1143,7 +1265,15 @@
         accessKeyboxWideCaption: "Entree principale avec la keybox placee sur le cote gauche de la porte.",
         accessKeyboxDetailCaption: "Detail de la keybox exterieure.",
         accessNote: "INFORMATION IMPORTANTE :\nLa piscine est accessible et utilisable uniquement pendant la periode printemps/ete, comme communique par l'Host lors de la demande de reservation.\n\nChaque mardi, pendant la periode printemps/ete, de 13h30 a 17h30, des jardiniers seront presents pour l'entretien des espaces verts. L'intimite des voyageurs sera toutefois preservee.",
-        tutorialsTitle: "🎥 Tutoriels et instructions",
+        essentialsTitle: "⚠️ À lire en premier",
+        essentialsList: [
+          "Alarme : en sortant ou la nuit, fermez portes et volets puis activez l'alarme avec le dispositif bleu.",
+          "Fenêtres et volets : les volets des portes-fenêtres doivent être fermés avec les verrous au sol abaissés.",
+          "Déchets : lorsque les bacs de cuisine sont pleins, déposez les déchets triés dans les bacs extérieurs correspondants.",
+          "Check-out : avant de partir, éteignez lumières et appareils, puis fermez portes, fenêtres et volets."
+        ],
+        checkoutJumpBtn: "✅ Voir les étapes du check-out",
+        tutorialsTitle: "🎥 Tutoriels rapides",
         tutorialAlarmInsideTitle: "🔐 Activer et désactiver l'alarme depuis l'intérieur",
         tutorialAlarmInsideText: "Lorsque vous êtes dans la maison (sécurité de nuit) :\nUtilisez le dispositif bleu fourni sur le porte-clés de la maison.\nÀ côté de chaque porte d'entrée, il y a un écran tactile et un lecteur pour le dispositif bleu.\nTouchez l'écran tactile. Lorsqu'il s'allume, plusieurs lettres entourées apparaissent. Celle qui vous intéresse est la lettre A.\n\nPour activer l'alarme :\nFermez toutes les portes et les volets des portes-fenêtres (voir la vidéo sur la fermeture correcte des volets).\nPlacez la partie blanche du dispositif bleu sur le lecteur jusqu'à ce que la lumière du lecteur s'allume.\nÉloignez ensuite le dispositif. La lettre A deviendra rouge = ALARME ACTIVÉE.\nÀ partir de ce moment, n'ouvrez ni portes ni volets, sinon l'alarme se déclenchera.\n\nPour désactiver l'alarme :\nPlacez la partie blanche du dispositif bleu sur le lecteur jusqu'à ce que la lumière du lecteur s'éteigne.\nÉloignez ensuite le dispositif. La lettre A deviendra verte = ALARME DÉSACTIVÉE.\nÀ partir de ce moment, les portes et les volets peuvent être ouverts.",
         tutorialAlarmExitTitle: "🚪 Activer l'alarme en quittant la maison",
@@ -1187,7 +1317,7 @@
           "L'accès à la piscine est interdit.",
           "Tout dommage ou nettoyage supplémentaire sera à la charge du voyageur."
         ],
-        wasteTitle: "♻️ Déchets",
+        wasteTitle: "♻️ Tri des déchets",
         wasteText: "Dans la cuisine, vous trouverez des bacs dédiés au tri sélectif des déchets suivants :\n• Papier\n• Plastique et aluminium\n• Verre\n• Déchets non recyclables\n• Déchets organiques\n\nUne fois ces bacs remplis, nous vous prions de déposer les déchets, correctement triés, dans les conteneurs correspondants situés à l'extérieur de la maison.\nL'emplacement de ces conteneurs, non loin de l'une des portes d'entrée, est illustré dans le tutoriel dédié.\n\nVeuillez noter que, pendant votre séjour, le personnel de maintenance pourra accéder à la propriété, à des horaires appropriés et avec la plus grande discrétion, uniquement pour récupérer les bacs extérieurs et les sortir ou les vider les jours de collecte prévus par les dispositions communales. Ce service est prévu pour vous éviter la contrainte de gérer les déchets selon le calendrier communal.",
         wasteNote: "",
         usefulNumbersTitle: "📞 Numéros utiles",
@@ -1262,7 +1392,15 @@
         accessKeyboxWideCaption: "Entrada principal con la keybox situada en el lado izquierdo de la puerta.",
         accessKeyboxDetailCaption: "Detalle de la keybox exterior.",
         accessNote: "AVISO IMPORTANTE:\nLa piscina es accesible y utilizable unicamente durante la temporada de primavera/verano, tal como lo comunico el Host en la fase de solicitud de reserva.\n\nTodos los martes, durante la temporada de primavera/verano, de 13:30 a 17:30, estaran presentes los jardineros para el mantenimiento de las zonas verdes. La privacidad de los huespedes se mantendra en todo momento.",
-        tutorialsTitle: "🎥 Tutoriales e instrucciones",
+        essentialsTitle: "⚠️ Leer primero",
+        essentialsList: [
+          "Alarma: al salir o por la noche, cierren puertas y contraventanas y activen la alarma con el dispositivo azul.",
+          "Ventanas y contraventanas: las contraventanas de las puertas-ventana deben cerrarse con los cerrojos al suelo.",
+          "Residuos: cuando los cubos de la cocina estén llenos, lleven los residuos separados a los contenedores exteriores correspondientes.",
+          "Check-out: antes de salir, apaguen luces y electrodomésticos y cierren puertas, ventanas y contraventanas."
+        ],
+        checkoutJumpBtn: "✅ Ver pasos de check-out",
+        tutorialsTitle: "🎥 Tutoriales rápidos",
         tutorialAlarmInsideTitle: "🔐 Activar y desactivar la alarma desde dentro de la casa",
         tutorialAlarmInsideText: "Cuando se está dentro de la casa (seguridad nocturna):\nUtilicen el dispositivo azul proporcionado en el llavero de la casa.\nJunto a cada puerta de entrada hay una pantalla táctil y un lector para el dispositivo azul.\nToquen la pantalla táctil. Cuando se active, verán varias letras dentro de un círculo. La que les interesa es la letra A.\n\nPara activar la alarma:\nCierren todas las puertas y contraventanas (vean el video sobre el cierre correcto de las contraventanas de las puertas-ventana).\nApoyen la parte blanca del dispositivo azul sobre el lector hasta que la luz del lector se encienda.\nLuego aparten el dispositivo. La letra A se pondrá en rojo = ALARMA ACTIVADA.\nA partir de este momento, no abran puertas ni contraventanas o la alarma sonará.\n\nPara desactivar la alarma:\nApoyen la parte blanca del dispositivo azul sobre el lector hasta que la luz del lector se apague.\nLuego aparten el dispositivo. La letra A se pondrá en verde = ALARMA DESACTIVADA.\nA partir de este momento, se pueden abrir puertas y contraventanas.",
         tutorialAlarmExitTitle: "🚪 Activar la alarma al salir de casa",
@@ -1306,7 +1444,7 @@
           "Está prohibido el acceso a la piscina.",
           "Cualquier daño o limpieza extra correrá a cargo del huésped."
         ],
-        wasteTitle: "♻️ Residuos",
+        wasteTitle: "♻️ Separación de residuos",
         wasteText: "En la cocina hay cubos específicos para la recogida selectiva de los siguientes residuos:\n• Papel\n• Plástico y aluminio\n• Vidrio\n• Residuos no reciclables\n• Orgánico\n\nCuando estos cubos estén llenos, les rogamos que lleven los residuos, correctamente separados, a los contenedores correspondientes situados fuera de la casa.\nLa ubicación de estos contenedores, no lejos de una de las puertas de entrada, se muestra en el tutorial dedicado.\n\nTengan en cuenta que, durante la estancia, el personal de mantenimiento podría acceder a la propiedad, en horarios adecuados y con la máxima discreción, exclusivamente para recoger los contenedores exteriores y sacarlos o vaciarlos en los días de recogida previstos por la normativa municipal. Este servicio está pensado para evitarles la molestia de gestionar los residuos de acuerdo con el calendario local.",
         wasteNote: "",
         usefulNumbersTitle: "📞 Números útiles",
@@ -1564,6 +1702,13 @@
       setInfoItemVisibility("contact-item", "label-contact", "contact-value", t.labelContact, PROPERTY.whatsappDisplay, "contact-note", t.contactNote);
       setInfoItemVisibility("parking-item", "label-parking", "parking-short", t.labelParking, t.parkingShort);
       updateInfoCardVisibility();
+
+      const hasEssentialsContent = hasContentArray(t.essentialsList);
+      setTextOrClear("essentials-title", hasEssentialsContent ? t.essentialsTitle : "");
+      renderList("essentials-list", hasEssentialsContent ? t.essentialsList : []);
+      setText("checkout-jump-btn", t.checkoutJumpBtn);
+      setButtonVisibility("checkout-jump-btn", "#checkout-card");
+      setHidden("essentials-card", !hasEssentialsContent);
 
       const hasAccessKeyboxContent =
         hasContentValue(t.accessKeyboxTitle) ||
