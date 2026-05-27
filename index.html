@@ -796,6 +796,7 @@
       <h2 id="discover-more-title"></h2>
       <p class="discover-more-text" id="discover-more-text"></p>
       <div class="discover-more-actions">
+        <a class="action-btn" id="chef-experience-btn" href="chef-experience.html" target="_blank" rel="noopener noreferrer"></a>
         <a class="action-btn" id="discover-modena-btn" href="https://www.visitmodena.it/it/eventi" target="_blank" rel="noopener noreferrer"></a>
         <a class="action-btn" id="discover-bologna-btn" href="https://www.bolognawelcome.com/it/eventi" target="_blank" rel="noopener noreferrer"></a>
       </div>
@@ -984,7 +985,8 @@
           "Agriturismo La Lupa - Castelvetro, agriturismo con cucina tipica."
         ],
         discoverMoreTitle: "✨ Altri punti d'interesse e cose da fare",
-        discoverMoreText: "Se vuoi arricchire il soggiorno con una gita, una mostra o un evento speciale, qui trovi due riferimenti ufficiali molto utili per scoprire cosa succede tra Modena e Bologna.",
+        discoverMoreText: "Se vuoi arricchire il soggiorno con una gita, una mostra, un evento speciale o un'esperienza culinaria direttamente in Villa, qui trovi alcuni riferimenti utili.",
+        chefExperienceBtn: "🍝 Chef in Villa",
         discoverModenaBtn: "Eventi Modena",
         discoverBolognaBtn: "Eventi Bologna",
         ecosystemKicker: "FGA House Solutions",
@@ -1113,7 +1115,8 @@
           "Agriturismo La Lupa - Castelvetro, farmhouse restaurant with traditional cuisine."
         ],
         discoverMoreTitle: "✨ More places to explore and things to do",
-        discoverMoreText: "If you would like to add a day trip, an exhibition or a special event to your stay, these official websites are a great starting point for discovering what is happening in Modena and Bologna.",
+        discoverMoreText: "If you would like to add a day trip, an exhibition, a special event or a private culinary experience at the Villa to your stay, these links are a great starting point.",
+        chefExperienceBtn: "🍝 Chef at the Villa",
         discoverModenaBtn: "Modena events",
         discoverBolognaBtn: "Bologna events",
         ecosystemKicker: "FGA House Solutions",
@@ -1242,7 +1245,8 @@
           "Agriturismo La Lupa - Castelvetro, Landgasthof mit typischer Küche."
         ],
         discoverMoreTitle: "✨ Weitere Ausflugsziele und Unternehmungen",
-        discoverMoreText: "Wenn du deinen Aufenthalt mit einem Ausflug, einer Ausstellung oder einer besonderen Veranstaltung bereichern möchtest, findest du hier zwei offizielle Seiten mit Ideen für Modena und Bologna.",
+        discoverMoreText: "Wenn du deinen Aufenthalt mit einem Ausflug, einer Ausstellung, einer besonderen Veranstaltung oder einem privaten kulinarischen Erlebnis in der Villa bereichern möchtest, findest du hier einige nützliche Links.",
+        chefExperienceBtn: "🍝 Chef in der Villa",
         discoverModenaBtn: "Events Modena",
         discoverBolognaBtn: "Events Bologna",
         ecosystemKicker: "FGA House Solutions",
@@ -1371,7 +1375,8 @@
           "Agriturismo La Lupa - Castelvetro, agritourisme avec cuisine typique."
         ],
         discoverMoreTitle: "✨ Autres lieux d'intérêt et choses à faire",
-        discoverMoreText: "Si vous souhaitez enrichir votre séjour avec une excursion, une exposition ou un événement spécial, ces deux sites officiels sont parfaits pour découvrir ce qui se passe à Modène et à Bologne.",
+        discoverMoreText: "Si vous souhaitez enrichir votre séjour avec une excursion, une exposition, un événement spécial ou une expérience culinaire privée à la Villa, voici quelques liens utiles.",
+        chefExperienceBtn: "🍝 Chef à la Villa",
         discoverModenaBtn: "Événements Modène",
         discoverBolognaBtn: "Événements Bologne",
         ecosystemKicker: "FGA House Solutions",
@@ -1500,7 +1505,8 @@
           "Agriturismo La Lupa - Castelvetro, agriturismo con cocina típica."
         ],
         discoverMoreTitle: "✨ Otros puntos de interés y cosas que hacer",
-        discoverMoreText: "Si quieren enriquecer la estancia con una excursión, una exposición o un evento especial, aquí tienen dos referencias oficiales muy útiles para descubrir qué ocurre entre Módena y Bolonia.",
+        discoverMoreText: "Si quieren enriquecer la estancia con una excursión, una exposición, un evento especial o una experiencia culinaria privada en la Villa, aquí tienen algunos enlaces útiles.",
+        chefExperienceBtn: "🍝 Chef en la Villa",
         discoverModenaBtn: "Eventos Módena",
         discoverBolognaBtn: "Eventos Bolonia",
         ecosystemKicker: "FGA House Solutions",
@@ -1851,8 +1857,10 @@
       const hasDiscoverMoreContent = hasContentValue(t.discoverMoreTitle) || hasContentValue(t.discoverMoreText);
       setTextOrClear("discover-more-title", hasDiscoverMoreContent ? t.discoverMoreTitle : "");
       setTextOrClear("discover-more-text", t.discoverMoreText);
+      setText("chef-experience-btn", t.chefExperienceBtn);
       setText("discover-modena-btn", t.discoverModenaBtn);
       setText("discover-bologna-btn", t.discoverBolognaBtn);
+      setButtonVisibility("chef-experience-btn", "chef-experience.html");
       setButtonVisibility("discover-modena-btn", "https://www.visitmodena.it/it/eventi");
       setButtonVisibility("discover-bologna-btn", "https://www.bolognawelcome.com/it/eventi");
       setHidden("discover-more-card", !hasDiscoverMoreContent);

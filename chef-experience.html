@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chef in Villa - Villa Mafalda</title>
+  <style>
+    :root {
+      --bg: #eef0f4;
+      --card: #f7f7f8;
+      --text: #18213c;
+      --muted: #5f6c80;
+      --primary: #0f1b3d;
+      --primary-hover: #162754;
+      --border: #273454;
+      --soft-border: rgba(39, 52, 84, 0.14);
+      --shadow: 0 18px 50px rgba(15, 27, 61, 0.14);
+      --radius-xl: 26px;
+      --radius-lg: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 22px;
+    }
+
+    .hero,
+    .card {
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      margin-bottom: 22px;
+    }
+
+    .hero-photo {
+      width: 100%;
+      height: min(72vh, 680px);
+      min-height: 430px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-content,
+    .card {
+      padding: 28px;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(38px, 6vw, 66px);
+      line-height: 1.04;
+      letter-spacing: -0.03em;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .lead {
+      max-width: 780px;
+      color: #26314f;
+      font-size: clamp(18px, 2.3vw, 23px);
+    }
+
+    .lang-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .lang-btn,
+    .btn,
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 12px 18px;
+      border-radius: var(--radius-lg);
+      border: 2px solid var(--border);
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .lang-btn,
+    .btn.secondary,
+    .contact-link {
+      color: var(--text);
+      background: transparent;
+    }
+
+    .lang-btn:hover,
+    .lang-btn.active,
+    .btn.secondary:hover,
+    .contact-link:hover {
+      background: #e9edf5;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .btn {
+      color: #fff;
+      background: var(--primary);
+    }
+
+    .btn:hover {
+      background: var(--primary-hover);
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    .copy-stack {
+      display: grid;
+      gap: 18px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .highlight,
+    .contact-card {
+      padding: 16px;
+      border: 1px solid var(--soft-border);
+      border-radius: 18px;
+      background: #fff;
+      font-weight: 700;
+    }
+
+    .contact-card {
+      display: grid;
+      gap: 12px;
+      font-weight: 400;
+    }
+
+    .contact-link {
+      width: 100%;
+      justify-content: flex-start;
+      text-align: left;
+      word-break: break-word;
+    }
+
+    .note {
+      padding: 18px;
+      border-radius: 18px;
+      background: #fff7ed;
+      color: #7c2d12;
+      font-weight: 650;
+    }
+
+    @media (max-width: 820px) {
+      .wrap {
+        padding: 14px;
+      }
+
+      .hero-photo {
+        height: 56vh;
+        min-height: 340px;
+      }
+
+      .hero-content,
+      .card {
+        padding: 22px;
+      }
+
+      .content-grid,
+      .highlight-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .btn,
+      .lang-btn {
+        flex: 1 1 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <img class="hero-photo" src="pasta-only.jpeg" alt="Fresh pasta lesson with Simonetta Garelli">
+      <div class="hero-content">
+        <p class="eyebrow" id="eyebrow"></p>
+        <h1 id="title"></h1>
+        <p class="lead" id="lead"></p>
+        <div class="actions">
+          <a class="btn" id="book-btn" href="https://simonettagarelli.com" target="_blank" rel="noopener noreferrer"></a>
+          <a class="btn secondary" id="back-btn" href="index.html"></a>
+        </div>
+        <div class="lang-grid" aria-label="Language selector">
+          <button type="button" class="lang-btn" data-lang="it">Italiano</button>
+          <button type="button" class="lang-btn" data-lang="en">English</button>
+          <button type="button" class="lang-btn" data-lang="de">Deutsch</button>
+          <button type="button" class="lang-btn" data-lang="fr">Français</button>
+          <button type="button" class="lang-btn" data-lang="es">Español</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="content-grid">
+        <div class="copy-stack">
+          <p class="eyebrow" id="lesson-kicker"></p>
+          <h2 id="section-title"></h2>
+          <p class="muted" id="bio-text"></p>
+          <p class="muted" id="experience-text"></p>
+
+          <div class="highlight-grid">
+            <div class="highlight" id="highlight-1"></div>
+            <div class="highlight" id="highlight-2"></div>
+            <div class="highlight" id="highlight-3"></div>
+            <div class="highlight" id="highlight-4"></div>
+          </div>
+
+          <p class="note" id="note"></p>
+        </div>
+
+        <aside class="contact-card">
+          <h3 id="contacts-title"></h3>
+          <a class="contact-link" href="mailto:simonettagarelli@yahoo.it">✉️ simonettagarelli@yahoo.it</a>
+          <a class="contact-link" href="tel:+3939349556383">📞 +39 393 49556383</a>
+          <a class="contact-link" href="https://simonettagarelli.com" target="_blank" rel="noopener noreferrer">🌐 simonettagarelli.com</a>
+          <p class="muted" id="booking-text"></p>
+        </aside>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const CONTENT = {
+      it: {
+        pageTitle: "Chef in Villa",
+        eyebrow: "Esperienza culinaria privata",
+        title: "Chef in Villa con Simonetta Garelli",
+        lead: "Una cena dedicata a Villa Mafalda, oppure una lezione privata per imparare a preparare la pasta fresca emiliana con le mani in pasta.",
+        bookBtn: "Prenota dal sito",
+        backBtn: "Torna alla guida",
+        lessonKicker: "Fresh pasta lesson",
+        sectionTitle: "Pasta fresca e sapori emiliani, direttamente in Villa",
+        bioText: "Simonetta ha 30 anni di esperienza come chef in ristoranti prestigiosi in tutto il mondo, ma il suo cuore è nel territorio in cui è nata.",
+        experienceText: "Per Villa Mafalda propone esperienze culinarie esclusive: puoi prenotare uno chef a domicilio per una serata indimenticabile, oppure partecipare a una lezione privata dedicata alla pasta fresca e alla creazione dei piatti regionali più iconici.",
+        highlight1: "Lezione di pasta fresca fino a 6 persone",
+        highlight2: "Cena privata direttamente in Villa",
+        highlight3: "Esperienza pratica, conviviale e su misura",
+        highlight4: "Prenotazione dal sito o tramite Host Airbnb",
+        note: "Un'idea perfetta per rendere speciale il soggiorno: una giornata che chi ama il buon cibo ricorderà a lungo.",
+        contactsTitle: "Contatti",
+        bookingText: "Per prenotazioni puoi usare il sito ufficiale oppure chiedere direttamente all'Host nella chat Airbnb."
+      },
+      en: {
+        pageTitle: "Chef at the Villa",
+        eyebrow: "Private culinary experience",
+        title: "Chef at the Villa with Simonetta Garelli",
+        lead: "A dedicated dinner at Villa Mafalda, or a private lesson to learn how to make fresh Emilian pasta by hand.",
+        bookBtn: "Book on the website",
+        backBtn: "Back to the guide",
+        lessonKicker: "Fresh pasta lesson",
+        sectionTitle: "Fresh pasta and Emilian flavors, directly at the Villa",
+        bioText: "Simonetta has 30 years of experience as a chef in prestigious restaurants around the world, but her heart belongs to the region where she was born.",
+        experienceText: "For Villa Mafalda she offers exclusive culinary experiences: you can book a private chef at home for an unforgettable evening, or join a hands-on private lesson focused on fresh pasta and iconic regional dishes.",
+        highlight1: "Fresh pasta lesson for up to 6 people",
+        highlight2: "Private dinner directly at the Villa",
+        highlight3: "Hands-on, convivial and tailor-made experience",
+        highlight4: "Book on the website or through the Airbnb Host",
+        note: "A perfect way to make your stay special: a day that food lovers will remember for a long time.",
+        contactsTitle: "Contacts",
+        bookingText: "For bookings, use the official website or ask the Host directly in the Airbnb chat."
+      },
+      de: {
+        pageTitle: "Chef in der Villa",
+        eyebrow: "Privates kulinarisches Erlebnis",
+        title: "Chef in der Villa mit Simonetta Garelli",
+        lead: "Ein privates Abendessen in der Villa Mafalda oder ein Privatkurs, um frische emilianische Pasta von Hand zuzubereiten.",
+        bookBtn: "Auf der Website buchen",
+        backBtn: "Zurück zur Guide",
+        lessonKicker: "Fresh pasta lesson",
+        sectionTitle: "Frische Pasta und emilianische Aromen direkt in der Villa",
+        bioText: "Simonetta hat 30 Jahre Erfahrung als Chefköchin in renommierten Restaurants auf der ganzen Welt, doch ihr Herz gehört der Region, in der sie geboren wurde.",
+        experienceText: "Für Villa Mafalda bietet sie exklusive kulinarische Erlebnisse an: Sie können eine private Köchin für einen unvergesslichen Abend buchen oder an einem praktischen Privatkurs teilnehmen, der frischer Pasta und ikonischen regionalen Gerichten gewidmet ist.",
+        highlight1: "Pasta-Kurs für bis zu 6 Personen",
+        highlight2: "Privates Abendessen direkt in der Villa",
+        highlight3: "Praktisches, geselliges und maßgeschneidertes Erlebnis",
+        highlight4: "Buchung über die Website oder den Airbnb-Host",
+        note: "Eine perfekte Idee, um den Aufenthalt besonders zu machen: ein Tag, an den sich Liebhaber guter Küche lange erinnern werden.",
+        contactsTitle: "Kontakte",
+        bookingText: "Für Buchungen nutzen Sie die offizielle Website oder fragen Sie den Host direkt im Airbnb-Chat."
+      },
+      fr: {
+        pageTitle: "Chef à la Villa",
+        eyebrow: "Expérience culinaire privée",
+        title: "Chef à la Villa avec Simonetta Garelli",
+        lead: "Un dîner dédié à Villa Mafalda, ou un cours privé pour apprendre à préparer des pâtes fraîches émiliennes à la main.",
+        bookBtn: "Réserver sur le site",
+        backBtn: "Retour au guide",
+        lessonKicker: "Fresh pasta lesson",
+        sectionTitle: "Pâtes fraîches et saveurs émiliennes, directement à la Villa",
+        bioText: "Simonetta possède 30 ans d'expérience comme cheffe dans des restaurants prestigieux à travers le monde, mais son cœur reste attaché au territoire où elle est née.",
+        experienceText: "Pour Villa Mafalda, elle propose des expériences culinaires exclusives : vous pouvez réserver une cheffe à domicile pour une soirée inoubliable, ou participer à un cours privé autour des pâtes fraîches et des plats régionaux les plus emblématiques.",
+        highlight1: "Cours de pâtes fraîches jusqu'à 6 personnes",
+        highlight2: "Dîner privé directement à la Villa",
+        highlight3: "Expérience pratique, conviviale et sur mesure",
+        highlight4: "Réservation sur le site ou via l'Host Airbnb",
+        note: "Une idée parfaite pour rendre le séjour spécial : une journée dont les amoureux de bonne cuisine se souviendront longtemps.",
+        contactsTitle: "Contacts",
+        bookingText: "Pour réserver, utilisez le site officiel ou demandez directement à l'Host dans le chat Airbnb."
+      },
+      es: {
+        pageTitle: "Chef en la Villa",
+        eyebrow: "Experiencia culinaria privada",
+        title: "Chef en la Villa con Simonetta Garelli",
+        lead: "Una cena dedicada en Villa Mafalda, o una clase privada para aprender a preparar pasta fresca emiliana a mano.",
+        bookBtn: "Reservar en la web",
+        backBtn: "Volver a la guía",
+        lessonKicker: "Fresh pasta lesson",
+        sectionTitle: "Pasta fresca y sabores emilianos, directamente en la Villa",
+        bioText: "Simonetta tiene 30 años de experiencia como chef en restaurantes prestigiosos de todo el mundo, pero su corazón está en la tierra donde nació.",
+        experienceText: "Para Villa Mafalda ofrece experiencias culinarias exclusivas: puedes reservar una chef a domicilio para una noche inolvidable, o participar en una clase privada práctica dedicada a la pasta fresca y a los platos regionales más icónicos.",
+        highlight1: "Clase de pasta fresca para hasta 6 personas",
+        highlight2: "Cena privada directamente en la Villa",
+        highlight3: "Experiencia práctica, convivial y a medida",
+        highlight4: "Reserva en la web o a través del Host Airbnb",
+        note: "Una idea perfecta para hacer especial la estancia: un día que los amantes de la buena comida recordarán durante mucho tiempo.",
+        contactsTitle: "Contactos",
+        bookingText: "Para reservas, utiliza la web oficial o pregunta directamente al Host en el chat de Airbnb."
+      }
+    };
+
+    function setText(id, value) {
+      const el = document.getElementById(id);
+      if (el) el.textContent = value || "";
+    }
+
+    function render(lang) {
+      const t = CONTENT[lang] || CONTENT.it;
+      document.documentElement.lang = lang;
+      document.title = `Villa Mafalda - ${t.pageTitle}`;
+
+      setText("eyebrow", t.eyebrow);
+      setText("title", t.title);
+      setText("lead", t.lead);
+      setText("book-btn", t.bookBtn);
+      setText("back-btn", t.backBtn);
+      setText("lesson-kicker", t.lessonKicker);
+      setText("section-title", t.sectionTitle);
+      setText("bio-text", t.bioText);
+      setText("experience-text", t.experienceText);
+      setText("highlight-1", t.highlight1);
+      setText("highlight-2", t.highlight2);
+      setText("highlight-3", t.highlight3);
+      setText("highlight-4", t.highlight4);
+      setText("note", t.note);
+      setText("contacts-title", t.contactsTitle);
+      setText("booking-text", t.bookingText);
+
+      document.querySelectorAll(".lang-btn").forEach((btn) => {
+        btn.classList.toggle("active", btn.dataset.lang === lang);
+      });
+    }
+
+    document.querySelectorAll(".lang-btn").forEach((btn) => {
+      btn.addEventListener("click", () => render(btn.dataset.lang));
+    });
+
+    render("it");
+  </script>
+</body>
+</html>
