@@ -755,6 +755,8 @@
           <div class="mini-grid">
             <a class="mini-btn" id="taxi-call-btn" href="#"></a>
             <a class="mini-btn" id="taxi-wa-btn" href="#"></a>
+            <a class="mini-btn" id="taxi-uber-btn" href="#"></a>
+            <a class="mini-btn" id="taxi-app-btn" href="#"></a>
           </div>
         </div>
 
@@ -851,6 +853,8 @@
         taxiPhoneHref: "tel:+39059374242",
         taxiWhatsappDisplay: "Taxi WhatsApp: +39 335 1838555",
         taxiWhatsappHref: "https://wa.me/393351838555",
+        taxiUberHref: "https://www.uber.com/global/it/r/cities/bologna-emilia-romagna-it/",
+        taxiAppHref: "https://www.cotabo.it/clienti/servizi/btaxi/?utm_source=chatgpt.com",
         rentalCarAutoDisplay: "Car Auto S.r.l. - Vignola: +39 059 7147844",
         rentalCarAutoHref: "tel:+390597147844",
         rentalRiloDisplay: "Ri.Lo Rent SRLS - Modena: +39 059 5803877",
@@ -944,6 +948,8 @@
         taxiTitle: "Taxi locale",
         taxiCallBtn: "📞 Chiama",
         taxiWaBtn: "💬 WhatsApp",
+        taxiUberBtn: "🚗 Uber",
+        taxiAppBtn: "🚕 App Taxi",
         rentalCarTitle: "🚗 Noleggio auto",
         rentalCarAutoBtn: "Chiama Car Auto",
         rentalRiloBtn: "Chiama Ri.Lo Rent",
@@ -1071,6 +1077,8 @@
         taxiTitle: "Local taxi",
         taxiCallBtn: "📞 Call",
         taxiWaBtn: "💬 WhatsApp",
+        taxiUberBtn: "🚗 Uber",
+        taxiAppBtn: "🚕 Taxi App",
         rentalCarTitle: "🚗 Car rental",
         rentalCarAutoBtn: "Call Car Auto",
         rentalRiloBtn: "Call Ri.Lo Rent",
@@ -1198,6 +1206,8 @@
         taxiTitle: "Lokales Taxi",
         taxiCallBtn: "📞 Anrufen",
         taxiWaBtn: "💬 WhatsApp",
+        taxiUberBtn: "🚗 Uber",
+        taxiAppBtn: "🚕 Taxi-App",
         rentalCarTitle: "🚗 Mietwagen",
         rentalCarAutoBtn: "Car Auto anrufen",
         rentalRiloBtn: "Ri.Lo Rent anrufen",
@@ -1325,6 +1335,8 @@
         taxiTitle: "Taxi local",
         taxiCallBtn: "📞 Appeler",
         taxiWaBtn: "💬 WhatsApp",
+        taxiUberBtn: "🚗 Uber",
+        taxiAppBtn: "🚕 App Taxi",
         rentalCarTitle: "🚗 Location de voiture",
         rentalCarAutoBtn: "Appeler Car Auto",
         rentalRiloBtn: "Appeler Ri.Lo Rent",
@@ -1452,6 +1464,8 @@
         taxiTitle: "Taxi local",
         taxiCallBtn: "📞 Llamar",
         taxiWaBtn: "💬 WhatsApp",
+        taxiUberBtn: "🚗 Uber",
+        taxiAppBtn: "🚕 App Taxi",
         rentalCarTitle: "🚗 Alquiler de coches",
         rentalCarAutoBtn: "Llamar a Car Auto",
         rentalRiloBtn: "Llamar a Ri.Lo Rent",
@@ -1772,8 +1786,12 @@
       setTextOrClear("taxi-whatsapp-text", safeNumbers.taxiWhatsappDisplay);
       setText("taxi-call-btn", t.taxiCallBtn);
       setText("taxi-wa-btn", t.taxiWaBtn);
+      setText("taxi-uber-btn", t.taxiUberBtn);
+      setText("taxi-app-btn", t.taxiAppBtn);
       setButtonVisibility("taxi-call-btn", safeNumbers.taxiPhoneHref);
       setButtonVisibility("taxi-wa-btn", safeNumbers.taxiWhatsappHref);
+      setButtonVisibility("taxi-uber-btn", safeNumbers.taxiUberHref);
+      setButtonVisibility("taxi-app-btn", safeNumbers.taxiAppHref);
       setTextOrClear("rental-car-title", t.rentalCarTitle);
       setTextOrClear("rental-car-auto-text", safeNumbers.rentalCarAutoDisplay);
       setTextOrClear("rental-rilo-text", safeNumbers.rentalRiloDisplay);
