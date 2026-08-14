@@ -455,6 +455,35 @@
       font-weight: 600;
     }
 
+    .pool-operations {
+      display: grid;
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .pool-operation {
+      padding: 18px;
+      border: 1px solid rgba(39, 52, 84, 0.14);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.55);
+    }
+
+    .pool-operation-title {
+      margin: 0 0 8px;
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    .pool-operation-text {
+      margin: 0;
+      font-weight: 600;
+    }
+
+    .pool-operation .checkout-alert {
+      margin: 14px 0 0;
+    }
+
     .mini-grid {
       display: flex;
       flex-wrap: wrap;
@@ -712,6 +741,7 @@
     <details class="card collapsible-card" id="rules-card">
       <summary><span id="rules-title"></span></summary>
       <ul id="rules-list"></ul>
+      <div class="pool-operations" id="pool-operations"></div>
     </details>
 
     <details class="card collapsible-card" id="pet-rules-card">
@@ -934,6 +964,22 @@
           "È obbligatorio chiudere porte e finestre quando si lascia la proprietà.",
           "Non utilizzare contemporaneamente bollitore e forno nell'angolo bar."
         ],
+        poolOperations: [
+          {
+            title: "🌿 Prato e oggetti personali",
+            text: "Non lasciare teli da bagno, asciugamani o indumenti sul prato.\nDurante la notte non lasciare teli o indumenti neanche sui lettini: il tosaerba automatico lavora autonomamente e potrebbe danneggiarli irrimediabilmente."
+          },
+          {
+            title: "🤖 Robot piscina",
+            text: "Alla sera mettere in acqua il robot per la pulizia della piscina e accenderlo dal tasto presente sulla sua base.\nDurante il giorno il robot deve essere tolto dalla piscina.",
+            alertTitle: "Importante",
+            alertText: "Non lasciare il cavo del robot arrotolato o appoggiato sul prato. Quando il robot è in funzione, sistemare il cavo sulla pavimentazione a bordo piscina, evitando che rimanga sul prato: il tagliaerba automatico potrebbe intercettarlo e danneggiarlo."
+          },
+          {
+            title: "💧 Controllo dell'acqua",
+            text: "A causa delle temperature esterne particolarmente elevate, un giardiniere/addetto alla manutenzione passerà ogni mattina, dal lunedì al venerdì, intorno alle ore 8:30.\nEffettuerà un rapido controllo dello stato dell'acqua della piscina e, quando necessario, farà gli opportuni aggiustamenti per preservarne la qualità.\nIl controllo non è previsto il sabato e la domenica."
+          }
+        ],
         petRulesTitle: "🐾 Regole per gli animali",
         petRulesIntro: "Gli animali sono ammessi, nel rispetto delle seguenti regole:",
         petRulesList: [
@@ -1063,6 +1109,22 @@
           "It is recommended to activate the alarm every time you leave the Villa and during the night.",
           "Doors and windows must be closed whenever you leave the property.",
           "Do not use the kettle and the oven at the same time in the bar area."
+        ],
+        poolOperations: [
+          {
+            title: "🌿 Lawn and personal items",
+            text: "Do not leave beach towels, towels, or clothing on the lawn.\nAt night, please do not leave towels or clothing on the sun loungers either: the automatic lawn mower works independently and may damage them beyond repair."
+          },
+          {
+            title: "🤖 Pool robot",
+            text: "In the evening, place the pool cleaning robot in the water and switch it on using the button on its base.\nDuring the day, the robot must be removed from the pool.",
+            alertTitle: "Important",
+            alertText: "Do not leave the robot cable coiled up or resting on the lawn. When the robot is running, place the cable on the paved poolside area and keep it off the grass: the automatic lawn mower could catch and damage it."
+          },
+          {
+            title: "💧 Water check",
+            text: "Because of the particularly high outdoor temperatures, a gardener/maintenance staff member will come every morning, Monday to Friday, at around 8:30.\nThey will quickly check the condition of the pool water and, when needed, make the necessary adjustments to preserve its quality.\nNo check is scheduled on Saturday or Sunday."
+          }
         ],
         petRulesTitle: "🐾 Pet rules",
         petRulesIntro: "Pets are allowed, provided that the following rules are respected:",
@@ -1194,6 +1256,22 @@
           "Türen und Fenster müssen beim Verlassen des Grundstücks geschlossen werden.",
           "Verwenden Sie Wasserkocher und Backofen im Barbereich nicht gleichzeitig."
         ],
+        poolOperations: [
+          {
+            title: "🌿 Rasen und persönliche Gegenstände",
+            text: "Bitte lassen Sie keine Badetücher, Handtücher oder Kleidungsstücke auf dem Rasen liegen.\nLassen Sie nachts auch keine Tücher oder Kleidung auf den Liegen liegen: Der automatische Rasenmäher arbeitet selbstständig und könnte sie irreparabel beschädigen."
+          },
+          {
+            title: "🤖 Poolroboter",
+            text: "Bitte setzen Sie den Poolreinigungsroboter am Abend ins Wasser und schalten Sie ihn über die Taste an seiner Basis ein.\nTagsüber muss der Roboter aus dem Pool genommen werden.",
+            alertTitle: "Wichtig",
+            alertText: "Lassen Sie das Kabel des Roboters nicht aufgerollt oder auf dem Rasen liegen. Wenn der Roboter in Betrieb ist, legen Sie das Kabel auf die gepflasterte Fläche am Poolrand und halten Sie es vom Rasen fern: Der automatische Rasenmäher könnte es erfassen und beschädigen."
+          },
+          {
+            title: "💧 Wasserkontrolle",
+            text: "Aufgrund der besonders hohen Außentemperaturen kommt montags bis freitags jeden Morgen gegen 8:30 Uhr ein Gärtner bzw. Wartungsmitarbeiter vorbei.\nEr kontrolliert kurz den Zustand des Poolwassers und nimmt bei Bedarf die notwendigen Anpassungen vor, um die Wasserqualität zu erhalten.\nSamstags und sonntags ist keine Kontrolle vorgesehen."
+          }
+        ],
         petRulesTitle: "🐾 Regeln für Haustiere",
         petRulesIntro: "Haustiere sind erlaubt, sofern die folgenden Regeln eingehalten werden:",
         petRulesList: [
@@ -1323,6 +1401,22 @@
           "Il est recommandé d'activer l'alarme chaque fois que vous quittez la villa et pendant la nuit.",
           "Les portes et les fenêtres doivent être fermées lorsque vous quittez la propriété.",
           "N'utilisez pas simultanément la bouilloire et le four dans l'espace bar."
+        ],
+        poolOperations: [
+          {
+            title: "🌿 Pelouse et effets personnels",
+            text: "Ne laissez pas de serviettes de bain, de serviettes ou de vêtements sur la pelouse.\nLa nuit, ne laissez pas non plus de serviettes ou de vêtements sur les transats : le robot tondeuse fonctionne de manière autonome et pourrait les endommager irrémédiablement."
+          },
+          {
+            title: "🤖 Robot de piscine",
+            text: "Le soir, placez le robot de nettoyage de la piscine dans l'eau et allumez-le avec le bouton situé sur sa base.\nPendant la journée, le robot doit être retiré de la piscine.",
+            alertTitle: "Important",
+            alertText: "Ne laissez pas le câble du robot enroulé ou posé sur la pelouse. Lorsque le robot fonctionne, placez le câble sur le dallage au bord de la piscine et évitez qu'il reste sur l'herbe : le robot tondeuse pourrait l'intercepter et l'endommager."
+          },
+          {
+            title: "💧 Contrôle de l'eau",
+            text: "En raison des températures extérieures particulièrement élevées, un jardinier/agent de maintenance passera chaque matin, du lundi au vendredi, vers 8h30.\nIl effectuera un contrôle rapide de l'état de l'eau de la piscine et, si nécessaire, fera les ajustements utiles pour en préserver la qualité.\nAucun contrôle n'est prévu le samedi et le dimanche."
+          }
         ],
         petRulesTitle: "🐾 Règles pour les animaux",
         petRulesIntro: "Les animaux sont admis dans le respect des règles suivantes :",
@@ -1454,6 +1548,22 @@
           "Es obligatorio cerrar puertas y ventanas al salir de la propiedad.",
           "No utilice al mismo tiempo el hervidor y el horno en la zona del bar."
         ],
+        poolOperations: [
+          {
+            title: "🌿 Césped y objetos personales",
+            text: "No dejen toallas de piscina, toallas de baño ni ropa sobre el césped.\nPor la noche, no dejen tampoco toallas ni ropa sobre las tumbonas: el cortacésped automático funciona de forma autónoma y podría dañarlas de manera irreversible."
+          },
+          {
+            title: "🤖 Robot de piscina",
+            text: "Por la noche, coloquen el robot de limpieza de la piscina en el agua y enciéndanlo con el botón situado en su base.\nDurante el día, el robot debe retirarse de la piscina.",
+            alertTitle: "Importante",
+            alertText: "No dejen el cable del robot enrollado ni apoyado sobre el césped. Cuando el robot esté funcionando, coloquen el cable sobre el pavimento del borde de la piscina y eviten que quede en el césped: el cortacésped automático podría interceptarlo y dañarlo."
+          },
+          {
+            title: "💧 Control del agua",
+            text: "Debido a las temperaturas exteriores especialmente elevadas, un jardinero/encargado de mantenimiento pasará cada mañana, de lunes a viernes, alrededor de las 8:30.\nHará una revisión rápida del estado del agua de la piscina y, cuando sea necesario, realizará los ajustes oportunos para preservar su calidad.\nNo hay control previsto los sábados ni los domingos."
+          }
+        ],
         petRulesTitle: "🐾 Reglas para los animales",
         petRulesIntro: "Los animales están permitidos respetando las siguientes reglas:",
         petRulesList: [
@@ -1528,6 +1638,52 @@
       const list = document.getElementById(id);
       if (!list) return;
       list.innerHTML = (items || []).map(item => `<li>${item}</li>`).join("");
+    }
+
+    function renderPoolOperations(id, items) {
+      const container = document.getElementById(id);
+      if (!container) return;
+      container.innerHTML = "";
+
+      (items || []).forEach(item => {
+        const panel = document.createElement("section");
+        panel.className = "pool-operation";
+
+        const title = document.createElement("h3");
+        title.className = "pool-operation-title";
+        title.textContent = item.title || "";
+        panel.appendChild(title);
+
+        const text = document.createElement("p");
+        text.className = "pool-operation-text multiline-text";
+        text.textContent = item.text || "";
+        panel.appendChild(text);
+
+        if (hasContentValue(item.alertTitle) || hasContentValue(item.alertText)) {
+          const alert = document.createElement("div");
+          alert.className = "checkout-alert";
+
+          const icon = document.createElement("div");
+          icon.className = "checkout-alert-icon";
+          icon.setAttribute("aria-hidden", "true");
+          icon.textContent = "⚠️";
+          alert.appendChild(icon);
+
+          const alertBody = document.createElement("div");
+          const alertTitle = document.createElement("p");
+          alertTitle.className = "checkout-alert-title";
+          alertTitle.textContent = item.alertTitle || "";
+          const alertText = document.createElement("p");
+          alertText.className = "checkout-alert-text multiline-text";
+          alertText.textContent = item.alertText || "";
+          alertBody.appendChild(alertTitle);
+          alertBody.appendChild(alertText);
+          alert.appendChild(alertBody);
+          panel.appendChild(alert);
+        }
+
+        container.appendChild(panel);
+      });
     }
 
     function getDocumentForLang(docGroup, lang) {
@@ -1766,9 +1922,12 @@
       updateTutorialsCardVisibility();
 
       const hasRulesContent = hasContentArray(t.rulesList);
+      const hasPoolOperations = hasContentArray(t.poolOperations);
       setTextOrClear("rules-title", hasRulesContent ? t.rulesTitle : "");
       renderList("rules-list", hasRulesContent ? t.rulesList : []);
-      setHidden("rules-card", !hasRulesContent);
+      renderPoolOperations("pool-operations", hasPoolOperations ? t.poolOperations : []);
+      setHidden("pool-operations", !hasPoolOperations);
+      setHidden("rules-card", !(hasRulesContent || hasPoolOperations));
 
       const hasPetRules = hasContentArray(t.petRulesList) || hasContentValue(t.petRulesIntro);
       setTextOrClear("pet-rules-title", hasPetRules ? t.petRulesTitle : "");
