@@ -583,7 +583,123 @@
         font-size: 24px;
       }
     }
-  </style>
+
+    /* REVIEW-ONLY: new proposal cards; original styles unchanged */
+    .review-notice { position:sticky;z-index:10;top:0;background:#e9edf5;color:#243154;border-bottom:1px solid #cbd5e1;padding:10px 18px;text-align:center;font-size:13px;font-weight:650; }
+    .review-tag {font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#667590;font-weight:800;margin:0 0 7px}
+    .new-guide-btn {border:2px solid #1b7661;background:#f1faf5;color:#155e49;border-radius:18px;padding:12px 20px;text-decoration:none;text-align:center;font-weight:700;min-height:52px;display:inline-flex;align-items:center;justify-content:center;}
+    .essentials-actions {display:flex;flex-wrap:wrap;gap:12px}
+    .waste-highlight-card .review-intro {font-size:17px;margin:0 0 19px;color:#254c40}
+    .waste-highlight-card h2 {color:#14532d}
+    .recycle-grid {display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px;margin:16px 0 24px}
+    .recycle-type {background:#fff;border:1px solid #b8dac8;border-radius:14px;padding:12px 7px;text-align:center;min-height:75px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-weight:700;font-size:13px}
+    .recycle-type .symbol{font-size:24px}
+    .waste-steps {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:12px 0 18px}
+    .waste-step {border-radius:17px;background:#fff;border:1px solid #c9e3d5;padding:17px 15px;min-height:155px}
+    .waste-step .num{width:27px;height:27px;display:inline-flex;align-items:center;justify-content:center;background:#14532d;color:#fff;border-radius:50%;font-size:13px;font-weight:800}
+    .waste-step strong{display:block;font-size:16px;margin:8px 0 4px}
+    .waste-step p{font-size:14px;color:#446050;margin:0}
+    .waste-tip {background:#e1f3e8;border-radius:15px;padding:14px 17px;font-size:14px;border-left:3px solid #267951;margin:15px 0 18px}
+    .waste-note-fine {font-size:13px;color:#4e5b56;line-height:1.6;margin:20px 0 0;border-top:1px solid #cde7d8;padding-top:14px}
+    .waste-go-video {display:inline-flex;border:1.5px solid #277250;color:#155e49;padding:10px 16px;border-radius:13px;text-decoration:none;font-weight:750;font-size:14px;background:#fff}
+    .confirm-card {border:2px solid #324a75;background:#f8faff}
+    .confirm-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+    .preview-pill{font-size:11px;font-weight:850;background:#e5eaf5;border-radius:25px;padding:6px 12px;color:#304264}
+    .confirm-card h2{margin-bottom:5px}
+    .confirm-card .lead{color:#667590;font-size:16px;margin:4px 0 18px}
+    .review-includes {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px;margin:13px 0 22px}
+    .review-includes a {color:#1b3055;text-decoration:none;font-weight:700;font-size:14px;background:white;border:1px solid #d8e0ef;border-radius:12px;padding:13px 12px}
+    .form-review {border:1px solid #e0e6f0;background:white;border-radius:18px;padding:21px;max-width:720px}
+    .form-review-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .field{display:flex;flex-direction:column;gap:5px;margin:0 0 14px}
+    .field.full{grid-column:1/-1}
+    .field label{font-weight:700;font-size:14px;color:#23324b}
+    .field input{border-radius:11px;padding:12px;border:1.5px solid #bccadd;background:#fff;color:#18213c;font:inherit;width:100%;min-height:47px}
+    .consent{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:#283655;margin:7px 0 19px;cursor:pointer}
+    .consent input{width:19px;height:19px;flex-shrink:0;margin-top:2px}
+    .confirm-submit{background:#132653;color:#fff;border:0;border-radius:13px;padding:14px 25px;font:inherit;font-size:15px;font-weight:750;min-height:51px;cursor:pointer}
+    .confirm-submit:disabled{background:#8791a2;cursor:not-allowed}
+    .preview-privacy{font-size:12px;color:#6b7890;margin:14px 0 0}
+    .confirm-result{margin-top:16px;background:#e5f5eb;border:1px solid #b7e2c8;border-radius:13px;padding:15px;color:#1b5d42}
+    .print-btn{border:1px solid #34517e;color:#1a355e;font:inherit;font-size:14px;font-weight:750;border-radius:11px;background:#fff;padding:10px 14px;cursor:pointer}
+    #print-confirmation{display:none}
+    @media(max-width:700px){.recycle-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.waste-steps,.review-includes{grid-template-columns:1fr}.waste-step{min-height:0}.form-review-grid{grid-template-columns:1fr}.essentials-actions>*{width:100%}}
+    @media print {body{background:#fff} @page{size:A4;margin:15mm}body>.review-notice, .wrap{display:none!important}#print-confirmation{display:block!important;padding:0;font:12px/1.4 Arial,sans-serif;color:#17243d}#print-confirmation h1{font-size:22px}#print-confirmation li{padding:5px 0}}
+  
+
+    /* Solo anteprima V4: sezione compatta e percorso rifiuti responsivo */
+    .review-notice{position:static}
+    .waste-cycle-card {background: #eff8f3;overflow:visible;scroll-margin-top:16px}
+    .waste-cycle-card > summary {display:flex;align-items:center;justify-content:space-between;gap:18px;cursor:pointer;list-style:none;min-height:88px;user-select:none}
+    .waste-cycle-card > summary::-webkit-details-marker {display:none}
+    .waste-cycle-card > summary .compact-copy{flex:1;min-width:0}
+    .waste-cycle-card > summary h2{color:#14532d;margin:0;font-size:clamp(21px,2.3vw,27px)}
+    .waste-cycle-card > summary p{margin:4px 0 0;color:#376348;font-size:14px;line-height:1.45}
+    .waste-cycle-card > summary .fold-icon{display:grid;place-items:center;flex-shrink:0;width:40px;height:40px;background:white;border:1.5px solid #b8dac8;border-radius:50%;color:#14532d;transition:transform .18s}
+    .waste-cycle-card[open] > summary .fold-icon{transform:rotate(180deg)}
+    .waste-cycle-card .waste-body{padding-top:10px;border-top:1px solid #cde6d3}
+    .waste-cycle-card .waste-intro{margin:0 auto 15px;font-size:15px;color:#254c40;max-width:780px;line-height:1.6;text-align:center}
+    .waste-cycle-layout {position:relative;width:100%;max-width:970px;height:795px;margin:5px auto 8px;isolation:isolate}
+    .waste-cycle-connectors{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:1}
+    .waste-cycle-step {position:absolute;width:270px;min-height:206px;background:#edf4e9;border:1px solid #d8e5d1;border-radius:22px;padding:17px 17px 14px;box-shadow:0 9px 20px rgba(73,58,33,.045);z-index:2}
+    .waste-cycle-step.final {background:#faf3df;border:2px solid #e5cd83}
+    .waste-cycle-step.pos1 {left:50%;top:3px;transform:translateX(-50%)}
+    .waste-cycle-step.pos2 {right:0;top:50%;transform:translateY(-50%)}
+    .waste-cycle-step.pos3 {left:50%;bottom:3px;transform:translateX(-50%)}
+    .waste-cycle-step.pos4 {left:0;top:50%;transform:translateY(-50%)}
+    .waste-cycle-step .num{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#6c8b5a;color:white;font-weight:800;font-size:17px;margin-bottom:9px}
+    .waste-cycle-step.final .num{background:#c9a44a}
+    .waste-cycle-row{display:flex;align-items:flex-start;gap:12px}
+    .waste-cycle-icon{flex:0 0 56px;width:56px;height:56px;display:grid;place-items:center;border-radius:13px;background:#fff;border:1px solid rgba(0,0,0,.05)}
+    .waste-cycle-icon svg{width:43px;height:43px;display:block}
+    .waste-cycle-step h3{font-size:16px;line-height:1.28;margin:0 0 7px;color:#283a2b}
+    .waste-cycle-step p{font-size:14px;line-height:1.45;margin:0;color:#45463f}
+    .waste-cycle-mini{margin-top:10px;padding:9px 11px;background:rgba(255,255,255,.76);border:1px dashed rgba(0,0,0,.09);border-radius:12px;font-size:12px;line-height:1.4;color:#59534c}
+    .waste-cycle-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:172px;height:172px;border-radius:50%;border:2px dashed #c6d7bb;background:radial-gradient(#fffdf9,#edf4e9);display:grid;place-items:center;text-align:center;color:#5e8158;font-weight:800;font-size:17px;line-height:1.35;z-index:0}
+    .waste-bubble{position:relative;margin:12px auto 20px;max-width:680px;border:2px solid #e4c681;background:#fff9e9;border-radius:22px;padding:17px 20px;box-shadow:0 8px 18px rgba(108,83,38,.06);color:#554731}
+    .waste-bubble::before{content:"";position:absolute;width:17px;height:17px;background:#fff9e9;border-left:2px solid #e4c681;border-top:2px solid #e4c681;top:-11px;right:28%;transform:rotate(45deg)}
+    .waste-bubble > strong{display:block;color:#8c6921;margin-bottom:5px;font-size:16px}
+    .waste-bubble p strong{display:inline;font-size:inherit;color:#8c6921}
+    .waste-bubble p{margin:0;font-size:14px;line-height:1.55}
+    .waste-cycle-summary{margin:0 0 13px;border:1px solid #c9e4d0;border-left:5px solid #4b845b;border-radius:15px;background:#e6f4eb;padding:14px 17px;font-size:14px;line-height:1.5}
+    .waste-cycle-summary{font-weight:700;color:#194b30}.waste-cycle-step.final p{font-weight:700}.waste-cycle-card > summary p{font-weight:700}
+    .waste-cycle-card .waste-note-fine{margin-top:16px}
+    @media(max-width:1100px){
+      .waste-cycle-layout{height:auto;max-width:600px;display:flex;flex-direction:column;align-items:stretch;gap:35px;margin:20px auto}
+      .waste-cycle-connectors,.waste-cycle-center{display:none}
+      .waste-cycle-step{position:relative!important;top:auto!important;right:auto!important;bottom:auto!important;left:auto!important;transform:none!important;width:100%;min-height:unset;padding:17px 18px}
+      .waste-cycle-step:not(:last-child)::after{content:"";position:absolute;left:50%;bottom:-29px;width:18px;height:18px;border-bottom:4px solid #86a581;border-right:4px solid #86a581;transform:translateX(-50%) rotate(45deg)}
+      .waste-cycle-step:not(:last-child)::before{content:"";position:absolute;left:calc(50% - 2px);bottom:-27px;width:4px;height:26px;background:#86a581}
+      .waste-bubble::before{right:auto;left:38px}
+    }
+    @media(max-width:700px){
+      .waste-cycle-card{padding:18px!important}
+      .waste-cycle-card > summary{min-height:70px}
+      .waste-cycle-card > summary .fold-icon{width:34px;height:34px}
+      .waste-cycle-row{align-items:center}
+      .waste-cycle-icon{width:52px;height:52px;flex-basis:52px}
+      .waste-bubble{padding:16px}
+      .waste-cycle-card .waste-go-video{width:100%;justify-content:center}
+    }
+
+
+    /* V5: conferma volutamente discreta e solo nome titolare */
+    .confirm-card{max-width:760px;margin-left:auto;margin-right:auto;padding:19px 22px!important;background:#fbfcfd;border:1px solid #d5e0e9;box-shadow:0 4px 15px rgba(19,38,83,.03)}
+    .confirm-card h2{font-size:20px!important;margin:0 0 3px}
+    .confirm-card .lead{font-size:14px;margin:4px 0 11px;line-height:1.5}
+    .confirm-card .review-includes{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 13px}
+    .confirm-card .review-includes a{font-size:12px;border-radius:20px;padding:7px 10px;font-weight:650}
+    .confirm-card .form-review{padding:13px 15px;border-radius:12px;max-width:none}
+    .confirm-card .form-review-grid{display:block}
+    .confirm-card .field{margin:0 0 9px}
+    .confirm-card .field input{min-height:41px;padding:9px 11px}
+    .confirm-card .consent{margin:6px 0 12px;font-size:13px;line-height:1.45}
+    .confirm-card .confirm-submit{min-height:43px;padding:10px 17px;font-size:14px}
+    .confirm-card .review-tag{font-size:10px;margin:0 0 7px}
+    .confirm-card .preview-privacy{font-size:11px}
+    @media(max-width:700px){.confirm-card{max-width:100%;padding:15px!important}.confirm-card .review-includes a{font-size:11px}.confirm-card .form-review{padding:12px}}
+
+</style>
 </head>
 <body>
   <noscript>
@@ -665,6 +781,7 @@
       <ul class="essentials-list" id="essentials-list"></ul>
       <div class="essentials-actions">
         <a class="action-btn checkout-jump-btn" id="checkout-jump-btn" href="#checkout-card"></a>
+        <a class="new-guide-btn" href="#waste-card" id="waste-quick-open">♻️ Raccolta differenziata · Come funziona ↓</a>
       </div>
     </section>
 
@@ -750,11 +867,65 @@
       <ul id="pet-rules-list"></ul>
     </details>
 
-    <section class="card waste-highlight-card" id="waste-card">
-      <h2 id="waste-title"></h2>
-      <p class="multiline-text" id="waste-text"></p>
-      <p class="muted" id="waste-note"></p>
-    </section>
+    
+
+    <details class="card waste-highlight-card waste-cycle-card" id="waste-card">
+      <summary aria-label="Apri o chiudi le istruzioni per la raccolta differenziata">
+        <div class="compact-copy">
+          <h2 id="waste-title">♻️ Raccolta differenziata</h2>
+          <p><strong>Importante:</strong> i bidoni previsti dal calendario vanno esposti <strong>la sera prima del ritiro</strong>.</p>
+        </div>
+        <span class="fold-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </span>
+      </summary>
+      <div class="waste-body">
+        <p class="waste-intro">Quattro passaggi per gestire la raccolta durante il soggiorno. Segui il percorso indicato dalle frecce.</p>
+        <div class="waste-cycle-layout" id="waste-cycle-layout" aria-label="Percorso raccolta differenziata: cucina, bidoni esterni, calendario, esposizione">
+          <svg class="waste-cycle-connectors" id="waste-connectors" aria-hidden="true">
+            <defs>
+              <marker id="point-green" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="5.4" markerHeight="5.4" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#70956b"/></marker>
+              <marker id="point-gold" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="5.4" markerHeight="5.4" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#b59a51"/></marker>
+            </defs>
+            <g id="waste-paths" fill="none" stroke-width="3.4" stroke-linecap="round"></g>
+          </svg>
+          <div class="waste-cycle-center" aria-hidden="true">IL PERCORSO<br>DEI RIFIUTI</div>
+          <div class="waste-cycle-step pos1" id="waste-step1">
+            <span class="num">1</span>
+            <div class="waste-cycle-row"><div class="waste-cycle-icon"><svg viewBox="0 0 50 50" fill="none" stroke="#6c8b5a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="12" y="16" width="18" height="22" rx="2"/><path d="M10 16h22M18 12h6"/><path d="M34 18c3-1 7 1 7 5 0 5-4 7-8 7-4 0-7-2-7-5 0-4 3-5 4-6 1-2 1-5 4-7M35 18c0 2 1 4 4 5"/></svg></div>
+              <div><h3>Separa in cucina</h3><p>Dividi i rifiuti nei contenitori presenti in casa.</p></div></div>
+            <div class="waste-cycle-mini">Esempio: torsolo di mela → umido.</div>
+          </div>
+          <div class="waste-cycle-step pos2" id="waste-step2">
+            <span class="num">2</span>
+            <div class="waste-cycle-row"><div class="waste-cycle-icon"><svg viewBox="0 0 50 50" fill="none" stroke="#6c8b5a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 14h11l4 6v16H9a2 2 0 0 1-2-2V14zM19 14v6h7M25 25h10M31 21l4 4-4 4M36 16h10l-1 23H37l-1-23zM38 16v20M44 16v20"/></svg></div>
+              <div><h3>Portalo nel bidone esterno</h3><p>Quando il sacchetto è pieno, trasferiscilo nel bidone esterno corrispondente.</p></div></div>
+            <div class="waste-cycle-mini">La posizione dei bidoni è mostrata nel tutorial.</div>
+          </div>
+          <div class="waste-cycle-step pos3" id="waste-step3">
+            <span class="num">3</span>
+            <div class="waste-cycle-row"><div class="waste-cycle-icon"><svg viewBox="0 0 50 50" fill="none" stroke="#6c8b5a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="11" width="32" height="28" rx="3"/><path d="M16 9v6M34 9v6M9 18h32M17 24h5M27 24h6M17 30h6"/><circle cx="33" cy="30" r="3"/></svg></div>
+              <div><h3>Controlla il calendario</h3><p>Il calendario comunale in villa indica i giorni di ritiro per ogni tipologia di rifiuto.</p></div></div>
+            <div class="waste-cycle-mini">Verificalo anche se il giorno previsto è festivo.</div>
+          </div>
+          <div class="waste-cycle-step pos4 final" id="waste-step4">
+            <span class="num">4</span>
+            <div class="waste-cycle-row"><div class="waste-cycle-icon"><svg viewBox="0 0 50 50" fill="none" stroke="#b69b50" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 39h38M8 17h10M9 17v18M17 17v18M22 14h10M23 14v21M31 14v21M36 26h8M40 22l4 4-4 4M6 14h8l-1 20H7L6 14z"/></svg></div>
+              <div><h3>Esponi fuori dal cancello</h3><p><strong>La sera prima del ritiro, esponi fuori dal cancello i bidoni previsti dal calendario.</strong></p></div></div>
+            <div class="waste-cycle-mini"><strong>Questo è il passaggio fondamentale.</strong></div>
+          </div>
+        </div>
+        <aside class="waste-bubble">
+          <strong>💡 Un consiglio utile!</strong>
+          <p>Il sacchetto in cucina è pieno, ma il ritiro non è domani? <strong>Mettilo comunque nel bidone esterno corretto</strong>. Il bidone si porta fuori dal cancello <strong>soltanto la sera prima del giorno previsto</strong>.</p>
+        </aside>
+        <div class="waste-cycle-summary"><strong>Da ricordare:</strong> non basta separare i rifiuti. <strong>Se il calendario indica un ritiro, esponi il bidone corretto fuori dal cancello la sera precedente.</strong></div>
+        <a class="waste-go-video" href="#tutorial-bins-item" onclick="document.getElementById('tutorial-bins-item').open=true">▶ Guarda il tutorial dei bidoni esterni</a>
+        <p class="waste-note-fine"><strong>In caso di difficoltà, contattateci.</strong> Eventuali situazioni eccezionali che richiedano interventi straordinari documentati di gestione o smaltimento potranno comportare la richiesta dei costi effettivamente sostenuti, solo ove consentito dalle condizioni della piattaforma.</p>
+        <p id="waste-text" class="multiline-text" hidden></p>
+        <p id="waste-note" class="muted" hidden></p>
+      </div>
+    </details>
 
     <section class="card checkout-focus-card" id="checkout-card">
       <h2 id="checkout-title"></h2>
@@ -766,6 +937,27 @@
         </div>
       </div>
       <ul id="checkout-list"></ul>
+    </section>
+
+    
+    <section class="card confirm-card" id="confirm-card">
+      <div class="confirm-top"><p class="review-tag"></p><span class="preview-pill">FACOLTATIVA</span></div>
+      <h2>📋 Conferma presa visione</h2>
+      <p class="lead">Indica il nome del titolare della prenotazione e conferma di aver letto le istruzioni essenziali.</p>
+      <div class="review-includes">
+        <a href="#rules-card" onclick="document.getElementById('rules-card').open=true">🏡 Regole della casa ↗</a>
+        <a href="#waste-card">♻️ Raccolta differenziata ↗</a>
+        <a href="#checkout-card">✅ Istruzioni check-out ↗</a>
+      </div>
+      <form class="form-review" id="review-form">
+        <div class="form-review-grid">
+          <div class="field full"><label for="review-guest">Nome e cognome del titolare della prenotazione</label><input id="review-guest" autocomplete="name" placeholder="Es. Mario Rossi" required maxlength="90"></div>
+        </div>
+        <label class="consent"><input type="checkbox" id="review-accept" required> <span>Confermo di aver preso visione delle regole della casa, delle istruzioni per la raccolta differenziata e delle indicazioni di check-out.</span></label>
+        <button class="confirm-submit" type="submit" id="review-submit">Conferma presa visione</button>
+        <p class="preview-privacy"></p>
+        <div class="confirm-result" id="review-result" hidden><strong></strong><div id="review-result-text"></div><p></p><button class="print-btn" id="review-print" type="button">📄 Anteprima riepilogo / Salva come PDF</button></div>
+      </form>
     </section>
 
     <section class="card" id="useful-numbers-card">
@@ -918,13 +1110,13 @@
         accessKeyboxText: "All'esterno della porta principale è presente una keybox per il ritiro o la riconsegna delle chiavi, da utilizzare se l'Host non è disponibile di persona al check-in oppure al momento del check-out.\nLe istruzioni e l'eventuale codice della keybox verranno comunicati direttamente dall'Host.\n\nPer l'utilizzo del cancello automatico, consultare il tutorial dedicato qui sotto.",
         accessKeyboxWideCaption: "Ingresso principale con keybox posizionata sul lato sinistro della porta.",
         accessKeyboxDetailCaption: "Dettaglio della keybox esterna.",
-        accessNote: "PROMEMORIA IMPORTANTE:\nLa piscina è accessibile e utilizzabile esclusivamente nel periodo primavera/estate, come comunicato dall'Host in fase di richiesta di prenotazione.\n\nOgni martedì, nel periodo primavera/estate, dalle 13:30 alle 17:30, saranno presenti i giardinieri per la manutenzione del verde. La privacy degli ospiti sarà comunque mantenuta.",
+        accessNote: "PROMEMORIA IMPORTANTE:\nLa piscina è accessibile e utilizzabile esclusivamente nel periodo primavera/estate, come comunicato dall’Host.\n\nDurante il periodo di apertura della piscina, i giardinieri accedono alla proprietà tutte le mattine per un rapido controllo dell’acqua, nel rispetto della privacy degli ospiti.\n\nOgni martedì, nel periodo primavera/estate, dalle 13:30 alle 17:30, è inoltre prevista la manutenzione del verde.",
         essentialsTitle: "⚠️ Da leggere subito",
         essentialsList: [
           "Allarme: quando uscite o di notte, chiudete porte e scuri e inserite l'allarme con il dispositivo blu.",
           "Finestre e scuri: gli scuri delle portefinestre vanno chiusi con i catenacci abbassati a terra.",
-          "Rifiuti: quando i bidoni in cucina sono pieni, portate i sacchi nei contenitori esterni corrispondenti.",
-          "Check-out: prima di uscire spegnete luci ed elettrodomestici, chiudete porte, finestre e scuri."
+          "Rifiuti: separate i rifiuti, consultate il calendario affisso in casa ed esponete i bidoni previsti fuori dal cancello la sera prima del ritiro.",
+          "Check-out: spegnete luci, condizionatori ed elettrodomestici; chiudete porte, finestre e scuri."
         ],
         checkoutJumpBtn: "✅ Vai alle operazioni di check-out",
         tutorialsTitle: "🎥 Tutorial rapidi",
@@ -978,7 +1170,7 @@
           },
           {
             title: "💧 Controllo dell'acqua",
-            text: "A causa delle temperature esterne particolarmente elevate, un giardiniere/addetto alla manutenzione passerà ogni mattina, dal lunedì al venerdì, intorno alle ore 8:30.\nEffettuerà un rapido controllo dello stato dell'acqua della piscina e, quando necessario, farà gli opportuni aggiustamenti per preservarne la qualità.\nIl controllo non è previsto il sabato e la domenica."
+            text: "Nel periodo di apertura della piscina, i giardinieri passano ogni mattina per un rapido controllo dell’acqua e, se necessario, intervengono per mantenerne la qualità. L’accesso avviene con discrezione e nel rispetto della privacy degli ospiti."
           }
         ],
         petRulesTitle: "🐾 Regole per gli animali",
@@ -989,7 +1181,7 @@
           "Eventuali danni o pulizie extra saranno a carico dell'ospite."
         ],
         wasteTitle: "♻️ Raccolta differenziata",
-        wasteText: "In cucina trovate i bidoni per:\n• Carta\n• Plastica e alluminio\n• Vetro\n• Indifferenziata\n• Umido\n\nQuando sono pieni, portate i rifiuti già separati nei contenitori esterni corrispondenti. La posizione è indicata nel tutorial.\n\nDurante il soggiorno il personale di manutenzione può entrare nella proprietà, con discrezione e in orari appropriati, solo per gestire i bidoni esterni nei giorni di raccolta.",
+        wasteText: "In cucina trovate cinque contenitori per carta, plastica e alluminio, vetro, indifferenziato e umido. Conferite i rifiuti già separati nei corrispondenti bidoni esterni.\n\nIl calendario comunale per la raccolta è affisso in casa: controllate i giorni e portate i bidoni previsti fuori dal cancello la sera precedente al ritiro, anche nei giorni festivi se indicati dal calendario.\n\nPrima del check-out, lasciate tutti i rifiuti correttamente separati nei contenitori esterni.",
         wasteNote: "",
         usefulNumbersTitle: "📞 Numeri utili",
         emergencyTitle: "Emergenze",
@@ -1002,14 +1194,15 @@
         rentalCarAutoBtn: "Chiama Car Auto",
         rentalRiloBtn: "Chiama Ri.Lo Rent",
         checkoutTitle: "✅ Prima del check-out",
-        checkoutAlertTitle: "Promemoria luci, finestre e scuri",
-        checkoutAlertText: "Prima di uscire, controllare con attenzione tutta la Villa: spegnere assolutamente tutte le luci rimaste accese e chiudere bene tutte le finestre e gli scuri.",
+        checkoutAlertTitle: "Promemoria: luci, condizionatori, finestre e scuri",
+        checkoutAlertText: "Prima di uscire, controllate tutta la villa: spegnete le luci, i condizionatori e gli elettrodomestici e chiudete bene finestre e scuri.",
         checkoutList: [
           "Gli asciugamani e le lenzuola usate possono restare nelle stanze e nei bagni; il personale di servizio provvederà al ritiro.",
           "Spegnere tutti gli elettrodomestici.",
+          "Spegnere tutti i condizionatori, anche quelli delle camere.",
           "Chiudere tutte le porte.",
           "Se concordato con l'Host, lasciare le chiavi nella keybox esterna seguendo le istruzioni ricevute.",
-          "Portare la spazzatura residua negli appositi contenitori esterni."
+          "Portare tutti i rifiuti già separati nei rispettivi contenitori esterni: non lasciare sacchi misti o rifiuti all’interno."
         ],
         suggestionsTitle: "🍽️ Suggerimenti in zona",
         breakfastTitle: "☕ Colazione",
@@ -1065,13 +1258,13 @@
         accessKeyboxText: "Outside the main entrance door there is a keybox for key collection or return, to be used if the Host is not personally available at check-in or check-out.\nInstructions and the keybox code, if needed, will be provided directly by the Host.\n\nFor the automatic gate, please refer to the dedicated tutorial below.",
         accessKeyboxWideCaption: "Main entrance with the keybox positioned on the left side of the door.",
         accessKeyboxDetailCaption: "Close-up of the outdoor keybox.",
-        accessNote: "IMPORTANT NOTICE:\nThe swimming pool is accessible and usable only during the spring/summer season, as communicated by the Host during the booking request phase.\n\nEvery Tuesday, during the spring/summer season, from 13:30 to 17:30, gardeners will be present for green area maintenance. Guests' privacy will still be respected.",
+        accessNote: "IMPORTANT NOTICE:\nThe pool is available only during the spring/summer season, as communicated by the Host.\n\nDuring the pool season, gardeners visit the property every morning for a brief water check, while respecting guests’ privacy.\n\nGarden maintenance also takes place every Tuesday during spring/summer from 1:30 pm to 5:30 pm.",
         essentialsTitle: "⚠️ Read this first",
         essentialsList: [
           "Alarm: when leaving or at night, close doors and shutters and arm the alarm with the blue device.",
           "Windows and shutters: French window shutters must be closed with the bottom bolts engaged.",
-          "Waste: when the kitchen bins are full, take the sorted bags to the matching outdoor bins.",
-          "Check-out: before leaving, switch off lights and appliances and close doors, windows and shutters."
+          "Waste: sort rubbish, check the municipal schedule displayed inside and place the required bins outside the gate the evening before collection.",
+          "Check-out: switch off lights, air conditioning and appliances; close doors, windows and shutters."
         ],
         checkoutJumpBtn: "✅ Go to check-out steps",
         tutorialsTitle: "🎥 Quick tutorials",
@@ -1125,7 +1318,7 @@
           },
           {
             title: "💧 Water check",
-            text: "Because of the particularly high outdoor temperatures, a gardener/maintenance staff member will come every morning, Monday to Friday, at around 8:30.\nThey will quickly check the condition of the pool water and, when needed, make the necessary adjustments to preserve its quality.\nNo check is scheduled on Saturday or Sunday."
+            text: "During pool season, gardeners visit every morning for a brief water check and, where needed, make adjustments to keep the water in good condition. They do so discreetly, respecting guests’ privacy."
           }
         ],
         petRulesTitle: "🐾 Pet rules",
@@ -1136,7 +1329,7 @@
           "Any damage or extra cleaning will be charged to the guest."
         ],
         wasteTitle: "♻️ Recycling and waste sorting",
-        wasteText: "In the kitchen you will find bins for:\n• Paper\n• Plastic and aluminum\n• Glass\n• General waste\n• Organic waste\n\nWhen they are full, take the already sorted waste to the matching outdoor bins. Their location is shown in the tutorial.\n\nDuring your stay, maintenance staff may enter the property discreetly and at appropriate times only to manage the outdoor bins on collection days.",
+        wasteText: "In the kitchen there are five separate bins for paper, plastic and aluminium, glass, general waste and organic waste. Please place sorted waste in the matching outdoor bins.\n\nThe municipal collection schedule is posted inside the villa. Check which bins are due for collection and place them outside the gate on the preceding evening, including public holidays if indicated on the schedule.\n\nBefore check-out, leave all waste sorted in the outdoor bins.",
         wasteNote: "",
         usefulNumbersTitle: "📞 Useful numbers",
         emergencyTitle: "Emergency numbers",
@@ -1149,11 +1342,12 @@
         rentalCarAutoBtn: "Call Car Auto",
         rentalRiloBtn: "Call Ri.Lo Rent",
         checkoutTitle: "✅ Before check-out",
-        checkoutAlertTitle: "Lights, windows and shutters reminder",
-        checkoutAlertText: "Before leaving, please carefully check the whole Villa: make sure every light has been switched off and all windows and shutters are properly closed.",
+        checkoutAlertTitle: "Reminder: lights, air conditioning, windows and shutters",
+        checkoutAlertText: "Before leaving, check the entire villa: turn off all lights, air conditioning units and appliances, and fully close the windows and shutters.",
         checkoutList: [
           "Used towels and bed linen may remain in the rooms and bathrooms; the service staff will collect them.",
           "Switch off all appliances.",
+          "Turn off every air conditioning unit, including those in the bedrooms.",
           "Close all doors.",
           "If agreed with the Host, leave the keys in the outdoor keybox following the instructions received.",
           "Take any remaining waste to the outdoor bins."
@@ -1212,13 +1406,13 @@
         accessKeyboxText: "Außerhalb der Haupteingangstur befindet sich eine Schlusselbox fur die Abholung oder Ruckgabe der Schlussel, falls der Host beim Check-in oder Check-out nicht personlich verfugbar ist.\nDie Anweisungen und der eventuelle Code der Schlusselbox werden Ihnen direkt vom Host mitgeteilt.\n\nFur das automatische Tor beachten Sie bitte das entsprechende Tutorial unten.",
         accessKeyboxWideCaption: "Haupteingang mit der Schlusselbox links neben der Tur.",
         accessKeyboxDetailCaption: "Detailansicht der außenliegenden Schlusselbox.",
-        accessNote: "WICHTIGER HINWEIS:\nDer Pool ist nur im Fruhjahr/Sommer zuganglich und nutzbar, wie vom Host wahrend der Buchungsanfrage mitgeteilt.\n\nJeden Dienstag im Fruhjahr/Sommer sind von 13:30 bis 17:30 Gartner fur die Gartenpflege vor Ort. Die Privatsphare der Gaste bleibt dabei gewahrt.",
+        accessNote: "WICHTIGER HINWEIS:\nDer Pool ist nur in der vom Host angegebenen Frühjahrs-/Sommersaison nutzbar.\n\nWährend der Poolsaison kommen die Gärtner jeden Morgen für eine kurze Kontrolle des Poolwassers auf das Grundstück. Dabei wird die Privatsphäre der Gäste respektiert.\n\nDie Gartenpflege findet im Frühjahr/Sommer zusätzlich jeden Dienstag von 13:30 bis 17:30 Uhr statt.",
         essentialsTitle: "⚠️ Bitte zuerst lesen",
         essentialsList: [
           "Alarm: Beim Verlassen oder nachts Türen und Fensterläden schließen und den Alarm mit dem blauen Gerät aktivieren.",
           "Fenster und Fensterläden: Die Fensterläden der Fenstertüren müssen mit den Bodenriegeln geschlossen werden.",
-          "Müll: Wenn die Küchenbehälter voll sind, bringen Sie die getrennten Abfälle zu den passenden Außentonnen.",
-          "Check-out: Vor dem Verlassen Lichter und Geräte ausschalten und Türen, Fenster und Fensterläden schließen."
+          "Müll: Abfälle trennen, Abfuhrkalender im Haus beachten und die vorgesehenen Tonnen am Vorabend vor das Tor stellen.",
+          "Check-out: Licht, Klimaanlagen und Elektrogeräte ausschalten; Türen, Fenster und Fensterläden schließen."
         ],
         checkoutJumpBtn: "✅ Zu den Check-out-Schritten",
         tutorialsTitle: "🎥 Kurze Tutorials",
@@ -1272,7 +1466,7 @@
           },
           {
             title: "💧 Wasserkontrolle",
-            text: "Aufgrund der besonders hohen Außentemperaturen kommt montags bis freitags jeden Morgen gegen 8:30 Uhr ein Gärtner bzw. Wartungsmitarbeiter vorbei.\nEr kontrolliert kurz den Zustand des Poolwassers und nimmt bei Bedarf die notwendigen Anpassungen vor, um die Wasserqualität zu erhalten.\nSamstags und sonntags ist keine Kontrolle vorgesehen."
+            text: "Während der Poolsaison kommen die Gärtner jeden Morgen für eine kurze Kontrolle des Poolwassers und nehmen bei Bedarf Anpassungen vor. Dabei respektieren sie die Privatsphäre der Gäste."
           }
         ],
         petRulesTitle: "🐾 Regeln für Haustiere",
@@ -1283,7 +1477,7 @@
           "Etwaige Schäden oder zusätzliche Reinigungen gehen zu Lasten des Gastes."
         ],
         wasteTitle: "♻️ Mülltrennung",
-        wasteText: "In der Küche befinden sich spezielle Behälter für die getrennte Sammlung von:\n• Papier\n• Kunststoff und Aluminium\n• Glas\n• Restmüll\n• Bioabfall\n\nSobald diese Behälter voll sind, bitten wir Sie, den korrekt getrennten Müll in die entsprechenden Tonnen außerhalb des Hauses zu bringen.\nDie Position dieser Tonnen, unweit einer der Eingangstüren, wird im entsprechenden Tutorial gezeigt.\n\nBitte beachten Sie, dass das Wartungspersonal während Ihres Aufenthalts zu geeigneten Zeiten und mit größter Diskretion das Grundstück betreten kann, ausschließlich um die Außentonnen abzuholen und sie an den von der Gemeinde vorgesehenen Abholtagen bereitzustellen oder zu leeren. Dieser Service soll Ihnen den Aufwand ersparen, die Abfallentsorgung nach dem kommunalen Abfallkalender selbst zu organisieren.",
+        wasteText: "In der Küche stehen fünf Behälter für Papier, Kunststoff und Aluminium, Glas, Restmüll und Biomüll bereit. Bitte entsorgen Sie die getrennten Abfälle in den entsprechenden Außentonnen.\n\nDer kommunale Abfuhrkalender hängt im Haus. Stellen Sie die jeweils vorgesehenen Tonnen am Abend vor der Abholung vor das Tor, auch an Feiertagen, sofern dies im Kalender angegeben ist.\n\nVor dem Check-out müssen alle Abfälle getrennt in den Außentonnen sein.",
         wasteNote: "",
         usefulNumbersTitle: "📞 Nützliche Nummern",
         emergencyTitle: "Notfallnummern",
@@ -1296,11 +1490,12 @@
         rentalCarAutoBtn: "Car Auto anrufen",
         rentalRiloBtn: "Ri.Lo Rent anrufen",
         checkoutTitle: "✅ Vor dem Check-out",
-        checkoutAlertTitle: "Erinnerung an Licht, Fenster und Fensterläden",
-        checkoutAlertText: "Bitte kontrollieren Sie vor dem Verlassen die gesamte Villa sorgfältig: Schalten Sie unbedingt alle noch eingeschalteten Lichter aus und schließen Sie alle Fenster und Fensterläden richtig.",
+        checkoutAlertTitle: "Erinnerung: Licht, Klimaanlagen, Fenster und Läden",
+        checkoutAlertText: "Vor der Abreise: Alle Lichter, Klimaanlagen und Elektrogeräte ausschalten und Fenster sowie Fensterläden sorgfältig schließen.",
         checkoutList: [
           "Benutzte Handtücher und Bettwäsche können in den Zimmern und Bädern bleiben; das Servicepersonal kümmert sich um die Abholung.",
           "Schalten Sie alle Elektrogeräte aus.",
+          "Schalten Sie alle Klimaanlagen aus, auch in den Schlafzimmern.",
           "Schließen Sie alle Türen.",
           "Falls mit dem Host vereinbart, lassen Sie die Schlussel entsprechend den erhaltenen Anweisungen in der externen Schlusselbox.",
           "Bringen Sie den restlichen Müll zu den dafür vorgesehenen Außenbehältern."
@@ -1359,13 +1554,13 @@
         accessKeyboxText: "A l'exterieur de la porte principale se trouve une keybox pour recuperer ou restituer les cles, a utiliser si l'Host n'est pas disponible en personne au check-in ou au check-out.\nLes instructions et l'eventuel code de la keybox seront communiques directement par l'Host.\n\nPour le portail automatique, veuillez consulter le tutoriel dedie ci-dessous.",
         accessKeyboxWideCaption: "Entree principale avec la keybox placee sur le cote gauche de la porte.",
         accessKeyboxDetailCaption: "Detail de la keybox exterieure.",
-        accessNote: "INFORMATION IMPORTANTE :\nLa piscine est accessible et utilisable uniquement pendant la periode printemps/ete, comme communique par l'Host lors de la demande de reservation.\n\nChaque mardi, pendant la periode printemps/ete, de 13h30 a 17h30, des jardiniers seront presents pour l'entretien des espaces verts. L'intimite des voyageurs sera toutefois preservee.",
+        accessNote: "INFORMATION IMPORTANTE :\nLa piscine est accessible uniquement pendant la saison printemps/été, comme indiqué par l’hôte.\n\nPendant la saison d’ouverture, les jardiniers passent chaque matin pour un bref contrôle de l’eau de la piscine, dans le respect de votre intimité.\n\nL’entretien des espaces verts est également prévu chaque mardi, au printemps/été, de 13 h 30 à 17 h 30.",
         essentialsTitle: "⚠️ À lire en premier",
         essentialsList: [
           "Alarme : en sortant ou la nuit, fermez portes et volets puis activez l'alarme avec le dispositif bleu.",
           "Fenêtres et volets : les volets des portes-fenêtres doivent être fermés avec les verrous au sol abaissés.",
-          "Déchets : lorsque les bacs de cuisine sont pleins, déposez les déchets triés dans les bacs extérieurs correspondants.",
-          "Check-out : avant de partir, éteignez lumières et appareils, puis fermez portes, fenêtres et volets."
+          "Déchets : triez-les, consultez le calendrier affiché dans la maison et sortez les bacs prévus devant le portail la veille au soir.",
+          "Départ : éteignez les lumières, les climatiseurs et les appareils électriques ; fermez portes, fenêtres et volets."
         ],
         checkoutJumpBtn: "✅ Voir les étapes du check-out",
         tutorialsTitle: "🎥 Tutoriels rapides",
@@ -1419,7 +1614,7 @@
           },
           {
             title: "💧 Contrôle de l'eau",
-            text: "En raison des températures extérieures particulièrement élevées, un jardinier/agent de maintenance passera chaque matin, du lundi au vendredi, vers 8h30.\nIl effectuera un contrôle rapide de l'état de l'eau de la piscine et, si nécessaire, fera les ajustements utiles pour en préserver la qualité.\nAucun contrôle n'est prévu le samedi et le dimanche."
+            text: "Pendant la saison d’ouverture de la piscine, les jardiniers passent chaque matin pour un contrôle rapide de l’eau et effectuent les ajustements nécessaires. Ils respectent votre intimité."
           }
         ],
         petRulesTitle: "🐾 Règles pour les animaux",
@@ -1430,7 +1625,7 @@
           "Tout dommage ou nettoyage supplémentaire sera à la charge du voyageur."
         ],
         wasteTitle: "♻️ Tri des déchets",
-        wasteText: "Dans la cuisine, vous trouverez des bacs dédiés au tri sélectif des déchets suivants :\n• Papier\n• Plastique et aluminium\n• Verre\n• Déchets non recyclables\n• Déchets organiques\n\nUne fois ces bacs remplis, nous vous prions de déposer les déchets, correctement triés, dans les conteneurs correspondants situés à l'extérieur de la maison.\nL'emplacement de ces conteneurs, non loin de l'une des portes d'entrée, est illustré dans le tutoriel dédié.\n\nVeuillez noter que, pendant votre séjour, le personnel de maintenance pourra accéder à la propriété, à des horaires appropriés et avec la plus grande discrétion, uniquement pour récupérer les bacs extérieurs et les sortir ou les vider les jours de collecte prévus par les dispositions communales. Ce service est prévu pour vous éviter la contrainte de gérer les déchets selon le calendrier communal.",
+        wasteText: "Dans la cuisine, cinq bacs sont prévus pour le papier, le plastique et l’aluminium, le verre, les déchets non recyclables et les déchets organiques. Déposez les déchets triés dans les conteneurs extérieurs correspondants.\n\nLe calendrier municipal de collecte est affiché dans la maison. La veille au soir de chaque collecte, sortez les conteneurs prévus devant le portail, y compris les jours fériés si le calendrier l’indique.\n\nAvant le départ, laissez tous les déchets triés dans les conteneurs extérieurs.",
         wasteNote: "",
         usefulNumbersTitle: "📞 Numéros utiles",
         emergencyTitle: "Urgences",
@@ -1443,11 +1638,12 @@
         rentalCarAutoBtn: "Appeler Car Auto",
         rentalRiloBtn: "Appeler Ri.Lo Rent",
         checkoutTitle: "✅ Avant le check-out",
-        checkoutAlertTitle: "Rappel lumières, fenêtres et volets",
-        checkoutAlertText: "Avant de partir, veuillez vérifier attentivement toute la Villa : éteignez impérativement toutes les lumières restées allumées et fermez bien toutes les fenêtres et les volets.",
+        checkoutAlertTitle: "Rappel : lumières, climatisation, fenêtres et volets",
+        checkoutAlertText: "Avant de partir, vérifiez toute la villa : éteignez les lumières, tous les climatiseurs et les appareils électriques, puis fermez fenêtres et volets.",
         checkoutList: [
           "Les serviettes et les draps utilisés peuvent rester dans les chambres et les salles de bain ; le personnel de service se chargera de les récupérer.",
           "Éteignez tous les appareils électroménagers.",
+          "Éteignez tous les climatiseurs, y compris ceux des chambres.",
           "Fermez toutes les portes.",
           "Si cela a ete convenu avec l'Host, laissez les cles dans la keybox exterieure en suivant les instructions recues.",
           "Déposez les déchets restants dans les conteneurs extérieurs prévus à cet effet."
@@ -1506,13 +1702,13 @@
         accessKeyboxText: "En el exterior de la puerta principal hay una keybox para recoger o devolver las llaves, que se utilizara si el Host no esta disponible en persona en el check-in o en el check-out.\nLas instrucciones y el eventual codigo de la keybox seran comunicados directamente por el Host.\n\nPara el uso del porton automatico, consulten el tutorial especifico mas abajo.",
         accessKeyboxWideCaption: "Entrada principal con la keybox situada en el lado izquierdo de la puerta.",
         accessKeyboxDetailCaption: "Detalle de la keybox exterior.",
-        accessNote: "AVISO IMPORTANTE:\nLa piscina es accesible y utilizable unicamente durante la temporada de primavera/verano, tal como lo comunico el Host en la fase de solicitud de reserva.\n\nTodos los martes, durante la temporada de primavera/verano, de 13:30 a 17:30, estaran presentes los jardineros para el mantenimiento de las zonas verdes. La privacidad de los huespedes se mantendra en todo momento.",
+        accessNote: "AVISO IMPORTANTE:\nLa piscina está disponible únicamente durante la temporada de primavera/verano indicada por el anfitrión.\n\nDurante la temporada de piscina, los jardineros acuden todas las mañanas para una breve revisión del agua, respetando la privacidad de los huéspedes.\n\nEl mantenimiento del jardín también se realiza todos los martes de primavera/verano, de 13:30 a 17:30.",
         essentialsTitle: "⚠️ Leer primero",
         essentialsList: [
           "Alarma: al salir o por la noche, cierren puertas y contraventanas y activen la alarma con el dispositivo azul.",
           "Ventanas y contraventanas: las contraventanas de las puertas-ventana deben cerrarse con los cerrojos al suelo.",
-          "Residuos: cuando los cubos de la cocina estén llenos, lleven los residuos separados a los contenedores exteriores correspondientes.",
-          "Check-out: antes de salir, apaguen luces y electrodomésticos y cierren puertas, ventanas y contraventanas."
+          "Residuos: sepárenlos, consulten el calendario expuesto en la casa y saquen los contenedores correspondientes fuera de la verja la noche anterior.",
+          "Check-out: apaguen las luces, el aire acondicionado y los electrodomésticos; cierren puertas, ventanas y contraventanas."
         ],
         checkoutJumpBtn: "✅ Ver pasos de check-out",
         tutorialsTitle: "🎥 Tutoriales rápidos",
@@ -1566,7 +1762,7 @@
           },
           {
             title: "💧 Control del agua",
-            text: "Debido a las temperaturas exteriores especialmente elevadas, un jardinero/encargado de mantenimiento pasará cada mañana, de lunes a viernes, alrededor de las 8:30.\nHará una revisión rápida del estado del agua de la piscina y, cuando sea necesario, realizará los ajustes oportunos para preservar su calidad.\nNo hay control previsto los sábados ni los domingos."
+            text: "Durante la temporada de piscina, los jardineros pasan todas las mañanas para una breve revisión del agua y, si hace falta, realizan los ajustes necesarios. Respetan la privacidad de los huéspedes."
           }
         ],
         petRulesTitle: "🐾 Reglas para los animales",
@@ -1577,7 +1773,7 @@
           "Cualquier daño o limpieza extra correrá a cargo del huésped."
         ],
         wasteTitle: "♻️ Separación de residuos",
-        wasteText: "En la cocina hay cubos específicos para la recogida selectiva de los siguientes residuos:\n• Papel\n• Plástico y aluminio\n• Vidrio\n• Residuos no reciclables\n• Orgánico\n\nCuando estos cubos estén llenos, les rogamos que lleven los residuos, correctamente separados, a los contenedores correspondientes situados fuera de la casa.\nLa ubicación de estos contenedores, no lejos de una de las puertas de entrada, se muestra en el tutorial dedicado.\n\nTengan en cuenta que, durante la estancia, el personal de mantenimiento podría acceder a la propiedad, en horarios adecuados y con la máxima discreción, exclusivamente para recoger los contenedores exteriores y sacarlos o vaciarlos en los días de recogida previstos por la normativa municipal. Este servicio está pensado para evitarles la molestia de gestionar los residuos de acuerdo con el calendario local.",
+        wasteText: "En la cocina hay cinco cubos para papel, plástico y aluminio, vidrio, residuos no reciclables y orgánicos. Depositen los residuos separados en los contenedores exteriores correspondientes.\n\nEl calendario municipal de recogida está expuesto en la casa. La noche anterior a cada recogida, saquen fuera de la verja los contenedores indicados, incluso en festivos si así figura en el calendario.\n\nAntes del check-out, dejen todos los residuos separados en los contenedores exteriores.",
         wasteNote: "",
         usefulNumbersTitle: "📞 Números útiles",
         emergencyTitle: "Emergencias",
@@ -1590,11 +1786,12 @@
         rentalCarAutoBtn: "Llamar a Car Auto",
         rentalRiloBtn: "Llamar a Ri.Lo Rent",
         checkoutTitle: "✅ Antes del check-out",
-        checkoutAlertTitle: "Recordatorio de luces, ventanas y contraventanas",
-        checkoutAlertText: "Antes de salir, revisen atentamente toda la Villa: asegúrense de apagar absolutamente todas las luces que hayan quedado encendidas y de cerrar bien todas las ventanas y contraventanas.",
+        checkoutAlertTitle: "Recordatorio: luces, aire acondicionado, ventanas y contraventanas",
+        checkoutAlertText: "Antes de salir, revisen toda la villa: apaguen las luces, el aire acondicionado y los electrodomésticos y cierren bien ventanas y contraventanas.",
         checkoutList: [
           "Las toallas y la ropa de cama usadas pueden dejarse en las habitaciones y baños; el personal de servicio se encargará de recogerlas.",
           "Apaguen todos los electrodomésticos.",
+          "Apaguen todos los aparatos de aire acondicionado, también los de las habitaciones.",
           "Cierren todas las puertas.",
           "Si asi lo han acordado con el Host, dejen las llaves en la keybox exterior siguiendo las instrucciones recibidas.",
           "Lleven la basura restante a los contenedores exteriores correspondientes."
@@ -1836,7 +2033,9 @@
     }
 
     function setLanguage(lang) {
+      document.documentElement.lang = CONTENT[lang] ? lang : "it";
       const t = CONTENT[lang] || CONTENT.it;
+      if (window.updateApprovedGuide) window.updateApprovedGuide(lang);
       const safeDocuments = PROPERTY.documents || {};
       const safeTutorials = PROPERTY.tutorials || {};
       const safeGuideImages = PROPERTY.guideImages || {};
@@ -2054,5 +2253,116 @@
 
     setLanguage(savedLang);
   </script>
+
+  <div id="print-confirmation"></div>
+<script>
+const RULES_VERSION = "VM-2026-10-04-V5";
+// Reserved integration boundary: no endpoint, network requests or persistence in this phase.
+const CONFIRMATION_INTEGRATION = Object.freeze({mode: "local", rulesVersion: RULES_VERSION});
+const APPROVED_GUIDE = {"it": ["Importante: esporre fuori dal cancello la sera prima del ritiro i bidoni previsti dal calendario.", "Quattro passaggi per gestire la raccolta. Segui le frecce.", "IL PERCORSO DEI RIFIUTI", ["Separa in cucina", "Portalo nel bidone esterno", "Controlla il calendario", "Esponi fuori dal cancello"], ["Dividi carta, plastica e alluminio, vetro, indifferenziato e umido.", "Quando il sacchetto è pieno, trasferiscilo nel bidone esterno corrispondente.", "Il calendario comunale affisso in villa indica i giorni di ritiro.", "La sera prima del ritiro, esponi fuori dal cancello i bidoni previsti dal calendario."], ["Esempio: torsolo di mela → umido.", "La posizione dei bidoni è mostrata nel tutorial.", "Vale anche nei festivi quando previsti dal calendario.", "Questo è il passaggio fondamentale."], "💡 Suggerimento utile", "Il sacchetto in cucina è pieno e non è ancora il giorno previsto? Mettilo nel bidone esterno corretto e attendi il calendario: esponilo fuori dal cancello soltanto la sera prima del ritiro.", "Prima del check-out lascia tutti i rifiuti separati nei rispettivi bidoni esterni.", "▶ Guarda il tutorial dei bidoni esterni", "In caso di difficoltà, contattateci. Soltanto eventuali interventi straordinari documentati possono comportare la richiesta dei costi effettivamente sostenuti, se consentita dalla piattaforma. Nessuna penale o cauzione automatica.", "FACOLTATIVA", "📋 Conferma presa visione", "Indica il nome del titolare della prenotazione e conferma di aver letto le istruzioni essenziali.", ["🏡 Regole della casa ↗", "♻️ Raccolta differenziata ↗", "✅ Istruzioni check-out ↗"], "Nome e cognome del titolare della prenotazione", "Confermo di aver preso visione delle regole della casa, della raccolta differenziata e delle indicazioni di check-out.", "Conferma presa visione", "Conferma facoltativa: guida, codici di accesso e check-in restano disponibili. Nome e data/ora sono elaborati solo in questa pagina per il riepilogo locale; non vengono inviati né archiviati su Tower. Puoi salvarli in PDF sul tuo dispositivo.", "✓ Presa visione confermata localmente", "Nessuna registrazione su Tower.", "📄 Stampa / Salva come PDF", "Inserisci nome e cognome e seleziona la presa visione.", "Riepilogo presa visione", "Titolare della prenotazione", "Data e ora della conferma locale", "Versione delle regole", "Indicazioni principali", "Solo ospiti registrati; utilizzare correttamente villa, piscina, giardino e attrezzature; non fermare il robot tagliaerba."], "en": ["Important: place the scheduled bins outside the gate the evening before collection.", "Four steps for waste sorting. Follow the arrows.", "THE WASTE ROUTE", ["Sort in the kitchen", "Move to the outdoor bin", "Check the schedule", "Place outside the gate"], ["Separate paper, plastic and aluminium, glass, general and organic waste.", "When a bag is full, move it to the matching outdoor bin.", "The municipal schedule posted in the villa shows collection days.", "Place scheduled bins outside the gate the evening before collection."], ["Example: apple core → organic waste.", "The tutorial shows where the bins are.", "Also applies on public holidays when scheduled.", "This is the essential step."], "💡 Useful tip", "Kitchen bag full before collection day? Move it to the correct outdoor bin and follow the schedule: place it outside the gate only the evening before collection.", "Before check-out, leave all waste sorted in the matching outdoor bins.", "▶ Watch the outdoor bins tutorial", "Contact us if you need help. Only documented extraordinary interventions may lead to a request for actual costs incurred, if allowed by the platform. No automatic penalties or deposits.", "OPTIONAL", "📋 Reading acknowledgement", "Enter the booking holder’s name and acknowledge the essential instructions.", ["🏡 House rules ↗", "♻️ Waste sorting ↗", "✅ Check-out instructions ↗"], "Booking holder’s first and last name", "I acknowledge having read the house rules, waste sorting and check-out instructions.", "Acknowledge reading", "Optional: the guide, access codes and check-in remain available. Your name and timestamp are processed only on this page for the local summary; nothing is sent to or stored on Tower. You can save a PDF on your device.", "✓ Reading acknowledged locally", "No registration on Tower.", "📄 Print / Save as PDF", "Enter first and last name and tick the acknowledgement.", "Reading acknowledgement summary", "Booking holder", "Local acknowledgement date and time", "Rules version", "Main instructions", "Registered guests only; use the villa, pool, garden and equipment correctly; do not stop the robotic lawn mower."], "de": ["Wichtig: Die vorgesehenen Tonnen am Abend vor der Abholung vor das Tor stellen.", "Vier Schritte zur Mülltrennung. Folgen Sie den Pfeilen.", "DER WEG DES ABFALLS", ["In der Küche trennen", "In die Außentonne bringen", "Kalender prüfen", "Vor das Tor stellen"], ["Papier, Kunststoff und Aluminium, Glas, Restmüll und Biomüll trennen.", "Volle Beutel in die entsprechende Außentonne bringen.", "Der kommunale Kalender in der Villa zeigt die Abholtage.", "Die vorgesehenen Tonnen am Abend vor der Abholung vor das Tor stellen."], ["Beispiel: Apfelrest → Biomüll.", "Das Video zeigt den Standort der Tonnen.", "Gilt auch an Feiertagen, wenn im Kalender vorgesehen.", "Dies ist der entscheidende Schritt."], "💡 Nützlicher Tipp", "Der Küchenbeutel ist vor dem Abholtag voll? In die richtige Außentonne bringen und den Kalender beachten: erst am Abend vor der Abholung vor das Tor stellen.", "Vor dem Check-out alle Abfälle getrennt in den entsprechenden Außentonnen lassen.", "▶ Video zu den Außentonnen ansehen", "Bei Schwierigkeiten kontaktieren Sie uns. Nur dokumentierte außerordentliche Maßnahmen können zur Erstattung der tatsächlich entstandenen Kosten führen, sofern die Plattform dies erlaubt. Keine automatischen Strafen oder Kautionen.", "FREIWILLIG", "📋 Lesebestätigung", "Geben Sie den Namen des Buchungsinhabers ein und bestätigen Sie die wesentlichen Hinweise.", ["🏡 Hausregeln ↗", "♻️ Mülltrennung ↗", "✅ Check-out-Hinweise ↗"], "Vor- und Nachname des Buchungsinhabers", "Ich bestätige, die Hausregeln sowie die Hinweise zur Mülltrennung und zum Check-out gelesen zu haben.", "Kenntnisnahme bestätigen", "Freiwillig: Anleitung, Zugangscodes und Check-in bleiben verfügbar. Name und Zeitpunkt werden nur auf dieser Seite für die lokale Zusammenfassung verarbeitet; keine Übermittlung oder Speicherung auf Tower. Sie können ein PDF auf Ihrem Gerät speichern.", "✓ Kenntnisnahme lokal bestätigt", "Keine Registrierung auf Tower.", "📄 Drucken / Als PDF speichern", "Vor- und Nachname eingeben und Kenntnisnahme ankreuzen.", "Zusammenfassung der Kenntnisnahme", "Buchungsinhaber", "Datum und Uhrzeit der lokalen Bestätigung", "Regelversion", "Wesentliche Hinweise", "Nur registrierte Gäste; Villa, Pool, Garten und Ausstattung richtig nutzen; den Mähroboter nicht anhalten."], "fr": ["Important : sortir les conteneurs prévus devant le portail la veille au soir de la collecte.", "Quatre étapes pour le tri. Suivez les flèches.", "LE PARCOURS DES DÉCHETS", ["Trier en cuisine", "Déposer dans le bac extérieur", "Consulter le calendrier", "Sortir devant le portail"], ["Séparer papier, plastique et aluminium, verre, déchets non recyclables et organiques.", "Quand le sac est plein, le déposer dans le bac extérieur correspondant.", "Le calendrier municipal affiché dans la villa indique les jours de collecte.", "Sortir les bacs prévus devant le portail la veille au soir de la collecte."], ["Exemple : trognon de pomme → déchets organiques.", "Le tutoriel montre où sont les bacs.", "Valable aussi les jours fériés prévus au calendrier.", "C’est l’étape essentielle."], "💡 Conseil utile", "Le sac de cuisine est plein avant le jour prévu ? Déposez-le dans le bon bac extérieur et suivez le calendrier : sortez le bac devant le portail uniquement la veille au soir de la collecte.", "Avant le départ, laisser tous les déchets triés dans les bacs extérieurs correspondants.", "▶ Voir le tutoriel des bacs extérieurs", "Contactez-nous en cas de difficulté. Seules des interventions extraordinaires documentées peuvent donner lieu à une demande des frais réellement engagés, si la plateforme le permet. Aucune pénalité ou caution automatique.", "FACULTATIF", "📋 Confirmation de lecture", "Indiquez le nom du titulaire de la réservation et confirmez la lecture des consignes essentielles.", ["🏡 Règles de la maison ↗", "♻️ Tri des déchets ↗", "✅ Consignes de départ ↗"], "Prénom et nom du titulaire de la réservation", "Je confirme avoir lu les règles de la maison, les consignes de tri et de départ.", "Confirmer la lecture", "Facultatif : guide, codes d’accès et arrivée restent disponibles. Le nom et l’heure sont traités uniquement sur cette page pour le résumé local ; aucun envoi ni stockage sur Tower. Vous pouvez enregistrer un PDF sur votre appareil.", "✓ Lecture confirmée localement", "Aucun enregistrement sur Tower.", "📄 Imprimer / Enregistrer en PDF", "Saisissez prénom et nom et cochez la confirmation.", "Résumé de confirmation de lecture", "Titulaire de la réservation", "Date et heure de confirmation locale", "Version des règles", "Consignes principales", "Uniquement les voyageurs enregistrés ; utiliser correctement villa, piscine, jardin et équipements ; ne pas arrêter le robot tondeuse."], "es": ["Importante: sacar los contenedores previstos fuera de la verja la noche anterior a la recogida.", "Cuatro pasos para separar los residuos. Sigue las flechas.", "EL RECORRIDO DE LOS RESIDUOS", ["Separa en la cocina", "Llévalo al contenedor exterior", "Consulta el calendario", "Saca fuera de la verja"], ["Separa papel, plástico y aluminio, vidrio, residuos generales y orgánicos.", "Cuando la bolsa esté llena, llévala al contenedor exterior correspondiente.", "El calendario municipal expuesto en la villa indica los días de recogida.", "Saca los contenedores previstos fuera de la verja la noche anterior a la recogida."], ["Ejemplo: corazón de manzana → orgánico.", "El tutorial muestra dónde están los contenedores.", "También en festivos cuando lo indique el calendario.", "Este es el paso fundamental."], "💡 Consejo útil", "¿La bolsa de cocina está llena antes del día previsto? Ponla en el contenedor exterior correcto y espera al calendario: sácalo fuera de la verja solo la noche anterior a la recogida.", "Antes del check-out deja todos los residuos separados en los contenedores exteriores correspondientes.", "▶ Ver el tutorial de los contenedores exteriores", "Contacta con nosotros si necesitas ayuda. Solo las intervenciones extraordinarias documentadas pueden dar lugar a una solicitud de los costes reales incurridos, si la plataforma lo permite. Sin penalizaciones ni fianzas automáticas.", "OPCIONAL", "📋 Confirmación de lectura", "Indica el nombre del titular de la reserva y confirma la lectura de las instrucciones esenciales.", ["🏡 Normas de la casa ↗", "♻️ Separación de residuos ↗", "✅ Instrucciones de salida ↗"], "Nombre y apellidos del titular de la reserva", "Confirmo haber leído las normas de la casa y las instrucciones de separación de residuos y check-out.", "Confirmar lectura", "Opcional: la guía, los códigos de acceso y el check-in siguen disponibles. Nombre y hora se procesan solo en esta página para el resumen local; no se envían ni almacenan en Tower. Puedes guardar un PDF en tu dispositivo.", "✓ Lectura confirmada localmente", "Sin registro en Tower.", "📄 Imprimir / Guardar como PDF", "Introduce nombre y apellidos y marca la confirmación.", "Resumen de confirmación de lectura", "Titular de la reserva", "Fecha y hora de confirmación local", "Versión de las normas", "Instrucciones principales", "Solo huéspedes registrados; utilizar correctamente villa, piscina, jardín y equipos; no detener el robot cortacésped."]};
+Object.keys(APPROVED_GUIDE).forEach(lang => { CONTENT[lang].approvedGuide = APPROVED_GUIDE[lang]; });
+let localConfirmation = null;
+function put(selector, text) { const el=document.querySelector(selector); el.textContent=text; }
+window.updateApprovedGuide = function(lang) {
+ const u=CONTENT[lang].approvedGuide;
+ put('#waste-quick-open', CONTENT[lang].wasteTitle+' ↓');
+ put('#waste-card summary p',u[0]);
+ document.querySelector('#waste-card summary').setAttribute('aria-label', CONTENT[lang].wasteTitle);
+ put('.waste-intro',u[1]); put('.waste-cycle-center',u[2]);
+ document.querySelector('#waste-cycle-layout').setAttribute('aria-label',u[3].join(' → '));
+ u[3].forEach((title,i)=>{const step='#waste-step'+(i+1);put(step+' h3',title);put(step+' p',u[4][i]);put(step+' .waste-cycle-mini',u[5][i]);});
+ put('.waste-bubble > strong',u[6]);put('.waste-bubble p',u[7]);
+ put('.waste-cycle-summary',u[0]+' '+u[8]);put('.waste-go-video',u[9]);put('.waste-note-fine',u[10]);
+ put('.preview-pill',u[11]);put('#confirm-card h2',u[12]);put('#confirm-card .lead',u[13]);
+ document.querySelectorAll('.review-includes a').forEach((el,i)=>el.textContent=u[14][i]);
+ put('label[for="review-guest"]',u[15]);document.getElementById('review-guest').placeholder='';
+ document.getElementById('review-guest').setCustomValidity('');
+ put('.consent span',u[16]);put('#review-submit',u[17]);put('.preview-privacy',u[18]);
+ put('#review-result > strong',u[19]);put('#review-result > p',u[20]);put('#review-print',u[21]);
+};
+function renderConfirmation() {
+ const c=localConfirmation, t=CONTENT[c.language],u=t.approvedGuide;
+ const out=document.getElementById('print-confirmation');out.replaceChildren();out.lang=c.language;
+ const add=(tag,text)=>{const el=document.createElement(tag);el.textContent=text;out.append(el);return el;};
+ add('h1','Villa Mafalda · '+u[23]);add('p',u[24]+': '+c.name);
+ add('p',u[25]+': '+new Intl.DateTimeFormat(c.language,{dateStyle:'full',timeStyle:'long',timeZone:'Europe/Rome'}).format(new Date(c.confirmed_at))+' (Europe/Rome)');
+ add('p',u[26]+': '+c.rules_version);add('p',u[16]);add('h2',u[27]);
+ const list=add('ul','');[u[28],t.wasteText,u[7],u[10],...t.checkoutList,t.checkoutAlertText].forEach(text=>{const li=document.createElement('li');li.textContent=text;list.append(li);});
+ add('p',u[20]);
+}
+document.querySelector('.review-tag').remove();
+document.getElementById('review-result').setAttribute('role','status');
+document.getElementById('review-form').addEventListener('submit',e=>{
+ e.preventDefault(); const input=document.getElementById('review-guest');const name=input.value.trim().replace(/\s+/g,' ');
+ const lang=document.documentElement.lang, u=CONTENT[lang].approvedGuide;
+ input.setCustomValidity(name.split(' ').length<2 || /[\u0000-\u001f\u007f]/.test(name) ? u[22] : '');
+ if(!e.target.reportValidity()) return;
+ localConfirmation=Object.freeze({name,confirmed_at:new Date().toISOString(),rules_version:RULES_VERSION,language:lang});
+ renderConfirmation();document.getElementById('review-result-text').textContent=name+' · '+new Date(localConfirmation.confirmed_at).toLocaleString(lang);
+ document.getElementById('review-result').hidden=false;
+});
+document.getElementById('review-guest').addEventListener('input',e=>e.target.setCustomValidity(''));
+document.getElementById('review-print').addEventListener('click',()=>{if(localConfirmation){renderConfirmation();window.print();}});
+window.updateApprovedGuide(document.documentElement.lang);
+</script>
+<script>
+    // Apertura automatica da “Da leggere subito” + frecce misurate dai bordi reali.
+    (function setupWasteGuide(){
+      const waste = document.getElementById('waste-card');
+      const layout = document.getElementById('waste-cycle-layout');
+      const paths = document.getElementById('waste-paths');
+      const svg = document.getElementById('waste-connectors');
+      const ns = 'http://www.w3.org/2000/svg';
+      const isDesktop = () => window.matchMedia('(min-width:1101px)').matches;
+      const relative = (id) => {
+        const b=document.getElementById(id).getBoundingClientRect();
+        const c=layout.getBoundingClientRect();
+        return {x:b.left-c.left,y:b.top-c.top,w:b.width,h:b.height};
+      };
+      function redraw(){
+        if(!waste.open || !isDesktop()) { paths.replaceChildren(); return; }
+        const a=relative('waste-step1'), b=relative('waste-step2'), c=relative('waste-step3'), d=relative('waste-step4');
+        svg.setAttribute('viewBox',`0 0 ${layout.clientWidth} ${layout.clientHeight}`);
+        paths.replaceChildren();
+        const curves = [
+          // right edge of 1 -> top edge of 2
+          {start:[a.x+a.w,a.y+a.h*.58],end:[b.x+b.w*.42,b.y],dx:1,dy:1,gold:false},
+          // bottom edge of 2 -> right edge of 3
+          {start:[b.x+b.w*.50,b.y+b.h],end:[c.x+c.w,c.y+c.h*.48],dx:-1,dy:1,gold:false},
+          // left edge of 3 -> bottom edge of 4
+          {start:[c.x,c.y+c.h*.40],end:[d.x+d.w*.55,d.y+d.h],dx:-1,dy:-1,gold:true},
+          // top edge of 4 -> left edge of 1
+          {start:[d.x+d.w*.52,d.y],end:[a.x,a.y+a.h*.43],dx:1,dy:-1,gold:false}
+        ];
+        curves.forEach((it,i) => {
+          const [[x1,y1],[x2,y2]]=[it.start,it.end];
+          let control;
+          if (i===0) control=[x2,y1];
+          else if (i===1) control=[x1,y2];
+          else if (i===2) control=[x2,y1];
+          else control=[x1,y2];
+          const el=document.createElementNS(ns,'path');
+          el.setAttribute('d',`M ${x1} ${y1} Q ${control[0]} ${control[1]} ${x2} ${y2}`);
+          el.setAttribute('stroke',it.gold?'#b59a51':'#70956b');
+          el.setAttribute('marker-end',it.gold?'url(#point-gold)':'url(#point-green)');
+          paths.appendChild(el);
+        });
+      }
+      window.addEventListener('resize',redraw);
+      waste.addEventListener('toggle',()=>requestAnimationFrame(redraw));
+      // wait for font geometry/layout
+      if (window.ResizeObserver) new ResizeObserver(()=>{ if(waste.open) redraw() }).observe(layout);
+      document.getElementById('waste-quick-open').addEventListener('click',e=>{
+        e.preventDefault(); waste.open=true;
+        requestAnimationFrame(()=>{waste.scrollIntoView({behavior:'smooth',block:'start'});redraw();history.replaceState(null,'','#waste-card')});
+      });
+      document.querySelectorAll('a[href="#waste-card"]').forEach(link=>{
+        if (link.id==='waste-quick-open') return;
+        link.addEventListener('click',e=>{e.preventDefault();waste.open=true;requestAnimationFrame(()=>{waste.scrollIntoView({behavior:'smooth',block:'start'});redraw()})});
+      });
+      if(location.hash==='#waste-card') waste.open=true;
+      requestAnimationFrame(redraw);
+    })();
+</script>
 </body>
 </html>
