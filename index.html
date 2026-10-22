@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Guest Guide</title>
   <style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
     :root {
       --bg: #eef0f4;
       --card: #f7f7f8;
@@ -699,6 +700,125 @@
     .confirm-card .preview-privacy{font-size:11px}
     @media(max-width:700px){.confirm-card{max-width:100%;padding:15px!important}.confirm-card .review-includes a{font-size:11px}.confirm-card .form-review{padding:12px}}
 
+
+/* VILLA MAFALDA · BOUTIQUE COUNTRYSIDE — visual revision only */
+
+:root {
+  --bg:#f6f4ee;--card:#fffefb;--text:#293a30;--muted:#687268;
+  --border:#b5a78b;--primary:#32483b;--primary-hover:#23362d;
+  --shadow:0 12px 38px rgba(50,65,50,.075);--radius-xl:20px;--radius-lg:15px;
+}
+body { font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; color:var(--text);line-height:1.65;background:var(--bg) }
+.wrap {max-width:1000px;padding:22px 26px 70px}
+h1,h2,h3,.collapsible-card summary span {font-family:'Playfair Display',Georgia,serif;letter-spacing:-.025em;line-height:1.22}
+h1 {font-size:clamp(36px,5vw,54px)}
+h2 {font-size:clamp(24px,3vw,31px)}
+h3 {font-size:21px}
+.villa-topbar {display:flex;justify-content:space-between;align-items:center;padding:12px 4px 22px;gap:20px}
+.villa-wordmark {text-decoration:none;color:#2c4035;display:flex;align-items:baseline;gap:7px;font-family:'Playfair Display',Georgia,serif;font-size:22px;white-space:nowrap}
+.villa-wordmark em{font-weight:600}
+.villa-wordmark span{font-family:'DM Sans',sans-serif;font-style:normal;font-size:10px;letter-spacing:.17em;font-weight:800;margin-left:15px;color:#8f8064}
+.villa-topbar-link{color:#3d5947;text-decoration:none;font-weight:800;letter-spacing:.02em;font-size:13px;border-bottom:1px solid #a7b3a5;padding:7px 0}
+.hero {background:#fffefb;border:1px solid #e5e2d8;overflow:hidden;box-shadow:var(--shadow)}
+.hero-media {height:300px;position:relative;overflow:hidden;background:#32483b}
+.hero-media-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:radial-gradient(ellipse at 24% 10%,rgba(232,218,180,.27),transparent 42%),linear-gradient(125deg,#273d30,#526855 55%,#263b30);color:#efe6ce}
+.hero-media-placeholder:before{content:"";position:absolute;inset:20px;border:1px solid rgba(230,220,194,.22)}
+.hero-media-placeholder span{font:normal 92px/1 'Playfair Display',Georgia,serif;letter-spacing:-.09em;margin-right:12px}
+.hero-media-placeholder small{font-size:11px;letter-spacing:.26em;font-weight:700}
+.hero img{position:absolute;inset:0;height:100%;width:100%;object-fit:cover;border-radius:0}
+.hero-content{padding:29px 36px 36px}
+.hero-content h1{margin-bottom:9px;color:#2e4034}
+.subtitle{font-size:15px;color:#6d786b}.subtitle.space-top{margin-top:8px;font-size:16px}
+.lang-grid{gap:8px;justify-content:flex-start;margin-top:23px}
+.lang-btn{min-width:0;max-width:none;flex:0 1 auto;min-height:42px;padding:8px 15px;font-size:13px;border:1px solid #d8d8cf;border-radius:999px;color:#54675b;background:#fff}
+.lang-btn:hover,.lang-btn.active{background:#32483b;border-color:#32483b;color:white}
+.action-btn,.doc-btn,.tutorial-btn,.mini-btn,.new-guide-btn{border-radius:11px;box-shadow:none;font-size:14px}
+.action-btn{border:1px solid #32483b;background:#32483b}.action-btn:hover{background:#23392d}
+.doc-btn,.tutorial-btn,.mini-btn{border:1px solid #d8dccf;color:#344839;background:#fffefb}
+.doc-btn:hover,.tutorial-btn:hover,.mini-btn:hover{background:#f4f5ef}
+.primary-grid{margin-top:22px}.docs-grid{margin-top:10px}
+.card,.collapsible-card{background:var(--card);border:1px solid #e6e5dc;box-shadow:var(--shadow);padding:30px 32px;margin-bottom:17px}
+.info-grid{gap:25px}.info-stack{gap:19px}.info-item .label,.useful-item .label{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:#9b855f;margin-bottom:6px}.info-item .value,.useful-item .value{font-size:16px}
+.essentials-card{background:#fffefa;border:1px solid #e6d9bc}
+.essentials-list{gap:10px}
+.essentials-list li{background:#faf8f2;border:1px solid #e9e3d6;border-radius:10px;padding:15px 17px;font-weight:600;font-size:14px}
+.checkout-jump-btn{border:1px solid #d6c9ac;background:#f9f4e8;color:#604d2f}
+.new-guide-btn{border:1px solid #c4d5c4;background:#f3f8f1;color:#3d6148}
+.feature-panel,.pool-operation,.tips-item {background:#faf9f4;border:1px solid #e9e7dd;border-radius:14px}
+.collapsible-card summary span{font-weight:600;font-size:26px}
+.tutorial-item summary span{font-size:19px;font-family:'DM Sans',sans-serif;font-weight:700}
+.waste-cycle-card{background:#f2f6f0;border:1px solid #d7e4d8}
+.waste-cycle-card > summary h2{font-family:'Playfair Display',Georgia,serif;color:#2f5b3d}
+.waste-cycle-card > summary p{color:#45634d}
+.checkout-focus-card{background:#fdfbf5;border:1px solid #eaddc2}
+.checkout-alert{background:#fff7e8;border:1px solid #e4d5b7;color:#644d29}
+.checkout-alert-title,.checkout-alert-text{color:#69542e}
+.confirm-card {border-color:#e0e5dc;box-shadow:var(--shadow)}
+#access-note {background:#f9f5eb;color:#896b36;border-color:#ebdfc7}
+.discover-more-card {background:#f7f6f0;border:1px solid #e6e5d9}
+.ecosystem-card {background:#fbfaf7}
+.ecosystem-kicker {background:#f4f0e6;border-color:#e3d6bb;color:#8f7650}
+.villa-eyebrow{color:#b69a65;font-size:11px;letter-spacing:.21em;font-weight:800;text-transform:uppercase;margin:0 0 8px}
+.local-invite{display:grid;grid-template-columns:58px minmax(0,1fr) 154px;align-items:center;gap:19px;padding:31px 32px;background:#2e4638;border-color:#2e4638;color:#f7f5eb;overflow:hidden}
+.local-invite-icon{align-self:start;border:1px solid rgba(230,218,183,.36);display:grid;place-items:center;width:46px;height:46px;border-radius:50%;color:#d9bf88;font-size:24px}
+.local-invite h2{color:#fbf8ef;margin:0 0 9px;font-size:32px}
+.local-invite p:not(.villa-eyebrow){color:#d7dfd5;margin:0 0 20px;max-width:630px;font-size:14px}
+.local-invite-link{display:inline-flex;align-items:center;justify-content:space-between;gap:18px;min-height:46px;padding:11px 18px;border:1px solid #e5d7b8;border-radius:10px;color:#284236;background:#e8dbc0;text-decoration:none;font-weight:800;font-size:13px}
+.local-invite-link:hover{background:#f8edda}
+.local-invite-decoration{display:flex;flex-direction:column;align-items:center;gap:4px;color:#e5d9ba;opacity:.47}
+.local-invite-decoration span{font:normal 80px/.95 'Playfair Display',Georgia,serif;letter-spacing:-.1em;margin-right:9px}
+.local-invite-decoration small{font-size:9px;letter-spacing:.19em}
+@media(max-width:700px){.wrap{padding:13px 13px 42px}.villa-topbar{padding:8px 6px 15px}.villa-wordmark{font-size:18px;gap:4px}.villa-wordmark span{display:none}.villa-topbar-link{font-size:12px}.hero-media{height:208px}.hero-content,.card{padding:22px 20px}.hero h1{font-size:39px}.subtitle.space-top{font-size:14px}.lang-grid{display:flex;justify-content:flex-start;gap:7px}.lang-btn{min-height:40px;padding:8px 10px;flex:1 1 27%;width:auto;font-size:12px}.info-grid,.useful-grid,.essentials-list,.media-grid{gap:14px}.local-invite{grid-template-columns:1fr;gap:11px;padding:27px 23px}.local-invite-icon{display:none}.local-invite h2{font-size:30px}.local-invite-decoration{display:none}.local-invite-link{width:100%}.card{margin-bottom:14px}.waste-cycle-card{padding:18px!important}}
+@media print {.villa-topbar{display:none}}
+
+
+/* Villa Mafalda · mappa discreta sotto l’indirizzo */
+.address-map-link{
+  display:inline-flex;align-items:center;gap:7px;min-height:30px;
+  margin-top:6px;color:#3f604a;border-bottom:1px solid #a5b6a2;
+  text-decoration:none;font-size:13px;font-weight:700;line-height:1.3;
+  transition:color .2s ease,border-color .2s ease;
+}
+.address-map-link::after{content:"↗";font-size:15px;font-weight:500;line-height:1;}
+.address-map-link:hover,.address-map-link:focus-visible{color:#223e2b;border-color:#223e2b;}
+.address-map-link:focus-visible{outline:2px solid #59785d;outline-offset:4px;border-radius:2px;}
+.docs-grid{margin-top:21px;}
+
+/* Revisione Villa Mafalda · conferma in linea e due schede servizi separate */
+.primary-grid{grid-template-columns:minmax(0,265px)}
+.confirm-card{max-width:none!important;width:100%;margin-left:0;margin-right:0;padding:30px 32px!important}
+.confirm-card h2{font-size:clamp(24px,3vw,31px)!important;margin:0 0 9px}
+.confirm-card .lead{font-size:15px;margin:0 0 17px;line-height:1.6}
+.confirm-card .review-includes{margin:11px 0 19px}
+.confirm-card .form-review{max-width:none;border:0;border-radius:0;padding:0;background:transparent}
+.confirm-card .field input{max-width:560px}
+.services-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);align-items:start;gap:17px;margin-bottom:17px}
+.services-grid > .card{margin:0;min-width:0}
+.services-grid h2{font-size:clamp(23px,2.7vw,29px);margin:0 0 22px}
+.transport-card,.emergency-card{padding:27px 29px}
+.transport-stack{display:grid;gap:23px}
+.transport-group{gap:7px;min-width:0}
+.transport-group + .transport-group{border-top:1px solid #e6e5dc;padding-top:20px}
+.transport-group .label,.emergency-list .label{display:block;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:#9b855f;font-weight:700}
+.transport-group .value{font-size:14px;line-height:1.45}
+.transport-group .mini-grid{margin-top:10px;gap:7px}
+.transport-group .mini-btn{min-height:38px;padding:8px 10px;font-size:12px;border-radius:9px}
+.emergency-list{display:grid;gap:0}
+.emergency-list .label{margin-bottom:10px}
+.emergency-list .value{font-size:14px;line-height:1.5;padding:9px 0;border-bottom:1px solid #eeede7}
+.emergency-list .value:last-child{border-bottom:0}
+@media(max-width:700px){
+  .primary-grid{grid-template-columns:minmax(0,1fr)}
+  .confirm-card{padding:22px 20px!important}
+  .confirm-card .form-review{padding:0!important}
+  .services-grid{grid-template-columns:minmax(0,1fr);gap:14px;margin-bottom:14px}
+  .transport-card,.emergency-card{padding:22px 20px}
+}
+
+/* Collegamento sobrio al PDF completo sotto le regole aperte */
+.rules-pdf-link{display:inline-flex;gap:8px;align-items:center;margin-top:18px;padding:9px 0;border-bottom:1px solid #b9b39f;color:#3a5341;text-decoration:none;font-size:13px;font-weight:750}
+.rules-pdf-link:hover{color:#223a2b;border-color:#223a2b}
+
 </style>
 </head>
 <body>
@@ -709,8 +829,12 @@
   </noscript>
 
   <div class="wrap">
+    <header class="villa-topbar">
+      <a class="villa-wordmark" href="#" aria-label="Villa Mafalda Guest Guide">Villa <em>Mafalda</em><span>GUEST GUIDE</span></a>
+      <a class="villa-topbar-link" data-local-guide-link href="local-guide.html?lang=it" id="topbar-local-link">Local Guide <span aria-hidden="true">↗</span></a>
+    </header>
     <section class="hero">
-      <img id="cover-image" src="" alt="">
+      <div class="hero-media"><div class="hero-media-placeholder" aria-hidden="true"><span>VM</span><small>SAVIGNANO · EMILIA-ROMAGNA</small></div><img id="cover-image" src="" alt="" onerror="this.classList.add('hidden')"></div>
       <div class="hero-content">
         <h1 id="apartment-name"></h1>
         <p class="subtitle" id="subtitle-1"></p>
@@ -724,13 +848,8 @@
           <button type="button" class="lang-btn" data-lang="es">Español</button>
         </div>
 
-        <div class="button-grid primary-grid">
-          <a class="action-btn" id="map-btn" href="#"></a>
-          <a class="action-btn" id="whatsapp-btn" href="#"></a>
-        </div>
-
         <div class="button-grid docs-grid" id="docs-grid">
-          <a class="doc-btn" id="rules-btn" href="#"></a>
+          <a class="doc-btn" id="rules-btn" href="#rules-card"></a>
           <a class="doc-btn" id="pet-btn" href="#"></a>
         </div>
       </div>
@@ -742,6 +861,7 @@
           <div class="info-item" id="address-item">
             <span class="label" id="label-address"></span>
             <div class="value" id="address-value"></div>
+            <a class="address-map-link" id="map-btn" href="#"></a>
           </div>
 
           <div class="info-item" id="checkin-item">
@@ -859,6 +979,7 @@
       <summary><span id="rules-title"></span></summary>
       <ul id="rules-list"></ul>
       <div class="pool-operations" id="pool-operations"></div>
+      <a class="rules-pdf-link" id="rules-pdf-link" href="https://raw.githubusercontent.com/fgahousesolutions-gif/villa-mafalda-guide/main/house-rules-it.pdf" target="_blank" rel="noopener noreferrer">Scarica le regole complete (PDF) ↗</a>
     </details>
 
     <details class="card collapsible-card" id="pet-rules-card">
@@ -960,65 +1081,61 @@
       </form>
     </section>
 
-    <section class="card" id="useful-numbers-card">
-      <h2 id="useful-numbers-title"></h2>
-      <div class="useful-grid">
-        <div class="useful-item">
+    <div class="services-grid">
+      <section class="card transport-card" id="transport-card">
+        <h2 id="transport-title"></h2>
+        <div class="transport-stack">
+          <div class="transport-group useful-item" id="taxi-item">
+            <span class="label" id="taxi-title"></span>
+            <div class="value" id="taxi-phone-text"></div>
+            <div class="value" id="taxi-whatsapp-text"></div>
+            <div class="mini-grid">
+              <a class="mini-btn" id="taxi-call-btn" href="#"></a>
+              <a class="mini-btn" id="taxi-wa-btn" href="#"></a>
+              <a class="mini-btn" id="taxi-uber-btn" href="#"></a>
+              <a class="mini-btn" id="taxi-app-btn" href="#"></a>
+            </div>
+          </div>
+          <div class="transport-group useful-item" id="rental-car-item">
+            <span class="label" id="rental-car-title"></span>
+            <div class="value" id="rental-car-auto-text"></div>
+            <div class="value" id="rental-rilo-text"></div>
+            <div class="mini-grid">
+              <a class="mini-btn" id="rental-car-auto-btn" href="#"></a>
+              <a class="mini-btn" id="rental-rilo-btn" href="#"></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card emergency-card" id="useful-numbers-card">
+        <h2 id="useful-numbers-title"></h2>
+        <div class="emergency-list">
           <span class="label" id="emergency-title"></span>
           <div class="value" id="emergency-112"></div>
           <div class="value" id="emergency-118"></div>
           <div class="value" id="emergency-115"></div>
         </div>
+      </section>
+    </div>
 
-        <div class="useful-item" id="taxi-item">
-          <span class="label" id="taxi-title"></span>
-          <div class="value" id="taxi-phone-text"></div>
-          <div class="value" id="taxi-whatsapp-text"></div>
-          <div class="mini-grid">
-            <a class="mini-btn" id="taxi-call-btn" href="#"></a>
-            <a class="mini-btn" id="taxi-wa-btn" href="#"></a>
-            <a class="mini-btn" id="taxi-uber-btn" href="#"></a>
-            <a class="mini-btn" id="taxi-app-btn" href="#"></a>
-          </div>
-        </div>
-
-        <div class="useful-item" id="rental-car-item">
-          <span class="label" id="rental-car-title"></span>
-          <div class="value" id="rental-car-auto-text"></div>
-          <div class="value" id="rental-rilo-text"></div>
-          <div class="mini-grid">
-            <a class="mini-btn" id="rental-car-auto-btn" href="#"></a>
-            <a class="mini-btn" id="rental-rilo-btn" href="#"></a>
-          </div>
-        </div>
+    <section class="card local-invite" id="local-invite">
+      <div class="local-invite-icon" aria-hidden="true">✦</div>
+      <div class="local-invite-content">
+        <p class="villa-eyebrow" id="local-invite-kicker">THE LOCAL EDIT</p>
+        <h2 id="local-invite-title">I consigli di Laura</h2>
+        <p id="local-invite-description">Colazioni speciali, osterie del territorio e indirizzi selezionati per scoprire l'Emilia.</p>
+        <a class="local-invite-link" data-local-guide-link id="local-invite-link" href="local-guide.html?lang=it">Esplora i consigli <span aria-hidden="true">↗</span></a>
       </div>
+      <div class="local-invite-decoration" aria-hidden="true"><span>VM</span><small>LOCAL GUIDE</small></div>
     </section>
 
-    <section class="card" id="suggestions-card">
-      <h2 id="suggestions-title"></h2>
-      <div class="tips-grid">
-        <div class="tips-item" id="breakfast-block">
-          <h3 id="breakfast-title"></h3>
-          <ul id="breakfast-list"></ul>
-        </div>
-
-        <div class="tips-item" id="aperitivo-block">
-          <h3 id="aperitivo-title"></h3>
-          <ul id="aperitivo-list"></ul>
-        </div>
-
-        <div class="tips-item" id="restaurants-block">
-          <h3 id="restaurants-title"></h3>
-          <ul id="restaurants-list"></ul>
-        </div>
-      </div>
-    </section>
 
     <section class="card discover-more-card" id="discover-more-card">
       <h2 id="discover-more-title"></h2>
       <p class="discover-more-text" id="discover-more-text"></p>
       <div class="discover-more-actions">
-        <a class="action-btn" id="chef-experience-btn" href="chef-experience.html" target="_blank" rel="noopener noreferrer"></a>
+        <a class="action-btn" id="chef-experience-btn" href="https://villa-mafalda-guide.fgahousesolutions.workers.dev/chef-experience.html"></a>
         <a class="action-btn" id="discover-modena-btn" href="https://www.visitmodena.it/it/eventi" target="_blank" rel="noopener noreferrer"></a>
         <a class="action-btn" id="discover-bologna-btn" href="https://www.bolognawelcome.com/it/eventi" target="_blank" rel="noopener noreferrer"></a>
       </div>
@@ -1049,9 +1166,9 @@
       wifiPassword: "Welcome2025",
       documents: {
         rules: {
-          it: "house-rules-it.pdf",
-          en: "house-rules-en.pdf",
-          fallback: "house-rules-en.pdf"
+          it: "https://raw.githubusercontent.com/fgahousesolutions-gif/villa-mafalda-guide/main/house-rules-it.pdf",
+          en: "https://raw.githubusercontent.com/fgahousesolutions-gif/villa-mafalda-guide/main/house-rules-en.pdf",
+          fallback: "https://raw.githubusercontent.com/fgahousesolutions-gif/villa-mafalda-guide/main/house-rules-en.pdf"
         },
         pet: "#pet-rules-card"
       },
@@ -1085,12 +1202,20 @@
       }
     };
 
+    const LOCAL_PROMO = {
+      it: {kicker:"SCOPRI IL TERRITORIO",title:"I consigli di Laura",description:"Pasticcerie, trattorie e indirizzi del cuore: una selezione personale per scoprire i sapori dell’Emilia.", button:"Scopri la Local Guide",topbar:"Scopri la zona"},
+      en: {kicker:"DISCOVER THE AREA",title:"Laura’s local favourites",description:"Pastry shops, traditional trattorias and favourite addresses for discovering the flavours of Emilia.",button:"Explore the Local Guide",topbar:"Explore the area"},
+      de: {kicker:"DIE REGION ENTDECKEN",title:"Lauras Lieblingsadressen",description:"Patisserien, traditionelle Trattorien und persönliche Tipps, um die Aromen der Emilia zu entdecken.",button:"Local Guide entdecken",topbar:"Die Region entdecken"},
+      fr: {kicker:"DÉCOUVRIR LA RÉGION",title:"Les adresses de Laura",description:"Pâtisseries, trattorias traditionnelles et adresses choisies pour découvrir les saveurs de l’Émilie.",button:"Découvrir le guide local",topbar:"Explorer la région"},
+      es: {kicker:"DESCUBRE LA ZONA",title:"Los favoritos de Laura",description:"Pastelerías, trattorias tradicionales y lugares escogidos para descubrir los sabores de Emilia.",button:"Explorar la guía local",topbar:"Descubrir la zona"}
+    };
+
     const CONTENT = {
       it: {
         pageTitle: "Guida Ospiti",
         subtitle1: "Guest Guide / Guida Ospiti",
         subtitle2: "Tutte le informazioni utili per un soggiorno semplice, comodo e rilassante.",
-        mapBtn: "📍 Google Maps",
+        mapBtn: "Visualizza su Google Maps",
         whatsappBtn: "💬 WhatsApp",
         rulesBtn: "📄 Regole complete",
         petBtn: "🐾 Regole animali",
@@ -1184,6 +1309,7 @@
         wasteText: "In cucina trovate cinque contenitori per carta, plastica e alluminio, vetro, indifferenziato e umido. Conferite i rifiuti già separati nei corrispondenti bidoni esterni.\n\nIl calendario comunale per la raccolta è affisso in casa: controllate i giorni e portate i bidoni previsti fuori dal cancello la sera precedente al ritiro, anche nei giorni festivi se indicati dal calendario.\n\nPrima del check-out, lasciate tutti i rifiuti correttamente separati nei contenitori esterni.",
         wasteNote: "",
         usefulNumbersTitle: "📞 Numeri utili",
+        transportTitle: "🚗 Trasporti e mobilità",
         emergencyTitle: "Emergenze",
         taxiTitle: "Taxi locale",
         taxiCallBtn: "📞 Chiama",
@@ -1204,27 +1330,7 @@
           "Se concordato con l'Host, lasciare le chiavi nella keybox esterna seguendo le istruzioni ricevute.",
           "Portare tutti i rifiuti già separati nei rispettivi contenitori esterni: non lasciare sacchi misti o rifiuti all’interno."
         ],
-        suggestionsTitle: "🍽️ Suggerimenti in zona",
-        breakfastTitle: "☕ Colazione",
-        breakfastList: [
-          "Caffetteria Pasticceria Il Mulino - Savignano sul Panaro, comoda e vicina alla villa.",
-          "Pasticceria Damiani - Vignola, pasticceria e caffetteria per colazioni dolci e salate.",
-          "Caffetteria CuoreMatto - Vignola, caffetteria accogliente per una colazione semplice.",
-          "Pasticceria Fornace - Marano sul Panaro, pasticceria artigianale con colazioni e dolci freschi."
-        ],
-        aperitivoTitle: "🥂 Aperitivo e vino",
-        aperitivoList: [
-          "Enoteca La Zaira - Vignola centro.",
-          "Borgo e Castello di Vignola - zona molto bella per passeggiata e aperitivo."
-        ],
-        restaurantsTitle: "🍴 Ristoranti consigliati",
-        restaurantsList: [
-          "Trattoria dei Contrari - Savignano, cucina tipica emiliana.",
-          "La Baracca - Vignola, ristorante emiliano.",
-          "Locanda del Feudo - Castelvetro, ristorante nel borgo medievale.",
-          "Agriturismo La Lupa - Castelvetro, agriturismo con cucina tipica."
-        ],
-        discoverMoreTitle: "✨ Altri punti d'interesse e cose da fare",
+        discoverMoreTitle: "✨ Luoghi da scoprire ed esperienze da vivere",
         discoverMoreText: "Se vuoi arricchire il soggiorno con una gita, una mostra, un evento speciale o un'esperienza culinaria direttamente in Villa, qui trovi alcuni riferimenti utili.",
         chefExperienceBtn: "🍝 Chef in Villa",
         discoverModenaBtn: "Eventi Modena",
@@ -1238,7 +1344,7 @@
         pageTitle: "Guest Guide",
         subtitle1: "Guest Guide / Guida Ospiti",
         subtitle2: "All the useful information for a smooth, comfortable, and relaxing stay.",
-        mapBtn: "📍 Google Maps",
+        mapBtn: "View on Google Maps",
         whatsappBtn: "💬 WhatsApp",
         rulesBtn: "📄 Full house rules",
         petBtn: "🐾 Pet rules",
@@ -1332,6 +1438,7 @@
         wasteText: "In the kitchen there are five separate bins for paper, plastic and aluminium, glass, general waste and organic waste. Please place sorted waste in the matching outdoor bins.\n\nThe municipal collection schedule is posted inside the villa. Check which bins are due for collection and place them outside the gate on the preceding evening, including public holidays if indicated on the schedule.\n\nBefore check-out, leave all waste sorted in the outdoor bins.",
         wasteNote: "",
         usefulNumbersTitle: "📞 Useful numbers",
+        transportTitle: "🚗 Transport & getting around",
         emergencyTitle: "Emergency numbers",
         taxiTitle: "Local taxi",
         taxiCallBtn: "📞 Call",
@@ -1352,27 +1459,7 @@
           "If agreed with the Host, leave the keys in the outdoor keybox following the instructions received.",
           "Take any remaining waste to the outdoor bins."
         ],
-        suggestionsTitle: "🍽️ Local suggestions",
-        breakfastTitle: "☕ Breakfast",
-        breakfastList: [
-          "Caffetteria Pasticceria Il Mulino - Savignano sul Panaro, convenient and close to the villa.",
-          "Pasticceria Damiani - Vignola, pastry shop and cafe for sweet and savory breakfasts.",
-          "Caffetteria CuoreMatto - Vignola, a welcoming cafe for a simple breakfast.",
-          "Pasticceria Fornace - Marano sul Panaro, artisan pastry shop with fresh breakfasts and desserts."
-        ],
-        aperitivoTitle: "🥂 Aperitivo and wine",
-        aperitivoList: [
-          "Enoteca La Zaira - central Vignola.",
-          "Borgo e Castello di Vignola - a beautiful area for a walk and an aperitivo."
-        ],
-        restaurantsTitle: "🍴 Recommended restaurants",
-        restaurantsList: [
-          "Trattoria dei Contrari - Savignano, traditional Emilian cuisine.",
-          "La Baracca - Vignola, Emilian restaurant.",
-          "Locanda del Feudo - Castelvetro, restaurant in the medieval village.",
-          "Agriturismo La Lupa - Castelvetro, farmhouse restaurant with traditional cuisine."
-        ],
-        discoverMoreTitle: "✨ More places to explore and things to do",
+        discoverMoreTitle: "✨ Places to discover and experiences to enjoy",
         discoverMoreText: "If you would like to add a day trip, an exhibition, a special event or a private culinary experience at the Villa to your stay, these links are a great starting point.",
         chefExperienceBtn: "🍝 Chef at the Villa",
         discoverModenaBtn: "Modena events",
@@ -1386,7 +1473,7 @@
         pageTitle: "Gästeführer",
         subtitle1: "Guest Guide / Gästeführer",
         subtitle2: "Alle nützlichen Informationen für einen einfachen, komfortablen und entspannten Aufenthalt.",
-        mapBtn: "📍 Google Maps",
+        mapBtn: "Auf Google Maps ansehen",
         whatsappBtn: "💬 WhatsApp",
         rulesBtn: "📄 Vollständige Hausregeln",
         petBtn: "🐾 Regeln für Haustiere",
@@ -1480,6 +1567,7 @@
         wasteText: "In der Küche stehen fünf Behälter für Papier, Kunststoff und Aluminium, Glas, Restmüll und Biomüll bereit. Bitte entsorgen Sie die getrennten Abfälle in den entsprechenden Außentonnen.\n\nDer kommunale Abfuhrkalender hängt im Haus. Stellen Sie die jeweils vorgesehenen Tonnen am Abend vor der Abholung vor das Tor, auch an Feiertagen, sofern dies im Kalender angegeben ist.\n\nVor dem Check-out müssen alle Abfälle getrennt in den Außentonnen sein.",
         wasteNote: "",
         usefulNumbersTitle: "📞 Nützliche Nummern",
+        transportTitle: "🚗 Verkehr & Mobilität",
         emergencyTitle: "Notfallnummern",
         taxiTitle: "Lokales Taxi",
         taxiCallBtn: "📞 Anrufen",
@@ -1500,27 +1588,7 @@
           "Falls mit dem Host vereinbart, lassen Sie die Schlussel entsprechend den erhaltenen Anweisungen in der externen Schlusselbox.",
           "Bringen Sie den restlichen Müll zu den dafür vorgesehenen Außenbehältern."
         ],
-        suggestionsTitle: "🍽️ Empfehlungen in der Umgebung",
-        breakfastTitle: "☕ Frühstück",
-        breakfastList: [
-          "Caffetteria Pasticceria Il Mulino - Savignano sul Panaro, praktisch und nahe bei der Villa.",
-          "Pasticceria Damiani - Vignola, Konditorei und Cafe für süße und herzhafte Frühstücke.",
-          "Caffetteria CuoreMatto - Vignola, ein einladendes Cafe für ein einfaches Frühstück.",
-          "Pasticceria Fornace - Marano sul Panaro, handwerkliche Konditorei mit frischem Frühstück und Gebäck."
-        ],
-        aperitivoTitle: "🥂 Aperitif und Wein",
-        aperitivoList: [
-          "Enoteca La Zaira - Zentrum von Vignola.",
-          "Borgo e Castello di Vignola - sehr schöne Gegend für einen Spaziergang und einen Aperitif."
-        ],
-        restaurantsTitle: "🍴 Empfohlene Restaurants",
-        restaurantsList: [
-          "Trattoria dei Contrari - Savignano, typische emilianische Küche.",
-          "La Baracca - Vignola, emilianisches Restaurant.",
-          "Locanda del Feudo - Castelvetro, Restaurant im mittelalterlichen Dorf.",
-          "Agriturismo La Lupa - Castelvetro, Landgasthof mit typischer Küche."
-        ],
-        discoverMoreTitle: "✨ Weitere Ausflugsziele und Unternehmungen",
+        discoverMoreTitle: "✨ Orte entdecken und besondere Erlebnisse",
         discoverMoreText: "Wenn du deinen Aufenthalt mit einem Ausflug, einer Ausstellung, einer besonderen Veranstaltung oder einem privaten kulinarischen Erlebnis in der Villa bereichern möchtest, findest du hier einige nützliche Links.",
         chefExperienceBtn: "🍝 Chef in der Villa",
         discoverModenaBtn: "Events Modena",
@@ -1534,7 +1602,7 @@
         pageTitle: "Guide des voyageurs",
         subtitle1: "Guest Guide / Guide des voyageurs",
         subtitle2: "Toutes les informations utiles pour un séjour simple, confortable et relaxant.",
-        mapBtn: "📍 Google Maps",
+        mapBtn: "Voir sur Google Maps",
         whatsappBtn: "💬 WhatsApp",
         rulesBtn: "📄 Règlement complet",
         petBtn: "🐾 Règles animaux",
@@ -1628,6 +1696,7 @@
         wasteText: "Dans la cuisine, cinq bacs sont prévus pour le papier, le plastique et l’aluminium, le verre, les déchets non recyclables et les déchets organiques. Déposez les déchets triés dans les conteneurs extérieurs correspondants.\n\nLe calendrier municipal de collecte est affiché dans la maison. La veille au soir de chaque collecte, sortez les conteneurs prévus devant le portail, y compris les jours fériés si le calendrier l’indique.\n\nAvant le départ, laissez tous les déchets triés dans les conteneurs extérieurs.",
         wasteNote: "",
         usefulNumbersTitle: "📞 Numéros utiles",
+        transportTitle: "🚗 Transports et déplacements",
         emergencyTitle: "Urgences",
         taxiTitle: "Taxi local",
         taxiCallBtn: "📞 Appeler",
@@ -1648,27 +1717,7 @@
           "Si cela a ete convenu avec l'Host, laissez les cles dans la keybox exterieure en suivant les instructions recues.",
           "Déposez les déchets restants dans les conteneurs extérieurs prévus à cet effet."
         ],
-        suggestionsTitle: "🍽️ Suggestions dans les environs",
-        breakfastTitle: "☕ Petit-déjeuner",
-        breakfastList: [
-          "Caffetteria Pasticceria Il Mulino - Savignano sul Panaro, pratique et proche de la villa.",
-          "Pasticceria Damiani - Vignola, pâtisserie et café pour petits-déjeuners sucrés et salés.",
-          "Caffetteria CuoreMatto - Vignola, café accueillant pour un petit-déjeuner simple.",
-          "Pasticceria Fornace - Marano sul Panaro, pâtisserie artisanale avec petits-déjeuners et desserts frais."
-        ],
-        aperitivoTitle: "🥂 Apéritif et vin",
-        aperitivoList: [
-          "Enoteca La Zaira - centre de Vignola.",
-          "Borgo e Castello di Vignola - très belle zone pour une promenade et un apéritif."
-        ],
-        restaurantsTitle: "🍴 Restaurants conseillés",
-        restaurantsList: [
-          "Trattoria dei Contrari - Savignano, cuisine typique émilienne.",
-          "La Baracca - Vignola, restaurant émilien.",
-          "Locanda del Feudo - Castelvetro, restaurant dans le bourg médiéval.",
-          "Agriturismo La Lupa - Castelvetro, agritourisme avec cuisine typique."
-        ],
-        discoverMoreTitle: "✨ Autres lieux d'intérêt et choses à faire",
+        discoverMoreTitle: "✨ Lieux à découvrir et expériences à vivre",
         discoverMoreText: "Si vous souhaitez enrichir votre séjour avec une excursion, une exposition, un événement spécial ou une expérience culinaire privée à la Villa, voici quelques liens utiles.",
         chefExperienceBtn: "🍝 Chef à la Villa",
         discoverModenaBtn: "Événements Modène",
@@ -1682,7 +1731,7 @@
         pageTitle: "Guía para huéspedes",
         subtitle1: "Guest Guide / Guía para huéspedes",
         subtitle2: "Toda la información útil para una estancia sencilla, cómoda y relajante.",
-        mapBtn: "📍 Google Maps",
+        mapBtn: "Ver en Google Maps",
         whatsappBtn: "💬 WhatsApp",
         rulesBtn: "📄 Normas completas",
         petBtn: "🐾 Reglas para animales",
@@ -1776,6 +1825,7 @@
         wasteText: "En la cocina hay cinco cubos para papel, plástico y aluminio, vidrio, residuos no reciclables y orgánicos. Depositen los residuos separados en los contenedores exteriores correspondientes.\n\nEl calendario municipal de recogida está expuesto en la casa. La noche anterior a cada recogida, saquen fuera de la verja los contenedores indicados, incluso en festivos si así figura en el calendario.\n\nAntes del check-out, dejen todos los residuos separados en los contenedores exteriores.",
         wasteNote: "",
         usefulNumbersTitle: "📞 Números útiles",
+        transportTitle: "🚗 Transporte y movilidad",
         emergencyTitle: "Emergencias",
         taxiTitle: "Taxi local",
         taxiCallBtn: "📞 Llamar",
@@ -1796,27 +1846,7 @@
           "Si asi lo han acordado con el Host, dejen las llaves en la keybox exterior siguiendo las instrucciones recibidas.",
           "Lleven la basura restante a los contenedores exteriores correspondientes."
         ],
-        suggestionsTitle: "🍽️ Sugerencias en la zona",
-        breakfastTitle: "☕ Desayuno",
-        breakfastList: [
-          "Caffetteria Pasticceria Il Mulino - Savignano sul Panaro, cómoda y cerca de la villa.",
-          "Pasticceria Damiani - Vignola, pastelería y cafetería para desayunos dulces y salados.",
-          "Caffetteria CuoreMatto - Vignola, cafetería acogedora para un desayuno sencillo.",
-          "Pasticceria Fornace - Marano sul Panaro, pastelería artesanal con desayunos y dulces frescos."
-        ],
-        aperitivoTitle: "🥂 Aperitivo y vino",
-        aperitivoList: [
-          "Enoteca La Zaira - centro de Vignola.",
-          "Borgo e Castello di Vignola - zona muy bonita para pasear y tomar un aperitivo."
-        ],
-        restaurantsTitle: "🍴 Restaurantes recomendados",
-        restaurantsList: [
-          "Trattoria dei Contrari - Savignano, cocina típica emiliana.",
-          "La Baracca - Vignola, restaurante emiliano.",
-          "Locanda del Feudo - Castelvetro, restaurante en el pueblo medieval.",
-          "Agriturismo La Lupa - Castelvetro, agriturismo con cocina típica."
-        ],
-        discoverMoreTitle: "✨ Otros puntos de interés y cosas que hacer",
+        discoverMoreTitle: "✨ Lugares por descubrir y experiencias para disfrutar",
         discoverMoreText: "Si quieren enriquecer la estancia con una excursión, una exposición, un evento especial o una experiencia culinaria privada en la Villa, aquí tienen algunos enlaces útiles.",
         chefExperienceBtn: "🍝 Chef en la Villa",
         discoverModenaBtn: "Eventos Módena",
@@ -2033,8 +2063,18 @@
     }
 
     function setLanguage(lang) {
-      document.documentElement.lang = CONTENT[lang] ? lang : "it";
-      const t = CONTENT[lang] || CONTENT.it;
+      lang = CONTENT[lang] ? lang : "it";
+      document.documentElement.lang = lang;
+      const t = CONTENT[lang];
+      const promo = LOCAL_PROMO[lang] || LOCAL_PROMO.it;
+      setText("local-invite-kicker", promo.kicker);
+      setText("local-invite-title", promo.title);
+      setText("local-invite-description", promo.description);
+      const localBtn = document.getElementById("local-invite-link");
+      if (localBtn) localBtn.innerHTML = `${promo.button} <span aria-hidden="true">↗</span>`;
+      const topbarLink = document.getElementById("topbar-local-link");
+      if (topbarLink) topbarLink.innerHTML = `${promo.topbar} <span aria-hidden="true">↗</span>`;
+      document.querySelectorAll('[data-local-guide-link]').forEach(a=>{a.href=`local-guide.html?lang=${encodeURIComponent(lang)}`;});
       if (window.updateApprovedGuide) window.updateApprovedGuide(lang);
       const safeDocuments = PROPERTY.documents || {};
       const safeTutorials = PROPERTY.tutorials || {};
@@ -2047,6 +2087,7 @@
 
       if (coverImage) {
         if (hasContentValue(PROPERTY.coverImage)) {
+          coverImage.classList.remove("hidden");
           coverImage.src = PROPERTY.coverImage;
           coverImage.alt = PROPERTY.apartmentName || t.pageTitle;
           coverImage.classList.remove("hidden");
@@ -2063,13 +2104,22 @@
 
       setText("map-btn", t.mapBtn);
       setButtonVisibility("map-btn", PROPERTY.mapsUrl || "");
-      setText("whatsapp-btn", t.whatsappBtn);
-      setButtonVisibility("whatsapp-btn", PROPERTY.whatsappUrl || "");
 
       const rulesDoc = getDocumentForLang(safeDocuments.rules, lang);
       const petDoc = getDocumentForLang(safeDocuments.pet, lang);
       setText("rules-btn", t.rulesBtn);
-      setButtonVisibility("rules-btn", rulesDoc);
+      // Like the pet rules, the main action expands the relevant section in-page.
+      // The original complete document remains available from that section.
+      setButtonVisibility("rules-btn", "#rules-card");
+      const rulesPdfLabels = {
+        it: "Apri il PDF delle regole complete ↗",
+        en: "Open the full house rules PDF ↗",
+        de: "Vollständige Hausregeln als PDF öffnen ↗",
+        fr: "Ouvrir le PDF du règlement complet ↗",
+        es: "Abrir el PDF de las normas completas ↗"
+      };
+      setText("rules-pdf-link", rulesPdfLabels[lang] || rulesPdfLabels.it);
+      setButtonVisibility("rules-pdf-link", rulesDoc);
       setText("pet-btn", t.petBtn);
       setButtonVisibility("pet-btn", petDoc);
       updateDocsGridVisibility();
@@ -2146,6 +2196,7 @@
       setHidden("waste-card", !hasWasteContent);
 
       setTextOrClear("useful-numbers-title", t.usefulNumbersTitle);
+      setTextOrClear("transport-title", t.transportTitle);
       setTextOrClear("emergency-title", t.emergencyTitle);
       setTextOrClear("emergency-112", safeNumbers.emergency112);
       setTextOrClear("emergency-118", safeNumbers.emergency118);
@@ -2179,51 +2230,15 @@
       renderList("checkout-list", hasCheckoutContent ? t.checkoutList : []);
       setHidden("checkout-card", !(hasCheckoutContent || hasCheckoutAlert));
 
-      const hasBreakfast = hasContentArray(t.breakfastList);
-      const hasAperitivo = hasContentArray(t.aperitivoList);
-      const hasRestaurants = hasContentArray(t.restaurantsList);
-
-      if (hasBreakfast || hasAperitivo || hasRestaurants) {
-        setHidden("suggestions-card", false);
-        setText("suggestions-title", t.suggestionsTitle);
-
-        if (hasBreakfast) {
-          setHidden("breakfast-block", false);
-          setText("breakfast-title", t.breakfastTitle);
-          renderList("breakfast-list", t.breakfastList);
-        } else {
-          setHidden("breakfast-block", true);
-          renderList("breakfast-list", []);
-        }
-
-        if (hasAperitivo) {
-          setHidden("aperitivo-block", false);
-          setText("aperitivo-title", t.aperitivoTitle);
-          renderList("aperitivo-list", t.aperitivoList);
-        } else {
-          setHidden("aperitivo-block", true);
-          renderList("aperitivo-list", []);
-        }
-
-        if (hasRestaurants) {
-          setHidden("restaurants-block", false);
-          setText("restaurants-title", t.restaurantsTitle);
-          renderList("restaurants-list", t.restaurantsList);
-        } else {
-          setHidden("restaurants-block", true);
-          renderList("restaurants-list", []);
-        }
-      } else {
-        setHidden("suggestions-card", true);
-      }
-
       const hasDiscoverMoreContent = hasContentValue(t.discoverMoreTitle) || hasContentValue(t.discoverMoreText);
       setTextOrClear("discover-more-title", hasDiscoverMoreContent ? t.discoverMoreTitle : "");
       setTextOrClear("discover-more-text", t.discoverMoreText);
       setText("chef-experience-btn", t.chefExperienceBtn);
       setText("discover-modena-btn", t.discoverModenaBtn);
       setText("discover-bologna-btn", t.discoverBolognaBtn);
-      setButtonVisibility("chef-experience-btn", "chef-experience.html");
+      setButtonVisibility("chef-experience-btn", "https://villa-mafalda-guide.fgahousesolutions.workers.dev/chef-experience.html");
+      // Open in the same tab to avoid popup restrictions in HTML previews.
+      document.getElementById("chef-experience-btn").removeAttribute("target");
       setButtonVisibility("discover-modena-btn", "https://www.visitmodena.it/it/eventi");
       setButtonVisibility("discover-bologna-btn", "https://www.bolognawelcome.com/it/eventi");
       setHidden("discover-more-card", !hasDiscoverMoreContent);
@@ -2242,6 +2257,14 @@
       } catch (e) {}
     }
 
+    // I pulsanti che portano alle regole devono aprire i pannelli prima dello scroll.
+    document.addEventListener('click', event => {
+      const link = event.target.closest('a[href="#pet-rules-card"], a[href="#rules-card"]');
+      if (!link) return;
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target?.tagName === 'DETAILS') target.open = true;
+    });
+
     document.querySelectorAll(".lang-btn").forEach(btn => {
       btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
     });
@@ -2250,6 +2273,8 @@
     try {
       savedLang = localStorage.getItem("guestGuideLang") || "it";
     } catch (e) {}
+    const requestedLang = new URLSearchParams(window.location.search).get("lang");
+    if (requestedLang && CONTENT[requestedLang]) savedLang = requestedLang;
 
     setLanguage(savedLang);
   </script>
