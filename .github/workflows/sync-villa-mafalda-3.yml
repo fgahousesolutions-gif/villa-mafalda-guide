@@ -1,0 +1,78 @@
+name: Villa Mafalda 3.0 - sync deployed site to GitHub
+
+on:
+  push:
+    paths:
+      - ".github/workflows/sync-villa-mafalda-3.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout current GitHub files
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Copy only updated assets from working Cloudflare site
+        shell: bash
+        env:
+          SITE_URL: https://villa-mafalda-guide.fgahousesolutions.workers.dev
+        run: |
+          set -euo pipefail
+          updated=(
+            index.html
+            arrivo-wifi.html
+            accesso-chiavi.html
+            allarme-tutorial.html
+            piscina-giardino.html
+            regole-casa.html
+            raccolta-rifiuti.html
+            check-out.html
+            trasporti-contatti.html
+            chef-experience.html
+            assets/sections.css
+            assets/sections.js
+            assets/villa-data.js
+            villa-mafalda-welcome-it.mp3
+            villa-mafalda-welcome-en.mp3
+          )
+          for file in "${updated[@]}"; do
+            mkdir -p "$(dirname "$file")"
+            curl --fail --location --retry 3 --retry-delay 2 --silent --show-error "${SITE_URL}/${file}" --output "$file"
+            test -s "$file"
+          done
+
+          # Reject unavailable pages, HTML error responses and truncated audio.
+          for file in index.html arrivo-wifi.html accesso-chiavi.html allarme-tutorial.html piscina-giardino.html regole-casa.html raccolta-rifiuti.html check-out.html trasporti-contatti.html chef-experience.html; do
+            grep -qiE '<!doctype html|<html' "$file" || { echo "Invalid HTML: $file"; exit 1; }
+          done
+          for file in villa-mafalda-welcome-it.mp3 villa-mafalda-welcome-en.mp3; do
+            bytes=$(wc -c < "$file" | tr -d ' ')
+            test "$bytes" -gt 500000 || { echo "Missing or truncated audio: $file"; exit 1; }
+            file --mime-type "$file"
+          done
+          test -s local-guide.html
+          test -s villa-mafalda-tutorial-allarme-interno.mp4
+          test -s villa-mafalda-tutorial-bidoni-esterni.mp4
+          test -s house-rules-it.pdf
+          echo "Validated ${#updated[@]} updated files, plus preserved source media and PDF assets."
+
+      - name: Commit snapshot of live Home 3.0 (without changing Cloudflare)
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- index.html arrivo-wifi.html accesso-chiavi.html allarme-tutorial.html piscina-giardino.html regole-casa.html raccolta-rifiuti.html check-out.html trasporti-contatti.html chef-experience.html assets/sections.css assets/sections.js assets/villa-data.js villa-mafalda-welcome-it.mp3 villa-mafalda-welcome-en.mp3
+          if ! git diff --cached --quiet; then
+            git commit -m "Sync Villa Mafalda Home 3.0 and welcome audio from live Cloudflare"
+            git push
+          else
+            echo "Already synchronized with live Cloudflare site"
+          fi
