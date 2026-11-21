@@ -819,6 +819,37 @@ h3 {font-size:21px}
 .rules-pdf-link{display:inline-flex;gap:8px;align-items:center;margin-top:18px;padding:9px 0;border-bottom:1px solid #b9b39f;color:#3a5341;text-decoration:none;font-size:13px;font-weight:750}
 .rules-pdf-link:hover{color:#223a2b;border-color:#223a2b}
 
+
+/* Chef in Villa · invito principale alle esperienze di Simonetta */
+.discover-more-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:740px;margin:0 auto}
+.discover-more-actions #chef-experience-btn{
+  grid-column:1 / -1;display:flex;align-items:center;justify-content:space-between;gap:18px;
+  min-height:102px;padding:22px 26px;text-align:left;
+  background:linear-gradient(115deg,#284837 0%,#3b5c46 100%);
+  color:#fffdf5;border:1.5px solid #c8ae78;border-radius:17px;
+  box-shadow:0 12px 25px rgba(29,61,41,.18);
+  text-decoration:none;transition:transform .2s ease,box-shadow .2s ease,background .2s ease;
+}
+.discover-more-actions #chef-experience-btn .chef-cta-copy{display:flex;flex-direction:column;gap:5px;min-width:0}
+.discover-more-actions #chef-experience-btn strong{font:600 clamp(20px,2.4vw,26px)/1.25 'Playfair Display',Georgia,serif;letter-spacing:-.015em;color:#fffdf5}
+.discover-more-actions #chef-experience-btn small{font:500 13px/1.5 'DM Sans',sans-serif;color:#e6e7dc;letter-spacing:0}
+.discover-more-actions #chef-experience-btn::after{
+  content:"↗";display:grid;place-items:center;flex:0 0 43px;width:43px;height:43px;
+  border:1px solid rgba(255,250,233,.55);border-radius:50%;
+  font:400 25px/1 'DM Sans',sans-serif;color:#fff8e8;
+}
+.discover-more-actions #chef-experience-btn:hover{transform:translateY(-2px);background:linear-gradient(115deg,#213c2d,#30513b);box-shadow:0 16px 27px rgba(29,61,41,.22)}
+.discover-more-actions #chef-experience-btn:focus-visible{outline:3px solid #d4b575;outline-offset:4px}
+.discover-more-actions .action-btn:not(#chef-experience-btn){
+  background:#fffefb;color:#375341;border:1px solid #d8dece;min-height:50px;border-radius:11px;font-weight:700
+}
+.discover-more-actions .action-btn:not(#chef-experience-btn):hover{background:#f0f3ea}
+@media(max-width:600px){
+ .discover-more-actions{grid-template-columns:1fr}
+ .discover-more-actions #chef-experience-btn{grid-column:1;padding:19px;min-height:115px}
+ .discover-more-actions #chef-experience-btn::after{flex-basis:36px;width:36px;height:36px;font-size:22px}
+ .discover-more-actions .action-btn:not(#chef-experience-btn){width:100%}
+}
 </style>
 </head>
 <body>
@@ -2233,12 +2264,26 @@ h3 {font-size:21px}
       const hasDiscoverMoreContent = hasContentValue(t.discoverMoreTitle) || hasContentValue(t.discoverMoreText);
       setTextOrClear("discover-more-title", hasDiscoverMoreContent ? t.discoverMoreTitle : "");
       setTextOrClear("discover-more-text", t.discoverMoreText);
-      setText("chef-experience-btn", t.chefExperienceBtn);
+      const chefBtn = document.getElementById("chef-experience-btn");
+      if (chefBtn) {
+        const chefCopy = document.createElement("span");
+        chefCopy.className = "chef-cta-copy";
+        const chefHeading = document.createElement("strong");
+        chefHeading.textContent = t.chefExperienceBtn;
+        const chefSub = document.createElement("small");
+        chefSub.textContent = ({
+          it: "Cena privata in villa o lezione di pasta con Simonetta Garelli",
+          en: "Private villa dining or a pasta class with Simonetta Garelli",
+          de: "Privates Dinner in der Villa oder Pasta-Kurs mit Simonetta Garelli",
+          fr: "Dîner privé à la villa ou cours de pâtes avec Simonetta Garelli",
+          es: "Cena privada en la villa o clase de pasta con Simonetta Garelli"
+        })[lang];
+        chefCopy.append(chefHeading, chefSub);
+        chefBtn.replaceChildren(chefCopy);
+      }
       setText("discover-modena-btn", t.discoverModenaBtn);
       setText("discover-bologna-btn", t.discoverBolognaBtn);
-      setButtonVisibility("chef-experience-btn", "https://villa-mafalda-guide.fgahousesolutions.workers.dev/chef-experience.html");
-      // Open in the same tab to avoid popup restrictions in HTML previews.
-      document.getElementById("chef-experience-btn").removeAttribute("target");
+      setButtonVisibility("chef-experience-btn", "https://simonetta.fgahousesolutions.it");
       setButtonVisibility("discover-modena-btn", "https://www.visitmodena.it/it/eventi");
       setButtonVisibility("discover-bologna-btn", "https://www.bolognawelcome.com/it/eventi");
       setHidden("discover-more-card", !hasDiscoverMoreContent);
